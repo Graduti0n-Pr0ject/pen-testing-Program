@@ -1,5 +1,6 @@
 from PyQt5 import QtWidgets, uic, QtCore
 import sys
+import logs_rc
 
 class  MainWindow(QtWidgets.QMainWindow):
     def __init__(self) -> None:

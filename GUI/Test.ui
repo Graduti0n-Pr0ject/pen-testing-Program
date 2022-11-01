@@ -64,7 +64,7 @@ color: rgb(0, 0, 0);</string>
     <property name="title">
      <string>MENU</string>
     </property>
-    <widget class="QPushButton" name="pushButton_3">
+    <widget class="QPushButton" name="Toolsbtn">
      <property name="geometry">
       <rect>
        <x>20</x>
@@ -77,7 +77,7 @@ color: rgb(0, 0, 0);</string>
       <string>TOOLS</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton_4">
+    <widget class="QPushButton" name="Wafbtn">
      <property name="geometry">
       <rect>
        <x>20</x>
@@ -90,7 +90,7 @@ color: rgb(0, 0, 0);</string>
       <string>WAF</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton_5">
+    <widget class="QPushButton" name="Articles">
      <property name="geometry">
       <rect>
        <x>20</x>
@@ -101,6 +101,38 @@ color: rgb(0, 0, 0);</string>
      </property>
      <property name="text">
       <string>Articles</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="Githubbtn">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>370</y>
+       <width>30</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">*:hover{
+ background-color:#342341;
+}</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset resource="../Assets/resource.qrc">
+       <normaloff>:Icons/github2.png</normaloff>:Icons/github2.png
+       </iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>30</width>
+       <height>30</height>
+      </size>
+     </property>
+     <property name="flat">
+      <bool>true</bool>
      </property>
     </widget>
    </widget>
@@ -242,7 +274,7 @@ font: 57 14pt;
        <x>390</x>
        <y>250</y>
        <width>31</width>
-       <height>31</height>
+       <height>30</height>
       </rect>
      </property>
      <property name="text">
@@ -342,6 +374,41 @@ font: 75 14pt &quot;Noto Naskh Arabic&quot;;</string>
    </widget>
   </widget>
  </widget>
- <resources/>
- <connections/>
+ <resources>
+  <include location="../Assets/resource.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>Toolsbtn</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>tabWidget</receiver>
+   <slot>hide()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>80</x>
+     <y>165</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>400</x>
+     <y>290</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Toolsbtn</sender>
+   <signal>released()</signal>
+   <receiver>tabWidget</receiver>
+   <slot>show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>80</x>
+     <y>165</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>400</x>
+     <y>290</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>
