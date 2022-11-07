@@ -122,8 +122,7 @@ color: rgb(0, 0, 0);</string>
      </property>
      <property name="icon">
       <iconset resource="../Assets/resource.qrc">
-       <normaloff>:Icons/github2.png</normaloff>:Icons/github2.png
-       </iconset>
+       <normaloff>:/Icons/github2.png</normaloff>:/Icons/github2.png</iconset>
      </property>
      <property name="iconSize">
       <size>
@@ -147,7 +146,7 @@ color: rgb(0, 0, 0);</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(255, 85, 0);</string>
+    <string notr="true">background-color: rgb(50, 50, 50);</string>
    </property>
    <property name="frameShape">
     <enum>QFrame::StyledPanel</enum>
@@ -158,7 +157,7 @@ color: rgb(0, 0, 0);</string>
    <widget class="QLabel" name="Title">
     <property name="geometry">
      <rect>
-      <x>190</x>
+      <x>140</x>
       <y>10</y>
       <width>301</width>
       <height>41</height>
@@ -252,7 +251,7 @@ font: 57 14pt;
      </property>
      <property name="styleSheet">
       <string notr="true">color:white;
-font: 57 14pt;
+font: 57 10pt;
 </string>
      </property>
      <property name="echoMode">
@@ -311,9 +310,8 @@ font: 75 14pt &quot;Noto Naskh Arabic&quot;;</string>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">color:white;
-font: 75 16pt &quot;Noto Naskh Arabic&quot;;
-color: rgb(103, 57, 255);</string>
+      <string notr="true">color: rgb(255, 255, 255);
+font: 75 16pt &quot;Noto Naskh Arabic&quot;;</string>
      </property>
      <property name="frameShadow">
       <enum>QFrame::Plain</enum>
@@ -377,38 +375,5 @@ font: 75 14pt &quot;Noto Naskh Arabic&quot;;</string>
  <resources>
   <include location="../Assets/resource.qrc"/>
  </resources>
- <connections>
-  <connection>
-   <sender>Toolsbtn</sender>
-   <signal>clicked(bool)</signal>
-   <receiver>tabWidget</receiver>
-   <slot>hide()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>80</x>
-     <y>165</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>400</x>
-     <y>290</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>Toolsbtn</sender>
-   <signal>released()</signal>
-   <receiver>tabWidget</receiver>
-   <slot>show()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>80</x>
-     <y>165</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>400</x>
-     <y>290</y>
-    </hint>
-   </hints>
-  </connection>
- </connections>
+ <connections/>
 </ui>
