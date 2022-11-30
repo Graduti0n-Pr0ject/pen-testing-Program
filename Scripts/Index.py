@@ -10,12 +10,13 @@ class MainWindow(QtWidgets.QMainWindow):
         self.init_ui()
 
     def init_ui(self):
-        uic.loadUi("../GUI/DarkTheme.ui", self)  # Load Design File
+        uic.loadUi("../GUI/Test.ui", self)  # Load Design File
         # self.setWindowFlag(QtCore.Qt.FramelessWindowHint)
+        self.setWindowTitle("pen")
         gitbtn = self.findChild(QtWidgets.QPushButton, "Githubbtn")  # find object in gui
         # load Github URL
-        gitbtn.clicked.connect(lambda x: webbrowser.open_new_tab(
-            'https://github.com/Graduti0n-Pr0ject/pen-testing-Program'))
+        # gitbtn.clicked.connect(lambda x: webbrowser.open_new_tab(
+        #     'https://github.com/Graduti0n-Pr0ject/pen-testing-Program'))
         self.show()  # GUI window
 
 

@@ -1,6 +1,6 @@
 <RCC>
   <qresource>
-    <file>Icons/github.png</file>
-    <file>Icons/github2.png</file>
+    <file>../bc721a6e/github.png</file>
+    <file>../bc721a6e/github.png</file>
   </qresource>
 </RCC>
