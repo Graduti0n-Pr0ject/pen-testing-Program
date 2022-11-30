@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>703</width>
+    <height>644</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QFrame" name="Container">
+      <property name="styleSheet">
+       <string notr="true">background-color: #fff;
+border: 1px solid #393E46;
+margin: 0px;
+border-radius: 25%;</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_2" stretch="1,8">
+       <item>
+        <widget class="QFrame" name="Header">
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(242, 231, 213);
+border:None</string>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout_2">
+          <item>
+           <widget class="QPushButton" name="pushButton_5">
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="../65f4ee41/ic.qrc">
+              <normaloff>:/icons/hacker (2).png</normaloff>:/icons/hacker (2).png</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>53</width>
+              <height>82</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>658</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButton_6">
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="../65f4ee41/ic.qrc">
+              <normaloff>:/icons/github.png</normaloff>:/icons/github.png</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>35</width>
+              <height>36</height>
+             </size>
+            </property>
+            <property name="flat">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QFrame" name="frame_3">
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(57, 62, 70);
+border: None</string>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout" stretch="1,4">
+          <property name="spacing">
+           <number>1</number>
+          </property>
+          <property name="leftMargin">
+           <number>1</number>
+          </property>
+          <property name="topMargin">
+           <number>1</number>
+          </property>
+          <property name="rightMargin">
+           <number>1</number>
+          </property>
+          <property name="bottomMargin">
+           <number>1</number>
+          </property>
+          <item>
+           <widget class="QFrame" name="sidebar">
+            <property name="styleSheet">
+             <string notr="true">background-color: rgb(109, 152, 134);
+margin:10px;
+border:None</string>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_3">
+             <item>
+              <spacer name="verticalSpacer">
+               <property name="orientation">
+                <enum>Qt::Vertical</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>20</width>
+                 <height>40</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item>
+              <widget class="QPushButton" name="reconbtn">
+               <property name="styleSheet">
+                <string notr="true">color: rgb(247, 247, 247);
+font: 14pt &quot;Cantarell&quot;;
+
+QPushButton::hover{
+
+	background-color: rgb(247, 247, 247);
+
+}
+
+</string>
+               </property>
+               <property name="text">
+                <string>Recon</string>
+               </property>
+               <property name="icon">
+                <iconset resource="../65f4ee41/ic.qrc">
+                 <normaloff>:/icons/recon.png</normaloff>:/icons/recon.png</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>53</width>
+                 <height>82</height>
+                </size>
+               </property>
+               <property name="checkable">
+                <bool>false</bool>
+               </property>
+               <property name="flat">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <spacer name="verticalSpacer_2">
+               <property name="orientation">
+                <enum>Qt::Vertical</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>20</width>
+                 <height>40</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item>
+              <widget class="QPushButton" name="expolybtn">
+               <property name="styleSheet">
+                <string notr="true">color: rgb(247, 247, 247);
+font: 14pt &quot;Cantarell&quot;;</string>
+               </property>
+               <property name="text">
+                <string>Expoly</string>
+               </property>
+               <property name="icon">
+                <iconset resource="../65f4ee41/ic.qrc">
+                 <normaloff>:/icons/recon 2.png</normaloff>:/icons/recon 2.png</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>53</width>
+                 <height>82</height>
+                </size>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <spacer name="verticalSpacer_3">
+               <property name="orientation">
+                <enum>Qt::Vertical</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>20</width>
+                 <height>40</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item>
+              <widget class="QPushButton" name="wafbtn">
+               <property name="styleSheet">
+                <string notr="true">color: rgb(247, 247, 247);
+font: 14pt &quot;Cantarell&quot;;</string>
+               </property>
+               <property name="text">
+                <string>WAF</string>
+               </property>
+               <property name="icon">
+                <iconset resource="../65f4ee41/ic.qrc">
+                 <normaloff>:/icons/firewall.png</normaloff>:/icons/firewall.png</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>53</width>
+                 <height>82</height>
+                </size>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <spacer name="verticalSpacer_4">
+               <property name="orientation">
+                <enum>Qt::Vertical</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>20</width>
+                 <height>40</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item>
+              <widget class="QPushButton" name="artbtn">
+               <property name="styleSheet">
+                <string notr="true">color: rgb(247, 247, 247);
+font: 14pt &quot;Cantarell&quot;;</string>
+               </property>
+               <property name="text">
+                <string>Articles</string>
+               </property>
+               <property name="icon">
+                <iconset resource="../65f4ee41/ic.qrc">
+                 <normaloff>:/icons/news-report.png</normaloff>:/icons/news-report.png</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>53</width>
+                 <height>82</height>
+                </size>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <spacer name="verticalSpacer_5">
+               <property name="orientation">
+                <enum>Qt::Vertical</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>20</width>
+                 <height>40</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QFrame" name="canvas">
+            <property name="styleSheet">
+             <string notr="true">background-color: rgb(247, 247, 247);
+margin:10px;
+border:None</string>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_4">
+             <item>
+              <widget class="QTabWidget" name="Recon">
+               <property name="styleSheet">
+                <string notr="true">background-color: rgb(57, 62, 70);
+color: rgb(247, 247, 247);</string>
+               </property>
+               <property name="tabPosition">
+                <enum>QTabWidget::North</enum>
+               </property>
+               <property name="tabShape">
+                <enum>QTabWidget::Rounded</enum>
+               </property>
+               <property name="currentIndex">
+                <number>0</number>
+               </property>
+               <property name="elideMode">
+                <enum>Qt::ElideNone</enum>
+               </property>
+               <property name="movable">
+                <bool>true</bool>
+               </property>
+               <property name="tabBarAutoHide">
+                <bool>false</bool>
+               </property>
+               <widget class="QWidget" name="tab">
+                <attribute name="title">
+                 <string>Tab 1</string>
+                </attribute>
+               </widget>
+               <widget class="QWidget" name="tab_2">
+                <attribute name="title">
+                 <string>Tab 2</string>
+                </attribute>
+               </widget>
+               <widget class="QWidget" name="tab_3">
+                <attribute name="title">
+                 <string>Tab3</string>
+                </attribute>
+               </widget>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>703</width>
+     <height>28</height>
+    </rect>
+   </property>
+  </widget>
+ </widget>
+ <resources>
+  <include location="../65f4ee41/ic.qrc"/>
+ </resources>
+ <connections/>
+</ui>

@@ -1,6 +1,6 @@
-from PyQt5 import QtWidgets, uic, QtCore, QtGui
+from PyQt5 import QtWidgets, uic
 import sys
-import logs_rc  # load icons in Gui
+import logo_rc  # load icons in Gui
 import webbrowser
 
 
@@ -10,10 +10,10 @@ class MainWindow(QtWidgets.QMainWindow):
         self.init_ui()
 
     def init_ui(self):
-        uic.loadUi("../GUI/Test.ui", self)  # Load Design File
+        uic.loadUi("../GUI/Design.ui", self)  # Load Design File
         # self.setWindowFlag(QtCore.Qt.FramelessWindowHint)
-        self.setWindowTitle("pen")
-        gitbtn = self.findChild(QtWidgets.QPushButton, "Githubbtn")  # find object in gui
+        self.setWindowTitle("Pen. Testing")
+        # gitbtn = self.findChild(QtWidgets.QPushButton, "Githubbtn")  # find object in gui
         # load Github URL
         # gitbtn.clicked.connect(lambda x: webbrowser.open_new_tab(
         #     'https://github.com/Graduti0n-Pr0ject/pen-testing-Program'))
