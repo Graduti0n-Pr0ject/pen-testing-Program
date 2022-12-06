@@ -10,7 +10,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.init_ui()
 
     def init_ui(self):
-        uic.loadUi("../GUI/Design.ui", self)  # Load Design File
+        uic.loadUi("../GUI/app.ui", self)  # Load Design File
         # self.setWindowFlag(QtCore.Qt.FramelessWindowHint)
         self.setWindowTitle("Pen. Testing")
         # gitbtn = self.findChild(QtWidgets.QPushButton, "Githubbtn")  # find object in gui
@@ -21,7 +21,7 @@ class MainWindow(QtWidgets.QMainWindow):
 
 
 def main():
-    app = QtWidgets.QApplication(sys.argv)  # Start App
+    app = QtWidgets.QApplication([])  # Start App
     window = MainWindow()
     app.exec()  # Exit app when Press X
 

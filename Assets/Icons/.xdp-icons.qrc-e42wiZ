@@ -1,5 +1,8 @@
 <RCC>
   <qresource prefix="icons">
+    <file>directory.png</file>
+    <file>port.png</file>
+    <file>js.png</file>
     <file>fire.png</file>
     <file>firewall.png</file>
     <file>github.png</file>
