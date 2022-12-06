@@ -25,10 +25,16 @@ color: rgb(19, 161, 14);
 font: 700 14pt &quot;Cantarell&quot;;
 }
 
-QPushButton::hover{
-	border: 2px solid rgb(19, 161, 14);
+#progressBar1{
+    text-align:center;
+}
+#progressBar1::chunk {
+    background-color: rgb(19, 161, 14);
+	border-radius:10px;
+}
 
-}</string>
+
+</string>
   </property>
   <property name="tabShape">
    <enum>QTabWidget::Triangular</enum>
@@ -37,8 +43,8 @@ QPushButton::hover{
    <property name="styleSheet">
     <string notr="true"/>
    </property>
-   <layout class="QVBoxLayout" name="verticalLayout">
-    <item>
+   <layout class="QGridLayout" name="gridLayout_3">
+    <item row="0" column="0">
      <widget class="QFrame" name="Container">
       <property name="styleSheet">
        <string notr="true">background-color: rgb(35, 35, 35);
@@ -353,7 +359,7 @@ background-color: rgb(0, 0, 0);</string>
                  <enum>QTabWidget::North</enum>
                 </property>
                 <property name="currentIndex">
-                 <number>2</number>
+                 <number>1</number>
                 </property>
                 <widget class="QWidget" name="JStab">
                  <attribute name="icon">
@@ -363,6 +369,102 @@ background-color: rgb(0, 0, 0);</string>
                  <attribute name="title">
                   <string>JS</string>
                  </attribute>
+                 <layout class="QGridLayout" name="gridLayout_4">
+                  <item row="0" column="0">
+                   <widget class="QLineEdit" name="lineEdit">
+                    <property name="styleSheet">
+                     <string notr="true">background-color: rgb(56, 102, 65);
+border-style: outset;
+border-width: 2px;
+border-radius: 10px;
+border-color:rgb(57, 62, 70) ;
+font: bold 14px;
+min-width: 10em;
+padding: 6px;</string>
+                    </property>
+                    <property name="inputMask">
+                     <string/>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="maxLength">
+                     <number>32767</number>
+                    </property>
+                    <property name="placeholderText">
+                     <string>Enter URL</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="0">
+                   <widget class="QPushButton" name="Searchbtn">
+                    <property name="cursor">
+                     <cursorShape>PointingHandCursor</cursorShape>
+                    </property>
+                    <property name="toolTip">
+                     <string/>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">background-color: rgb(56, 102, 65);
+border-style: outset;
+border-width: 2px;
+border-radius: 10px;
+border-color: rgb(56, 102, 65);
+font: bold 14px;
+min-width: 10em;
+padding: 6px;</string>
+                    </property>
+                    <property name="text">
+                     <string>Search</string>
+                    </property>
+                    <property name="autoDefault">
+                     <bool>false</bool>
+                    </property>
+                    <property name="default">
+                     <bool>false</bool>
+                    </property>
+                    <property name="flat">
+                     <bool>false</bool>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="2" column="0">
+                   <widget class="QProgressBar" name="progressBar1">
+                    <property name="cursor">
+                     <cursorShape>WaitCursor</cursorShape>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">background-color: rgb(56, 102, 65);
+color: white;
+border-width: 2px;
+border-radius: 10px;
+font: bold 14px;
+min-width: 10em;
+padding: 6px;</string>
+                    </property>
+                    <property name="value">
+                     <number>10</number>
+                    </property>
+                    <property name="textDirection">
+                     <enum>QProgressBar::TopToBottom</enum>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="3" column="0">
+                   <widget class="QListView" name="listView">
+                    <property name="styleSheet">
+                     <string notr="true">background-color: black;
+color:rgb(19, 161, 14);
+background-attachment: scroll;
+border-width: 2px;
+border-radius: 10px;
+font: bold 14px;
+min-width: 10em;
+padding: 6px;</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
                 </widget>
                 <widget class="QWidget" name="Portscantab">
                  <attribute name="icon">
@@ -434,6 +536,12 @@ background-color: rgb(0, 0, 0);</string>
    </property>
   </widget>
   <widget class="QStatusBar" name="statusbar">
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
    <property name="minimumSize">
     <size>
      <width>0</width>
@@ -445,6 +553,9 @@ background-color: rgb(0, 0, 0);</string>
      <width>16777215</width>
      <height>350</height>
     </size>
+   </property>
+   <property name="sizeGripEnabled">
+    <bool>true</bool>
    </property>
   </widget>
  </widget>
