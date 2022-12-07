@@ -136,7 +136,7 @@ border: None</string>
                 <string/>
                </property>
                <property name="pixmap">
-                <pixmap resource="../c28a82e1/icons.qrc">:/icons/hacker (2).png</pixmap>
+                <pixmap>:/icons/hacker (2).png</pixmap>
                </property>
                <property name="scaledContents">
                 <bool>true</bool>
@@ -223,7 +223,7 @@ border: None</string>
                 <string>  Recon</string>
                </property>
                <property name="icon">
-                <iconset resource="../c28a82e1/icons.qrc">
+                <iconset>
                  <normaloff>:/icons/recon.png</normaloff>:/icons/recon.png</iconset>
                </property>
                <property name="iconSize">
@@ -255,7 +255,7 @@ border: None</string>
                 <string>  Attacks</string>
                </property>
                <property name="icon">
-                <iconset resource="../c28a82e1/icons.qrc">
+                <iconset>
                  <normaloff>:/icons/official logo.png</normaloff>:/icons/official logo.png</iconset>
                </property>
                <property name="iconSize">
@@ -275,7 +275,7 @@ border: None</string>
                 <string>  WAF</string>
                </property>
                <property name="icon">
-                <iconset resource="../c28a82e1/icons.qrc">
+                <iconset>
                  <normaloff>:/icons/firewall.png</normaloff>:/icons/firewall.png</iconset>
                </property>
                <property name="iconSize">
@@ -295,7 +295,7 @@ border: None</string>
                 <string>  Articles</string>
                </property>
                <property name="icon">
-                <iconset resource="../c28a82e1/icons.qrc">
+                <iconset>
                  <normaloff>:/icons/news-report.png</normaloff>:/icons/news-report.png</iconset>
                </property>
                <property name="iconSize">
@@ -359,14 +359,14 @@ background-color: rgb(0, 0, 0);</string>
                  <enum>QTabWidget::North</enum>
                 </property>
                 <property name="currentIndex">
-                 <number>1</number>
+                 <number>0</number>
                 </property>
                 <property name="movable">
                  <bool>true</bool>
                 </property>
                 <widget class="QWidget" name="JStab">
                  <attribute name="icon">
-                  <iconset resource="../c28a82e1/icons.qrc">
+                  <iconset>
                    <normaloff>:/icons/js.png</normaloff>:/icons/js.png</iconset>
                  </attribute>
                  <attribute name="title">
@@ -432,29 +432,7 @@ padding: 6px;</string>
                    </widget>
                   </item>
                   <item row="2" column="0">
-                   <widget class="QProgressBar" name="progressBar1">
-                    <property name="cursor">
-                     <cursorShape>WaitCursor</cursorShape>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">background-color: rgb(56, 102, 65);
-color: white;
-border-width: 2px;
-border-radius: 10px;
-font: bold 14px;
-min-width: 10em;
-padding: 6px;</string>
-                    </property>
-                    <property name="value">
-                     <number>10</number>
-                    </property>
-                    <property name="textDirection">
-                     <enum>QProgressBar::TopToBottom</enum>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="3" column="0">
-                   <widget class="QListView" name="listView">
+                   <widget class="QListWidget" name="listWidget">
                     <property name="styleSheet">
                      <string notr="true">background-color: black;
 color:rgb(19, 161, 14);
@@ -471,7 +449,7 @@ padding: 6px;</string>
                 </widget>
                 <widget class="QWidget" name="Directorytab">
                  <attribute name="icon">
-                  <iconset resource="../c28a82e1/icons.qrc">
+                  <iconset>
                    <normaloff>:/icons/directory.png</normaloff>:/icons/directory.png</iconset>
                  </attribute>
                  <attribute name="title">
@@ -547,6 +525,15 @@ padding: 6px;</string>
                     <property name="styleSheet">
                      <string notr="true">background-attachment: scroll;</string>
                     </property>
+                    <property name="gridStyle">
+                     <enum>Qt::DotLine</enum>
+                    </property>
+                    <property name="rowCount">
+                     <number>0</number>
+                    </property>
+                    <attribute name="horizontalHeaderCascadingSectionResizes">
+                     <bool>false</bool>
+                    </attribute>
                     <column>
                      <property name="text">
                       <string>Directories</string>
@@ -588,7 +575,7 @@ padding: 6px;</string>
                 </widget>
                 <widget class="QWidget" name="Portscantab">
                  <attribute name="icon">
-                  <iconset resource="../c28a82e1/icons.qrc">
+                  <iconset>
                    <normaloff>:/icons/port.png</normaloff>:/icons/port.png</iconset>
                  </attribute>
                  <attribute name="title">
@@ -671,7 +658,7 @@ padding: 6px;</string>
   </widget>
  </widget>
  <resources>
-  <include location="../2b10f3fb/icons.qrc"/>
+  <include location="../c28a82e1/icons.qrc"/>
   <include location="../c28a82e1/icons.qrc"/>
  </resources>
  <connections/>
