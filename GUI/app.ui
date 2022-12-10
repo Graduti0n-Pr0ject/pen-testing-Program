@@ -466,7 +466,8 @@ border-radius: 10px;
 border-color: rgb(56, 102, 65);
 font: bold 14px;
 min-width: 10em;
-padding: 6px;</string>
+padding: 6px;
+color: white;</string>
                     </property>
                     <property name="placeholderText">
                      <string>Enter URL</string>
@@ -476,7 +477,8 @@ padding: 6px;</string>
                   <item>
                    <widget class="QComboBox" name="comboBox">
                     <property name="styleSheet">
-                     <string notr="true">font: 11pt;</string>
+                     <string notr="true">font: 11pt;
+color:white</string>
                     </property>
                     <item>
                      <property name="text">
@@ -530,7 +532,8 @@ border-radius: 10px;
 border-color: rgb(56, 102, 65);
 font: bold 14px;
 min-width: 10em;
-padding: 6px;</string>
+padding: 6px;
+color:white;</string>
                     </property>
                     <property name="text">
                      <string>Start</string>

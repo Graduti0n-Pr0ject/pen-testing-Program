@@ -78,14 +78,14 @@ class MainWindow(QtWidgets.QMainWindow):
             self.output_word_list.addItem("Please Choose your World List")
             print("goes second")
         else:
-            os.remove("Results/urls.txt")
+
             new_url = url + '/'
             print(new_url)
-            word_type = t2.choose_list(current_index)
-            t2.check_brute_force(word_type, new_url)
+            word_type, name = t2.choose_list(current_index)
+            t2.check_brute_force(word_type, new_url, name)
             success_sub_domains = [current_item]
 
-            with open("Results/urls.txt", "r") as u:
+            with open(f"Results-{new_url}/urls-{name}.txt", "r") as u:
                 success_sub_domains += u.readlines()
             if len(success_sub_domains) == 1:
                 self.output_word_list.addItem(f"Nothing found for {success_sub_domains[0]} choose another one ")
