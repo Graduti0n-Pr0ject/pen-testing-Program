@@ -1,12 +1,11 @@
-import os
-import sys
 
 from PyQt5 import QtWidgets, uic
 import re
 import logo_rc
 import JS as t1
 import directory as t2
-from threading import Thread
+import PortScanning as t3
+
 
 
 class MainWindow(QtWidgets.QMainWindow):
@@ -31,6 +30,11 @@ class MainWindow(QtWidgets.QMainWindow):
         self.startbtn: QtWidgets.QPushButton = None
         self.output_word_list: QtWidgets.QListWidget = None
 
+        # Third Tool in Recon
+        self.get_url3: QtWidgets.QLineEdit = None
+        self.search_port_btn: QtWidgets.QPushButton = None
+        self.available_ports: QtWidgets.QListWidget = None
+
         self.init_ui()
 
     def init_ui(self):
@@ -39,18 +43,24 @@ class MainWindow(QtWidgets.QMainWindow):
         self.get_url = self.findChild(QtWidgets.QLineEdit, "lineEdit")
         self.searchbtn = self.findChild(QtWidgets.QPushButton, "Searchbtn")
         self.output_list = self.findChild(QtWidgets.QListWidget, "listWidget")
-        self.searchbtn.clicked.connect(self.Recon_Tool_1)
+        self.searchbtn.clicked.connect(self.recon_too_1)
 
         # Tab of Recon Tool 2
         self.get_url2 = self.findChild(QtWidgets.QLineEdit, "lineEdit2")
         self.word_list = self.findChild(QtWidgets.QComboBox, "comboBox")
         self.startbtn = self.findChild(QtWidgets.QPushButton, "startbtn")
-        self.startbtn.clicked.connect(self.Recon_Tool_2)
+        self.startbtn.clicked.connect(self.recon_tool_2)
         self.output_word_list = self.findChild(QtWidgets.QListWidget, "listWidget_2")
+
+        # Tab of Recon Tool 3
+        self.get_url3 = self.findChild(QtWidgets.QLineEdit, "lineEdit_2")
+        self.search_port_btn = self.findChild(QtWidgets.QPushButton, "searchportbtn")
+        self.search_port_btn.clicked.connect(self.recon_tool_3)
+        self.available_ports = self.findChild(QtWidgets.QListWidget, "listWidget_3")
 
         self.show()  # GUI window
 
-    def Recon_Tool_1(self):
+    def recon_too_1(self):
         self.output_list.clear()
         url = self.get_url.text()
         check_url = re.match(self.regex_url, url) is not None
@@ -64,7 +74,7 @@ class MainWindow(QtWidgets.QMainWindow):
             js_files = t1.fetch_js(url)
             show.addItems(js_files)
 
-    def Recon_Tool_2(self):
+    def recon_tool_2(self):
         self.output_word_list.clear()
         url = self.get_url2.text()
         check_url = re.match(self.regex_url, url) is not None
@@ -91,6 +101,24 @@ class MainWindow(QtWidgets.QMainWindow):
                 self.output_word_list.addItem(f"Nothing found for {success_sub_domains[0]} choose another one ")
             else:
                 self.output_word_list.addItems(success_sub_domains)
+
+    def recon_tool_3(self):
+        self.available_ports.clear()
+        url = self.get_url3.text()
+        check_url = re.match(self.regex_url, url) is not None
+        domain = url[url.rfind('/') + 1:]
+        print(check_url)
+        if not url or not check_url:
+            self.output_word_list.addItem("Please Enter Valid Url")
+        else:
+            t3.run(domain, t3.scan, 1025)
+            result = []
+            with open(f"Result-port_scan/ports.txt", "r") as file:
+                result += file.readlines()
+
+            self.available_ports.addItems(result)
+            pass
+
 
     # def stop_and_show_result(self):
     #     url = self.get_url2.text()

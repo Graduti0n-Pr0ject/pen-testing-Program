@@ -359,7 +359,7 @@ background-color: rgb(0, 0, 0);</string>
                  <enum>QTabWidget::North</enum>
                 </property>
                 <property name="currentIndex">
-                 <number>1</number>
+                 <number>2</number>
                 </property>
                 <property name="movable">
                  <bool>true</bool>
@@ -397,7 +397,8 @@ border-radius: 10px;
 border-color:rgb(57, 62, 70) ;
 font: bold 14px;
 min-width: 10em;
-padding: 6px;</string>
+padding: 6px;
+color:white;</string>
                     </property>
                     <property name="inputMask">
                      <string/>
@@ -429,7 +430,8 @@ border-radius: 10px;
 border-color: rgb(56, 102, 65);
 font: bold 14px;
 min-width: 10em;
-padding: 6px;</string>
+padding: 6px;
+color:white;</string>
                     </property>
                     <property name="text">
                      <string>Search</string>
@@ -564,6 +566,58 @@ padding: 6px;</string>
                  <attribute name="title">
                   <string>Port Scan</string>
                  </attribute>
+                 <layout class="QVBoxLayout" name="verticalLayout_4">
+                  <item>
+                   <widget class="QLineEdit" name="lineEdit_2">
+                    <property name="styleSheet">
+                     <string notr="true">background-color: rgb(56, 102, 65);
+border-style: outset;
+border-width: 2px;
+border-radius: 10px;
+border-color: rgb(56, 102, 65);
+font: bold 14px;
+min-width: 10em;
+padding: 6px;
+color: white;</string>
+                    </property>
+                    <property name="placeholderText">
+                     <string>Enter URL</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="searchportbtn">
+                    <property name="styleSheet">
+                     <string notr="true">background-color: rgb(56, 102, 65);
+border-style: outset;
+border-width: 2px;
+border-radius: 10px;
+border-color: rgb(56, 102, 65);
+font: bold 14px;
+min-width: 10em;
+padding: 6px;
+color: white;</string>
+                    </property>
+                    <property name="text">
+                     <string>Search Port</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QListWidget" name="listWidget_3">
+                    <property name="styleSheet">
+                     <string notr="true">background-color: black;
+color:rgb(19, 161, 14);
+background-attachment: scroll;
+border-width: 2px;
+border-radius: 10px;
+font: bold 14px;
+min-width: 10em;
+padding: 6px;</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
                 </widget>
                </widget>
               </item>
