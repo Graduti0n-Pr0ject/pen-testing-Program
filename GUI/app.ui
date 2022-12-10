@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>857</width>
-    <height>683</height>
+    <width>858</width>
+    <height>658</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -350,7 +350,7 @@ background-color: rgb(0, 0, 0);</string>
               <string>Recon</string>
              </attribute>
              <layout class="QGridLayout" name="gridLayout_2">
-              <item row="0" column="0">
+              <item row="0" column="1">
                <widget class="QTabWidget" name="ReconTabs">
                 <property name="layoutDirection">
                  <enum>Qt::LeftToRight</enum>
@@ -359,7 +359,7 @@ background-color: rgb(0, 0, 0);</string>
                  <enum>QTabWidget::North</enum>
                 </property>
                 <property name="currentIndex">
-                 <number>0</number>
+                 <number>1</number>
                 </property>
                 <property name="movable">
                  <bool>true</bool>
@@ -373,6 +373,20 @@ background-color: rgb(0, 0, 0);</string>
                   <string>JS</string>
                  </attribute>
                  <layout class="QGridLayout" name="gridLayout_4">
+                  <item row="2" column="0">
+                   <widget class="QListWidget" name="listWidget">
+                    <property name="styleSheet">
+                     <string notr="true">background-color: black;
+color:rgb(19, 161, 14);
+background-attachment: scroll;
+border-width: 2px;
+border-radius: 10px;
+font: bold 14px;
+min-width: 10em;
+padding: 6px;</string>
+                    </property>
+                   </widget>
+                  </item>
                   <item row="0" column="0">
                    <widget class="QLineEdit" name="lineEdit">
                     <property name="styleSheet">
@@ -431,20 +445,6 @@ padding: 6px;</string>
                     </property>
                    </widget>
                   </item>
-                  <item row="2" column="0">
-                   <widget class="QListWidget" name="listWidget">
-                    <property name="styleSheet">
-                     <string notr="true">background-color: black;
-color:rgb(19, 161, 14);
-background-attachment: scroll;
-border-width: 2px;
-border-radius: 10px;
-font: bold 14px;
-min-width: 10em;
-padding: 6px;</string>
-                    </property>
-                   </widget>
-                  </item>
                  </layout>
                 </widget>
                 <widget class="QWidget" name="Directorytab">
@@ -457,13 +457,30 @@ padding: 6px;</string>
                  </attribute>
                  <layout class="QVBoxLayout" name="verticalLayout">
                   <item>
+                   <widget class="QLineEdit" name="lineEdit2">
+                    <property name="styleSheet">
+                     <string notr="true">background-color: rgb(56, 102, 65);
+border-style: outset;
+border-width: 2px;
+border-radius: 10px;
+border-color: rgb(56, 102, 65);
+font: bold 14px;
+min-width: 10em;
+padding: 6px;</string>
+                    </property>
+                    <property name="placeholderText">
+                     <string>Enter URL</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
                    <widget class="QComboBox" name="comboBox">
                     <property name="styleSheet">
                      <string notr="true">font: 11pt;</string>
                     </property>
                     <item>
                      <property name="text">
-                      <string>Choose your directory type</string>
+                      <string>Choose your word list</string>
                      </property>
                     </item>
                     <item>
@@ -483,12 +500,12 @@ padding: 6px;</string>
                     </item>
                     <item>
                      <property name="text">
-                      <string>HTML</string>
+                      <string>ASP.net</string>
                      </property>
                     </item>
                     <item>
                      <property name="text">
-                      <string>ASP.net</string>
+                      <string>HTML</string>
                      </property>
                     </item>
                     <item>
@@ -504,7 +521,7 @@ padding: 6px;</string>
                    </widget>
                   </item>
                   <item>
-                   <widget class="QPushButton" name="getbtn">
+                   <widget class="QPushButton" name="startbtn">
                     <property name="styleSheet">
                      <string notr="true">background-color: rgb(56, 102, 65);
 border-style: outset;
@@ -516,59 +533,22 @@ min-width: 10em;
 padding: 6px;</string>
                     </property>
                     <property name="text">
-                     <string>Get</string>
+                     <string>Start</string>
                     </property>
                    </widget>
                   </item>
                   <item>
-                   <widget class="QTableWidget" name="tableWidget">
+                   <widget class="QListWidget" name="listWidget_2">
                     <property name="styleSheet">
-                     <string notr="true">background-attachment: scroll;</string>
+                     <string notr="true">background-color: black;
+color:rgb(19, 161, 14);
+background-attachment: scroll;
+border-width: 2px;
+border-radius: 10px;
+font: bold 14px;
+min-width: 10em;
+padding: 6px;</string>
                     </property>
-                    <property name="gridStyle">
-                     <enum>Qt::DotLine</enum>
-                    </property>
-                    <property name="rowCount">
-                     <number>0</number>
-                    </property>
-                    <attribute name="horizontalHeaderCascadingSectionResizes">
-                     <bool>false</bool>
-                    </attribute>
-                    <column>
-                     <property name="text">
-                      <string>Directories</string>
-                     </property>
-                    </column>
-                    <column>
-                     <property name="text">
-                      <string>PHP</string>
-                     </property>
-                    </column>
-                    <column>
-                     <property name="text">
-                      <string>JS</string>
-                     </property>
-                    </column>
-                    <column>
-                     <property name="text">
-                      <string>XML</string>
-                     </property>
-                    </column>
-                    <column>
-                     <property name="text">
-                      <string>ASP.net</string>
-                     </property>
-                    </column>
-                    <column>
-                     <property name="text">
-                      <string>Self</string>
-                     </property>
-                    </column>
-                    <column>
-                     <property name="text">
-                      <string>HTML</string>
-                     </property>
-                    </column>
                    </widget>
                   </item>
                  </layout>
@@ -616,7 +596,7 @@ padding: 6px;</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>857</width>
+     <width>858</width>
      <height>33</height>
     </rect>
    </property>
