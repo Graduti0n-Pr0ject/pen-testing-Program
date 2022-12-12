@@ -360,7 +360,7 @@ background-color: rgb(0, 0, 0);</string>
                  <enum>QTabWidget::North</enum>
                 </property>
                 <property name="currentIndex">
-                 <number>0</number>
+                 <number>3</number>
                 </property>
                 <property name="movable">
                  <bool>true</bool>
@@ -620,6 +620,15 @@ padding: 6px;</string>
                   </item>
                  </layout>
                 </widget>
+                <widget class="QWidget" name="Cryptotab">
+                 <attribute name="icon">
+                  <iconset>
+                   <normaloff>:/icons/cryptography.png</normaloff>:/icons/cryptography.png</iconset>
+                 </attribute>
+                 <attribute name="title">
+                  <string>Crypto</string>
+                 </attribute>
+                </widget>
                </widget>
               </item>
              </layout>
@@ -696,7 +705,6 @@ padding: 6px;</string>
   </widget>
  </widget>
  <resources>
-  <include location="../c28a82e1/icons.qrc"/>
   <include location="../c28a82e1/icons.qrc"/>
  </resources>
  <connections/>

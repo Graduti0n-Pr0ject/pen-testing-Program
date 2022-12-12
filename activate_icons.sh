@@ -1,2 +1,2 @@
 #!/bin/sh
-pyrcc5 Assets/Icons/.xdp-icons.qrc-e42wiZ -o Scripts/logo_rc.py
+pyrcc5 Assets/Icons/icons.qrc -o Scripts/logo_rc.py
