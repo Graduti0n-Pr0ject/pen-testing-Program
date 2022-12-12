@@ -34,6 +34,7 @@ font: 700 14pt &quot;Cantarell&quot;;
 }
 
 
+
 </string>
   </property>
   <property name="tabShape">
@@ -359,7 +360,7 @@ background-color: rgb(0, 0, 0);</string>
                  <enum>QTabWidget::North</enum>
                 </property>
                 <property name="currentIndex">
-                 <number>2</number>
+                 <number>0</number>
                 </property>
                 <property name="movable">
                  <bool>true</bool>
@@ -377,7 +378,7 @@ background-color: rgb(0, 0, 0);</string>
                    <widget class="QListWidget" name="listWidget">
                     <property name="styleSheet">
                      <string notr="true">background-color: black;
-color:rgb(19, 161, 14);
+color:white;
 background-attachment: scroll;
 border-width: 2px;
 border-radius: 10px;
@@ -546,7 +547,7 @@ color:white;</string>
                    <widget class="QListWidget" name="listWidget_2">
                     <property name="styleSheet">
                      <string notr="true">background-color: black;
-color:rgb(19, 161, 14);
+color:white;
 background-attachment: scroll;
 border-width: 2px;
 border-radius: 10px;
@@ -607,7 +608,7 @@ color: white;</string>
                    <widget class="QListWidget" name="listWidget_3">
                     <property name="styleSheet">
                      <string notr="true">background-color: black;
-color:rgb(19, 161, 14);
+color:white;
 background-attachment: scroll;
 border-width: 2px;
 border-radius: 10px;

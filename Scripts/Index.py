@@ -1,11 +1,9 @@
-
 from PyQt5 import QtWidgets, uic
 import re
 import logo_rc
 import JS as t1
 import directory as t2
 import PortScanning as t3
-
 
 
 class MainWindow(QtWidgets.QMainWindow):
@@ -64,24 +62,20 @@ class MainWindow(QtWidgets.QMainWindow):
         self.output_list.clear()
         url = self.get_url.text()
         check_url = re.match(self.regex_url, url) is not None
-        print(check_url)
-        js_files = None
-        show = self.output_list
         if not url or not check_url:
-            show.addItem("please Enter valid Url")
+            self.output_list.addItem("please Enter valid Url")
         else:
-            show.clear()
             js_files = t1.fetch_js(url)
-            show.addItems(js_files)
+            self.output_list.addItems(js_files)
 
     def recon_tool_2(self):
         self.output_word_list.clear()
-        url = self.get_url2.text()
-        check_url = re.match(self.regex_url, url) is not None
+        url1 = self.get_url2.text()
+        check_url = re.match(self.regex_url, url1) is not None
         print(check_url)
         current_index = self.word_list.currentIndex()
         current_item = self.word_list.currentText()
-        if not url or not check_url:
+        if not url1 or not check_url:
             self.output_word_list.addItem("Please Enter Valid Url")
             print("goes first")
         elif current_index == 0:
@@ -89,7 +83,7 @@ class MainWindow(QtWidgets.QMainWindow):
             print("goes second")
         else:
 
-            new_url = url + '/'
+            new_url = url1 + '/'
             print(new_url)
             word_type, name = t2.choose_list(current_index)
             t2.check_brute_force(word_type, new_url, name)
@@ -109,39 +103,12 @@ class MainWindow(QtWidgets.QMainWindow):
         domain = url[url.rfind('/') + 1:]
         print(check_url)
         if not url or not check_url:
-            self.output_word_list.addItem("Please Enter Valid Url")
+            self.available_ports.addItem("Please Enter Valid Url")
         else:
-            t3.run(domain, t3.scan, 1025)
-            result = []
-            with open(f"Result-port_scan/ports.txt", "r") as file:
-                result += file.readlines()
-
+            result = t3.run(domain, t3.scan, 1025)
             self.available_ports.addItems(result)
-            pass
 
 
-    # def stop_and_show_result(self):
-    #     url = self.get_url2.text()
-    #     check_url = re.match(self.regex_url, url) is not None
-    #     current_index = self.word_list.currentIndex()
-    #
-    #     if not url or not check_url:
-    #         self.error_place.setText("Please Enter Valid Url")
-    #     elif current_index == 0:
-    #         self.error_place.setText("Please Choose your World List")
-    #     else:
-    #         self.error_place.clear()
-    #         modify_index = current_index - 1 if\
-    #         (current_index-1) < 0 else\
-    #         self.error_place.setText("Please Choose your World List")
-    #
-    #         success_sub_domains = []
-    #
-    #         with open("Results/urls.txt", "r") as u:
-    #             success_sub_domains = u.readlines()
-    #
-    #         for i, v in enumerate(success_sub_domains):
-    #             self.table.setItem(i, modify_index, v)
 
 
 def main():
