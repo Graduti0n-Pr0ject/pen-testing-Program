@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>858</width>
-    <height>658</height>
+    <width>1032</width>
+    <height>598</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -620,14 +620,267 @@ padding: 6px;</string>
                   </item>
                  </layout>
                 </widget>
-                <widget class="QWidget" name="Cryptotab">
+                <widget class="QWidget" name="Decoder">
+                 <property name="layoutDirection">
+                  <enum>Qt::LeftToRight</enum>
+                 </property>
                  <attribute name="icon">
                   <iconset>
                    <normaloff>:/icons/cryptography.png</normaloff>:/icons/cryptography.png</iconset>
                  </attribute>
                  <attribute name="title">
-                  <string>Crypto</string>
+                  <string>Decoder</string>
                  </attribute>
+                 <layout class="QVBoxLayout" name="verticalLayout_5">
+                  <item>
+                   <widget class="QLineEdit" name="crypto_url">
+                    <property name="maximumSize">
+                     <size>
+                      <width>16777215</width>
+                      <height>39</height>
+                     </size>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">background-color: rgb(56, 102, 65);
+border-style: outset;
+border-width: 2px;
+border-radius: 10px;
+border-color: rgb(56, 102, 65);
+font: bold 14px;
+min-width: 10em;
+padding: 6px;
+color: white;</string>
+                    </property>
+                    <property name="placeholderText">
+                     <string>Enter string</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QFrame" name="frame_2">
+                    <property name="minimumSize">
+                     <size>
+                      <width>0</width>
+                      <height>50</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>16777215</width>
+                      <height>53</height>
+                     </size>
+                    </property>
+                    <property name="frameShape">
+                     <enum>QFrame::StyledPanel</enum>
+                    </property>
+                    <property name="frameShadow">
+                     <enum>QFrame::Raised</enum>
+                    </property>
+                    <layout class="QHBoxLayout" name="horizontalLayout_3" stretch="0,0">
+                     <property name="leftMargin">
+                      <number>10</number>
+                     </property>
+                     <property name="rightMargin">
+                      <number>10</number>
+                     </property>
+                     <item>
+                      <widget class="QComboBox" name="combox_encode">
+                       <property name="styleSheet">
+                        <string notr="true">color:white;
+</string>
+                       </property>
+                       <item>
+                        <property name="text">
+                         <string>Choose your encode</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>url</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>base64</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>base32</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>md5</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>sha1</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>sha256</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>sha512</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>html</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>ascii</string>
+                        </property>
+                       </item>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QComboBox" name="combox_decode">
+                       <property name="styleSheet">
+                        <string notr="true">color:white;
+</string>
+                       </property>
+                       <item>
+                        <property name="text">
+                         <string>Choose your decode</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>url</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>base64</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>base32</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>html</string>
+                        </property>
+                       </item>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="execute">
+                    <property name="styleSheet">
+                     <string notr="true">background-color: rgb(56, 102, 65);
+border-style: outset;
+border-width: 2px;
+border-radius: 10px;
+border-color: rgb(56, 102, 65);
+font: bold 14px;
+min-width: 10em;
+padding: 6px;
+color: white;</string>
+                    </property>
+                    <property name="text">
+                     <string>Let's do ait</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QFrame" name="frame">
+                    <property name="frameShape">
+                     <enum>QFrame::StyledPanel</enum>
+                    </property>
+                    <property name="frameShadow">
+                     <enum>QFrame::Raised</enum>
+                    </property>
+                    <layout class="QFormLayout" name="formLayout">
+                     <item row="0" column="0">
+                      <widget class="QGroupBox" name="groupBox">
+                       <property name="title">
+                        <string>Encode</string>
+                       </property>
+                       <layout class="QGridLayout" name="gridLayout_5">
+                        <property name="leftMargin">
+                         <number>10</number>
+                        </property>
+                        <property name="topMargin">
+                         <number>34</number>
+                        </property>
+                        <property name="rightMargin">
+                         <number>10</number>
+                        </property>
+                        <property name="bottomMargin">
+                         <number>16</number>
+                        </property>
+                        <property name="spacing">
+                         <number>6</number>
+                        </property>
+                        <item row="0" column="0">
+                         <widget class="QListWidget" name="enListView">
+                          <property name="styleSheet">
+                           <string notr="true">background-color: black;
+color:white;
+background-attachment: scroll;
+border-width: 2px;
+border-radius: 10px;
+font: bold 14px;
+min-width: 10em;
+padding: 6px;</string>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
+                      </widget>
+                     </item>
+                     <item row="0" column="1">
+                      <widget class="QGroupBox" name="groupBox_2">
+                       <property name="title">
+                        <string>Decode</string>
+                       </property>
+                       <layout class="QGridLayout" name="gridLayout_6">
+                        <property name="leftMargin">
+                         <number>10</number>
+                        </property>
+                        <property name="topMargin">
+                         <number>34</number>
+                        </property>
+                        <property name="rightMargin">
+                         <number>10</number>
+                        </property>
+                        <property name="bottomMargin">
+                         <number>16</number>
+                        </property>
+                        <item row="0" column="0">
+                         <widget class="QListWidget" name="deListView">
+                          <property name="styleSheet">
+                           <string notr="true">background-color: black;
+color:white;
+background-attachment: scroll;
+border-width: 2px;
+border-radius: 10px;
+font: bold 14px;
+min-width: 10em;
+padding: 6px;</string>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                 </layout>
                 </widget>
                </widget>
               </item>
@@ -663,7 +916,7 @@ padding: 6px;</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>858</width>
+     <width>1032</width>
      <height>33</height>
     </rect>
    </property>
