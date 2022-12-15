@@ -1,9 +1,11 @@
 from PyQt5 import QtWidgets, uic
-import re
+import re, requests
 import logo_rc
 import JS as t1
 import directory as t2
 import PortScanning as t3
+import Error_based_attack
+import UnionScripts
 
 
 class MainWindow(QtWidgets.QMainWindow):
@@ -14,9 +16,14 @@ class MainWindow(QtWidgets.QMainWindow):
         r'\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})'  # ...or ip
         r'(?::\d+)?'  # optional port
         r'(?:/?|[/?]\S+)$', re.IGNORECASE)
+    out1 = []
+    payload = None
+    is_orc = None
 
     def __init__(self) -> None:
         super(MainWindow, self).__init__()
+        # ***************************Start Recon*********************************
+
         # First Tools in Recon
         self.get_url: QtWidgets.QLineEdit = None
         self.searchbtn: QtWidgets.QPushButton = None
@@ -32,7 +39,18 @@ class MainWindow(QtWidgets.QMainWindow):
         self.get_url3: QtWidgets.QLineEdit = None
         self.search_port_btn: QtWidgets.QPushButton = None
         self.available_ports: QtWidgets.QListWidget = None
+        # **************************End Recon************************************
 
+        # ***************************Start Attacks*********************************
+        # First Tool in Attacks
+        self.sql_url: QtWidgets.QLineEdit = None
+        self.sql_btn: QtWidgets.QPushButton = None
+        self.sql_output: QtWidgets.QListWidget = None
+        self.tables_combobox: QtWidgets.QComboBox = None
+        self.tables_btn: QtWidgets.QPushButton = None
+        self.columns_combobox: QtWidgets.QComboBox = None
+        self.columns_btn: QtWidgets.QPushButton = None
+        # **************************End Attacks************************************
         self.init_ui()
 
     def init_ui(self):
@@ -56,6 +74,19 @@ class MainWindow(QtWidgets.QMainWindow):
         self.search_port_btn.clicked.connect(self.recon_tool_3)
         self.available_ports = self.findChild(QtWidgets.QListWidget, "listWidget_3")
 
+        # Tab of attacks Tool 1
+        self.sql_url = self.findChild(QtWidgets.QLineEdit, "Sql_url")
+        self.sql_btn = self.findChild(QtWidgets.QPushButton, "sqlAttackbtn")
+        self.sql_btn.clicked.connect(self.attack_tool_1)
+        self.sql_output = self.findChild(QtWidgets.QListWidget, "sqlOutput")
+
+        self.tables_combobox = self.findChild(QtWidgets.QComboBox, "combox_db")
+        self.tables_btn = self.findChild(QtWidgets.QPushButton, "attackTablesbtn")
+        self.tables_btn.clicked.connect(self.attack2_tool_1)
+
+        self.columns_combobox = self.findChild(QtWidgets.QComboBox, "combox_cols")
+        self.columns_btn = self.findChild(QtWidgets.QPushButton, "attackColumnbtn")
+        self.columns_btn.clicked.connect(self.attack3_tool_1)
         self.show()  # GUI window
 
     def recon_too_1(self):
@@ -108,7 +139,62 @@ class MainWindow(QtWidgets.QMainWindow):
             result = t3.run(domain, t3.scan, 1025)
             self.available_ports.addItems(result)
 
+    def attack_tool_1(self):
+        self.sql_output.clear()
+        try:
+            url = self.sql_url.text()
+            response = requests.get(url)
+            outputs, tables, pay, orc = Error_based_attack.sample_Get_inj(url)
+            self.out1 = outputs
+            self.payload = pay
+            self.is_orc = orc
+            tables.insert(0, self.tables_combobox.currentText())
+            self.tables_combobox.clear()
+            self.tables_combobox.addItems(tables)
+            self.sql_output.addItems(outputs)
+        except (requests.exceptions.MissingSchema, requests.exceptions.InvalidSchema,
+                requests.exceptions.InvalidURL) as error:
+            self.sql_output.addItem(f"Enter Failed Url {error}")
 
+    def attack2_tool_1(self):
+        self.columns_combobox.clear()
+        self.columns_combobox.addItem("Columns")
+        out = self.out1
+        current_index = self.tables_combobox.currentIndex()
+        url = self.sql_url.text()
+        table_name = self.tables_combobox.currentText()
+        try:
+            if current_index == 0:
+                raise IndexError
+            columns = UnionScripts.figure_columns_in_table(url, self.payload, table_name, self.is_orc)
+            self.columns_combobox.addItems(columns)
+            out.append(
+                f"[+] Exploiting {len(columns)} columns, this is names of this columns, insert one to show his data")
+            self.sql_output.addItems(out)
+
+        except IndexError as error:
+            self.sql_output.addItem("plz choose table 📛")
+
+    def attack3_tool_1(self):
+        self.tables_combobox.clear()
+        self.tables_combobox.addItem("Tables")
+        current_index_col = self.columns_combobox.currentIndex()
+        current_index_tab = self.tables_combobox.currentIndex()
+        url = self.sql_url.text()
+        table_name = self.tables_combobox.currentText()
+        column_name = self.columns_combobox.currentText()
+        try:
+            if current_index_col == 0 or current_index_tab == 0:
+                raise IndexError
+            data = UnionScripts.figure_data_in_columns(url, self.payload, table_name, column_name)
+            data.insert(0, f"Data in column {column_name}")
+            self.sql_output.addItems(data)
+        except IndexError as error:
+            print("Plz choose column or table 📛")
+            self.sql_output.addItem("Plz choose column or table 📛")
+
+    def __del__(self):
+        self.out1.clear()
 
 
 def main():
