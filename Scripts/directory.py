@@ -14,7 +14,7 @@ def brute_force(Url, v, name):
         req = requests.get(url_subdomain)
         if req.status_code == 200:
             print("200 ok :" + url_subdomain)
-            urls.write(url_subdomain)
+            urls.write(url_subdomain + "\n")
             urls.close()
         else:
             print(f"{req.status_code}  {Url}")
@@ -35,7 +35,7 @@ def choose_list(n: int) -> list:
     name_type = None
     if n == 1:
         search_type = open("Dirctories.txt", 'r').readlines()
-        name_type = "directory"
+        name_type = "Directories"
     elif n == 2:
         search_type = open("PHP.txt", 'r').readlines()
         name_type = "PHP"
@@ -44,7 +44,7 @@ def choose_list(n: int) -> list:
         name_type = "JS"
     elif n == 4:
         search_type = open("asp.txt", 'r').readlines()
-        name_type = "ASP"
+        name_type = "ASP.net"
     elif n == 5:
         search_type = open("HTML.txt", 'r').readlines()
         name_type = "HTML"
