@@ -23,7 +23,7 @@ def brute_force(Url, v, name):
 
 
 def check_brute_force(type_brute_force: list, Url: str, name):
-    os.makedirs(fr"Results_{Url.[:-4]}", exist_ok=True)
+    os.makedirs(fr"Results_{Url[:-4]}", exist_ok=True)
     for i, v in enumerate(type_brute_force):
         brute_force(Url,  v, name)
         if i == 40:
