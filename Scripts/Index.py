@@ -1,7 +1,7 @@
 import re
 import requests
 import logo_rc
-
+from sys import platform
 from PyQt5 import QtWidgets, uic
 
 import Error_based_attack
@@ -142,13 +142,21 @@ class MainWindow(QtWidgets.QMainWindow):
             word_type, name = t2.choose_list(current_index)
             t2.check_brute_force(word_type, new_url, name)
             success_sub_domains = [current_item]
-
-            with open(f"Results_{new_url.replace(':', '')}/urls-{name}.txt", "r") as u:
+        if platform == "linux" or platform == "linux2":
+            with open(rf"Results_{new_url.replace(':', '')}/urls_{name}.txt", "r") as u:
                 success_sub_domains += u.readlines()
             if len(success_sub_domains) == 1:
                 self.output_word_list.addItem(f"Nothing found for {success_sub_domains[0]} choose another one ")
             else:
                 self.output_word_list.addItems(success_sub_domains)
+        else:
+            with open(rf"Results_{new_url.replace(':', '')}\urls_{name}.txt", "r") as u:
+                success_sub_domains += u.readlines()
+            if len(success_sub_domains) == 1:
+                self.output_word_list.addItem(f"Nothing found for {success_sub_domains[0]} choose another one ")
+            else:
+                self.output_word_list.addItems(success_sub_domains)
+
 
     def recon_tool_3(self):
         self.available_ports.clear()
