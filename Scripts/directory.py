@@ -6,9 +6,9 @@ import os
 
 def brute_force(Url, v, name):
     if platform == "linux" or platform == "linux2":
-        urls = open(fr"Results_{Url}/urls_{name}.txt", 'a')
+        urls = open(fr"Results_{Url[:-4]}/urls_{name}.txt", 'a')
     else:
-        urls = open(fr"Results_{Url[:-3]}\urls_{name}.txt", 'a')
+        urls = open(fr"Results_{Url[:-4]}\urls_{name}.txt", 'a')
     try:
         url_subdomain = (Url+v).strip()
         req = requests.get(url_subdomain)
@@ -23,7 +23,7 @@ def brute_force(Url, v, name):
 
 
 def check_brute_force(type_brute_force: list, Url: str, name):
-    os.makedirs(fr"Results_{Url[:-3]}", exist_ok=True)
+    os.makedirs(fr"Results_{Url.[-4]}", exist_ok=True)
     for i, v in enumerate(type_brute_force):
         brute_force(Url,  v, name)
         if i == 40:
