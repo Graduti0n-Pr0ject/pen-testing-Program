@@ -1,11 +1,15 @@
-from PyQt5 import QtWidgets, uic
-import re, requests
+import re
+import requests
 import logo_rc
-import JS as t1
-import directory as t2
-import PortScanning as t3
+
+from PyQt5 import QtWidgets, uic
+
 import Error_based_attack
+import JS as t1
+import PortScanning as t3
 import UnionScripts
+import directory as t2
+import decoder as t4
 
 
 class MainWindow(QtWidgets.QMainWindow):
@@ -39,6 +43,15 @@ class MainWindow(QtWidgets.QMainWindow):
         self.get_url3: QtWidgets.QLineEdit = None
         self.search_port_btn: QtWidgets.QPushButton = None
         self.available_ports: QtWidgets.QListWidget = None
+
+        # Fourth Tool in Recon
+        self.get_string: QtWidgets.QLineEdit = None
+        self.list_encode: QtWidgets.QComboBox = None
+        self.list_decode: QtWidgets.QComboBox = None
+        self.list_encode_output: QtWidgets.QListWidget = None
+        self.list_decode_output: QtWidgets.QListWidget = None
+        self.execute_codes: QtWidgets.QPushButton = None
+        self.error_dialog: QtWidgets.QMessageBox = None
         # **************************End Recon************************************
 
         # ***************************Start Attacks*********************************
@@ -59,7 +72,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.get_url = self.findChild(QtWidgets.QLineEdit, "lineEdit")
         self.searchbtn = self.findChild(QtWidgets.QPushButton, "Searchbtn")
         self.output_list = self.findChild(QtWidgets.QListWidget, "listWidget")
-        self.searchbtn.clicked.connect(self.recon_too_1)
+        self.searchbtn.clicked.connect(self.recon_tool_1)
 
         # Tab of Recon Tool 2
         self.get_url2 = self.findChild(QtWidgets.QLineEdit, "lineEdit2")
@@ -73,6 +86,16 @@ class MainWindow(QtWidgets.QMainWindow):
         self.search_port_btn = self.findChild(QtWidgets.QPushButton, "searchportbtn")
         self.search_port_btn.clicked.connect(self.recon_tool_3)
         self.available_ports = self.findChild(QtWidgets.QListWidget, "listWidget_3")
+
+        # Tab of Recon Tool 4
+        self.get_string = self.findChild(QtWidgets.QLineEdit, "crypto_url")
+        self.list_encode = self.findChild(QtWidgets.QComboBox, "combox_encode")
+        self.list_decode = self.findChild(QtWidgets.QComboBox, "combox_decode")
+        self.list_encode_output = self.findChild(QtWidgets.QListWidget, "enListView")
+        self.list_decode_output = self.findChild(QtWidgets.QListWidget, "deListView")
+        self.execute_codes = self.findChild(QtWidgets.QPushButton, "execute")
+        self.execute_codes.clicked.connect(self.recon_tool_4)
+        self.error_dialog = QtWidgets.QMessageBox()
 
         # Tab of attacks Tool 1
         self.sql_url = self.findChild(QtWidgets.QLineEdit, "Sql_url")
@@ -89,7 +112,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.columns_btn.clicked.connect(self.attack3_tool_1)
         self.show()  # GUI window
 
-    def recon_too_1(self):
+    def recon_tool_1(self):
         self.output_list.clear()
         url = self.get_url.text()
         check_url = re.match(self.regex_url, url) is not None
@@ -138,6 +161,67 @@ class MainWindow(QtWidgets.QMainWindow):
         else:
             result = t3.run(domain, t3.scan, 1025)
             self.available_ports.addItems(result)
+
+    def recon_tool_4(self):
+        text = self.get_string.text()
+        encrypted_text = ""
+        decrypted_text = ""
+        current_encode = self.list_encode.currentIndex()
+        current_decode = self.list_decode.currentIndex()
+        output_encode = self.list_encode_output
+        output_decode = self.list_decode_output
+        try:
+            if not text:
+                raise IOError
+            if current_encode == 0 and current_decode == 0:
+                raise IndexError
+
+            match current_encode:
+                case 1:
+                    encrypted_text = t4.Encode.url_encode(text)
+                case 2:
+                    encrypted_text = t4.Encode.base64_encode(text)
+                case 3:
+                    encrypted_text = t4.Encode.base32_encode(text)
+                case 4:
+                    encrypted_text = t4.Encode.md5_encode(text)
+                case 5:
+                    encrypted_text = t4.Encode.sha1_encode(text)
+                case 6:
+                    encrypted_text = t4.Encode.sha512_encode(text)
+                case 7:
+                    encrypted_text = t4.Encode.sha512_encode(text)
+                case 8:
+                    encrypted_text = t4.Encode.html_encode(text)
+
+            match current_decode:
+                case 1:
+                    decrypted_text = t4.Decode.url_decode(encrypted_text)
+                case 2:
+                    decrypted_text = t4.Decode.base64_decode(encrypted_text)
+                case 3:
+                    decrypted_text = t4.Decode.base32_decode(encrypted_text)
+                case 4:
+                    decrypted_text = t4.Decode.html_decode(encrypted_text)
+
+            output_encode.addItem(encrypted_text)
+            output_decode.addItem(decrypted_text)
+        except IOError as error:
+            msg = self.error_dialog
+            msg.setIcon(msg.Warning)
+            msg.setText("Warning")
+            msg.setInformativeText("write something in input filed")
+            msg.setWindowTitle("Error")
+            msg.exec_()
+        except IndexError as ierror:
+            msg = self.error_dialog
+            msg.setIcon(msg.Warning)
+            msg.setText("Warning")
+            msg.setInformativeText("Choose encode or decode")
+            msg.setWindowTitle("Error")
+            msg.exec_()
+
+        pass
 
     def attack_tool_1(self):
         self.sql_output.clear()

@@ -8,7 +8,7 @@ def brute_force(Url, v, name):
     if platform == "linux" or platform == "linux2":
         urls = open(fr"Results-{Url}/urls-{name}.txt", 'a')
     else:
-        urls = open(fr"Results-{Url}\urls-{name}.txt", 'a')
+        urls = open(fr"Results-{Url[:-2]}\urls-{name}.txt", 'a')
     try:
         url_subdomain = Url+v
         req = requests.get(url_subdomain)

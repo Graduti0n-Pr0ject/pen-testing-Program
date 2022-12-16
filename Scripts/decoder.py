@@ -13,29 +13,29 @@ class Encode:
 
     @staticmethod
     def base64_encode(String):
-        String = String.Encode('utf-8')
+        String = String.encode('utf-8')
         return base64.b64encode(String).decode('utf-8')
 
     @staticmethod
     def base32_encode(String):
-        String = String.Encode('utf-8')
+        String = String.encode('utf-8')
         return base64.b32encode(String).decode()
 
     @staticmethod
     def md5_encode(String):
-        return hashlib.md5(String.Encode()).hexdigest()
+        return hashlib.md5(String.encode()).hexdigest()
 
     @staticmethod
     def sha1_encode(String):
-        return hashlib.sha1(String.Encode()).hexdigest()
+        return hashlib.sha1(String.encode()).hexdigest()
 
     @staticmethod
     def sha256_encode(String):
-        return hashlib.sha256(String.Encode()).hexdigest()
+        return hashlib.sha256(String.encode()).hexdigest()
 
     @staticmethod
     def sha512_encode(String):
-        return hashlib.sha512(String.Encode()).hexdigest()
+        return hashlib.sha512(String.encode()).hexdigest()
 
     @staticmethod
     def html_encode(String):
