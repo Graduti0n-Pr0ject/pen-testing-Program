@@ -344,9 +344,12 @@ class MainWindow(QtWidgets.QMainWindow):
         rmac = self.router_mac.text()
 
         try:
-            ta2.MITMAttack(vip, vmac, rip, rmac)
 
-        except:
+            attack_is_here = ta2.MITMAttack(vip, vmac, rip, rmac)
+            if attack_is_here == "[-] Attack not Performed":
+                raise TypeError
+            self.output_PCS.addItem(attack_is_here)
+        except TypeError:
             msg = self.error
             msg.setIcon(msg.Warning)
             msg.setText("Warning")
