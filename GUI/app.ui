@@ -1304,7 +1304,7 @@ color: white;</string>
                    </widget>
                   </item>
                   <item row="1" column="0">
-                   <widget class="QPushButton" name="sqlAttackbtn_2">
+                   <widget class="QPushButton" name="ip_btn">
                     <property name="styleSheet">
                      <string notr="true">background-color: rgb(56, 102, 65);
 border-style: outset;
@@ -1366,7 +1366,7 @@ padding: 6px;</string>
                        </property>
                        <layout class="QVBoxLayout" name="verticalLayout_7">
                         <item>
-                         <widget class="QLineEdit" name="IP_text_3">
+                         <widget class="QLineEdit" name="victimIP">
                           <property name="maximumSize">
                            <size>
                             <width>16777215</width>
@@ -1390,7 +1390,7 @@ color: white;</string>
                          </widget>
                         </item>
                         <item>
-                         <widget class="QLineEdit" name="IP_text_2">
+                         <widget class="QLineEdit" name="RouterIP">
                           <property name="maximumSize">
                            <size>
                             <width>16777215</width>
@@ -1414,7 +1414,7 @@ color: white;</string>
                          </widget>
                         </item>
                         <item>
-                         <widget class="QLineEdit" name="IP_text_4">
+                         <widget class="QLineEdit" name="VictimMAC">
                           <property name="maximumSize">
                            <size>
                             <width>16777215</width>
@@ -1438,7 +1438,7 @@ color: white;</string>
                          </widget>
                         </item>
                         <item>
-                         <widget class="QLineEdit" name="IP_text_5">
+                         <widget class="QLineEdit" name="RouterMAC">
                           <property name="maximumSize">
                            <size>
                             <width>16777215</width>
@@ -1462,7 +1462,7 @@ color: white;</string>
                          </widget>
                         </item>
                         <item>
-                         <widget class="QPushButton" name="sqlAttackbtn_3">
+                         <widget class="QPushButton" name="MIMA_btn">
                           <property name="styleSheet">
                            <string notr="true">background-color: rgb(56, 102, 65);
 border-style: outset;
@@ -1475,7 +1475,7 @@ padding: 6px;
 color: white;</string>
                           </property>
                           <property name="text">
-                           <string>Exceute</string>
+                           <string>Attack</string>
                           </property>
                          </widget>
                         </item>

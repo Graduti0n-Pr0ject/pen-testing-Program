@@ -5,16 +5,16 @@ import time
 
 
 def NetworkScanner(IPRange):
-    cleaner = r"^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$||^\d{1,3}\.\d{1,3}\.\d{1,3}\.0\\([1-9]|1[0-9]|2[0-4])$"
+    # cleaner = r"^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$||^\d{1,3}\.\d{1,3}\.\d{1,3}\.0\\([1-9]|1[0-9]|2[0-4])$"
     # Maybe need to make this Regex more Powerful
-    ipCheck = re.match(cleaner, IPRange)
-    if ipCheck and not ipCheck.group().find(""):
-        arpOptions = ARP(pdst=IPRange)
-        arpPacket = etherHeader / arpOptions
-        results, nonResult = srp(arpPacket, timeout=2)
-        return results
-    else:
-        print("[-] Please Enter Valid IP(s) ...")
+    # ipCheck = re.match(cleaner, IPRange)
+    # if ipCheck and not ipCheck.group().find(""):
+    arpOptions = ARP(pdst=IPRange)
+    arpPacket = etherHeader / arpOptions
+    results, nonResult = srp(arpPacket, timeout=2)
+    return results
+    # else:
+    #     print("[-] Please Enter Valid IP(s) ...")
 
 
 def PrintResult(results):

@@ -3,13 +3,14 @@ import requests
 import logo_rc
 from sys import platform
 from PyQt5 import QtWidgets, uic
-
-import Error_based_attack
 import JS as t1
 import PortScanning as t3
-import UnionScripts
 import directory as t2
 import decoder as t4
+
+import UnionScripts
+import Error_based_attack
+import MIMA as ta2
 
 
 class MainWindow(QtWidgets.QMainWindow):
@@ -54,6 +55,7 @@ class MainWindow(QtWidgets.QMainWindow):
         # **************************End Recon************************************
 
         # ***************************Start Attacks*********************************
+
         # First Tool in Attacks
         self.sql_url: QtWidgets.QLineEdit = None
         self.sql_btn: QtWidgets.QPushButton = None
@@ -62,6 +64,17 @@ class MainWindow(QtWidgets.QMainWindow):
         self.tables_btn: QtWidgets.QPushButton = None
         self.columns_combobox: QtWidgets.QComboBox = None
         self.columns_btn: QtWidgets.QPushButton = None
+
+        # Second Tool in Attacks
+        self.ip_text: QtWidgets.QLineEdit = None
+        self.search_live_PCS:  QtWidgets.QPushButton = None
+        self.output_PCS: QtWidgets.QListWidget = None
+        self.victim_ip: QtWidgets.QLineEdit = None
+        self.victim_mac: QtWidgets.QLineEdit = None
+        self.router_ip: QtWidgets.QLineEdit = None
+        self.router_mac: QtWidgets.QLineEdit = None
+        self.execute_MINA: QtWidgets.QPushButton = None
+        self.error: QtWidgets.QMessageBox = None
         # **************************End Attacks************************************
         self.init_ui()
 
@@ -109,6 +122,18 @@ class MainWindow(QtWidgets.QMainWindow):
         self.columns_combobox = self.findChild(QtWidgets.QComboBox, "combox_cols")
         self.columns_btn = self.findChild(QtWidgets.QPushButton, "attackColumnbtn")
         self.columns_btn.clicked.connect(self.attack3_tool_1)
+
+        # Tab of attacks Tool 2
+        self.ip_text = self.findChild(QtWidgets.QLineEdit, "IP_text")
+        self.search_live_PCS = self.findChild(QtWidgets.QPushButton, "ip_btn")
+        self.search_live_PCS.clicked.connect(self.attack1_tool_2)
+        self.output_PCS = self.findChild(QtWidgets.QListWidget, "sqlOutput_2")
+        self.victim_ip = self.findChild(QtWidgets.QLineEdit, "victimIP")
+        self.victim_mac = self.findChild(QtWidgets.QLineEdit, "VictimMAC")
+        self.router_ip = self.findChild(QtWidgets.QLineEdit, "RouterIP")
+        self.router_mac = self.findChild(QtWidgets.QLineEdit, "RouterMAC")
+        self.execute_MINA = self.findChild(QtWidgets.QPushButton, "MIMA_btn")
+        self.error = QtWidgets.QMessageBox()
         self.show()  # GUI window
 
     def recon_tool_1(self):
@@ -280,8 +305,24 @@ class MainWindow(QtWidgets.QMainWindow):
             print("Plz choose column or table 📛")
             self.sql_output.addItem("Plz choose column or table 📛")
 
-    def __del__(self):
-        self.out1.clear()
+    def attack1_tool_2(self):
+        ip = self.ip_text.text()
+        try:
+            etherHeader = ta2.Ether(dst="FF:FF:FF:FF:FF:FF")
+            result: list = ta2.NetworkScanner(ip)
+            result.insert(0, "Live PCS")
+            self.output_PCS.addItems(result)
+        except:
+            msg = self.error
+            msg.setIcon(msg.Warning)
+            msg.setText("Warning")
+            msg.setInformativeText("Invalid Ip")
+            msg.setWindowTitle("Error")
+            msg.exec_()
+
+    def attack2_tool_2(self):
+
+        pass
 
 
 def main():
