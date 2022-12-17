@@ -249,8 +249,6 @@ class MainWindow(QtWidgets.QMainWindow):
             self.sql_output.addItem(f"Enter Failed Url {error}")
 
     def attack2_tool_1(self):
-        self.columns_combobox.clear()
-        self.columns_combobox.addItem("Columns")
         out = self.out1
         current_index = self.tables_combobox.currentIndex()
         url = self.sql_url.text()
@@ -268,8 +266,6 @@ class MainWindow(QtWidgets.QMainWindow):
             self.sql_output.addItem("plz choose table 📛")
 
     def attack3_tool_1(self):
-        self.tables_combobox.clear()
-        self.tables_combobox.addItem("Tables")
         current_index_col = self.columns_combobox.currentIndex()
         current_index_tab = self.tables_combobox.currentIndex()
         url = self.sql_url.text()

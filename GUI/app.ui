@@ -337,7 +337,7 @@ background-color: rgb(0, 0, 0);</string>
              </font>
             </property>
             <property name="currentIndex">
-             <number>0</number>
+             <number>1</number>
             </property>
             <property name="usesScrollButtons">
              <bool>true</bool>
@@ -364,11 +364,14 @@ background-color: rgb(0, 0, 0);</string>
                 <property name="layoutDirection">
                  <enum>Qt::LeftToRight</enum>
                 </property>
+                <property name="styleSheet">
+                 <string notr="true"/>
+                </property>
                 <property name="tabPosition">
                  <enum>QTabWidget::North</enum>
                 </property>
                 <property name="currentIndex">
-                 <number>3</number>
+                 <number>4</number>
                 </property>
                 <property name="movable">
                  <bool>true</bool>
@@ -885,6 +888,86 @@ padding: 6px;</string>
                   </item>
                  </layout>
                 </widget>
+                <widget class="QWidget" name="tab_2">
+                 <attribute name="title">
+                  <string>Domainer</string>
+                 </attribute>
+                 <widget class="QLineEdit" name="lineEdit2_2">
+                  <property name="geometry">
+                   <rect>
+                    <x>100</x>
+                    <y>90</y>
+                    <width>471</width>
+                    <height>35</height>
+                   </rect>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">background-color: rgb(56, 102, 65);
+border-style: outset;
+border-width: 2px;
+border-radius: 10px;
+border-color: rgb(56, 102, 65);
+font: bold 14px;
+min-width: 10em;
+padding: 6px;
+color: white;</string>
+                  </property>
+                  <property name="placeholderText">
+                   <string>Enter Domain</string>
+                  </property>
+                 </widget>
+                 <widget class="QComboBox" name="comboBox_2">
+                  <property name="geometry">
+                   <rect>
+                    <x>210</x>
+                    <y>30</y>
+                    <width>301</width>
+                    <height>31</height>
+                   </rect>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">font: 11pt;
+color:white</string>
+                  </property>
+                  <item>
+                   <property name="text">
+                    <string>Choose target type</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>single</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>list</string>
+                   </property>
+                  </item>
+                 </widget>
+                 <widget class="QToolButton" name="toolButton">
+                  <property name="enabled">
+                   <bool>true</bool>
+                  </property>
+                  <property name="geometry">
+                   <rect>
+                    <x>260</x>
+                    <y>170</y>
+                    <width>32</width>
+                    <height>32</height>
+                   </rect>
+                  </property>
+                  <property name="text">
+                   <string>...</string>
+                  </property>
+                  <property name="toolButtonStyle">
+                   <enum>Qt::ToolButtonTextOnly</enum>
+                  </property>
+                  <property name="autoRaise">
+                   <bool>false</bool>
+                  </property>
+                 </widget>
+                </widget>
                </widget>
               </item>
              </layout>
@@ -897,7 +980,7 @@ padding: 6px;</string>
               <item row="0" column="0">
                <widget class="QTabWidget" name="tabWidget">
                 <property name="currentIndex">
-                 <number>0</number>
+                 <number>1</number>
                 </property>
                 <property name="iconSize">
                  <size>
@@ -1180,6 +1263,219 @@ color: white;</string>
                           </property>
                           <property name="text">
                            <string>check column</string>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+                <widget class="QWidget" name="tab_3">
+                 <attribute name="title">
+                  <string>MIMA</string>
+                 </attribute>
+                 <layout class="QGridLayout" name="gridLayout_12">
+                  <item row="0" column="0">
+                   <widget class="QLineEdit" name="IP_text">
+                    <property name="maximumSize">
+                     <size>
+                      <width>16777215</width>
+                      <height>39</height>
+                     </size>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">background-color: rgb(56, 102, 65);
+border-style: outset;
+border-width: 2px;
+border-radius: 10px;
+border-color: rgb(56, 102, 65);
+font: bold 14px;
+min-width: 10em;
+padding: 6px;
+color: white;</string>
+                    </property>
+                    <property name="placeholderText">
+                     <string>Enter IP</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="0">
+                   <widget class="QPushButton" name="sqlAttackbtn_2">
+                    <property name="styleSheet">
+                     <string notr="true">background-color: rgb(56, 102, 65);
+border-style: outset;
+border-width: 2px;
+border-radius: 10px;
+border-color: rgb(56, 102, 65);
+font: bold 14px;
+min-width: 10em;
+padding: 6px;
+color: white;</string>
+                    </property>
+                    <property name="text">
+                     <string>check IP</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="2" column="0">
+                   <widget class="QFrame" name="frame_4">
+                    <property name="frameShape">
+                     <enum>QFrame::StyledPanel</enum>
+                    </property>
+                    <property name="frameShadow">
+                     <enum>QFrame::Raised</enum>
+                    </property>
+                    <layout class="QGridLayout" name="gridLayout_11">
+                     <item row="0" column="0">
+                      <widget class="QFrame" name="frame_5">
+                       <property name="frameShape">
+                        <enum>QFrame::StyledPanel</enum>
+                       </property>
+                       <property name="frameShadow">
+                        <enum>QFrame::Raised</enum>
+                       </property>
+                       <layout class="QGridLayout" name="gridLayout_10">
+                        <item row="0" column="0">
+                         <widget class="QListWidget" name="sqlOutput_2">
+                          <property name="styleSheet">
+                           <string notr="true">background-color: black;
+color:white;
+background-attachment: scroll;
+border-width: 2px;
+border-radius: 10px;
+font: bold 16px;
+min-width: 10em;
+padding: 6px;</string>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
+                      </widget>
+                     </item>
+                     <item row="0" column="1">
+                      <widget class="QFrame" name="frame_6">
+                       <property name="frameShape">
+                        <enum>QFrame::StyledPanel</enum>
+                       </property>
+                       <property name="frameShadow">
+                        <enum>QFrame::Raised</enum>
+                       </property>
+                       <layout class="QVBoxLayout" name="verticalLayout_7">
+                        <item>
+                         <widget class="QLineEdit" name="IP_text_3">
+                          <property name="maximumSize">
+                           <size>
+                            <width>16777215</width>
+                            <height>39</height>
+                           </size>
+                          </property>
+                          <property name="styleSheet">
+                           <string notr="true">background-color: rgb(56, 102, 65);
+border-style: outset;
+border-width: 2px;
+border-radius: 10px;
+border-color: rgb(56, 102, 65);
+font: bold 14px;
+min-width: 10em;
+padding: 6px;
+color: white;</string>
+                          </property>
+                          <property name="placeholderText">
+                           <string>Victim IP</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QLineEdit" name="IP_text_2">
+                          <property name="maximumSize">
+                           <size>
+                            <width>16777215</width>
+                            <height>39</height>
+                           </size>
+                          </property>
+                          <property name="styleSheet">
+                           <string notr="true">background-color: rgb(56, 102, 65);
+border-style: outset;
+border-width: 2px;
+border-radius: 10px;
+border-color: rgb(56, 102, 65);
+font: bold 14px;
+min-width: 10em;
+padding: 6px;
+color: white;</string>
+                          </property>
+                          <property name="placeholderText">
+                           <string>Router IP</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QLineEdit" name="IP_text_4">
+                          <property name="maximumSize">
+                           <size>
+                            <width>16777215</width>
+                            <height>39</height>
+                           </size>
+                          </property>
+                          <property name="styleSheet">
+                           <string notr="true">background-color: rgb(56, 102, 65);
+border-style: outset;
+border-width: 2px;
+border-radius: 10px;
+border-color: rgb(56, 102, 65);
+font: bold 14px;
+min-width: 10em;
+padding: 6px;
+color: white;</string>
+                          </property>
+                          <property name="placeholderText">
+                           <string>Victim MAC</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QLineEdit" name="IP_text_5">
+                          <property name="maximumSize">
+                           <size>
+                            <width>16777215</width>
+                            <height>39</height>
+                           </size>
+                          </property>
+                          <property name="styleSheet">
+                           <string notr="true">background-color: rgb(56, 102, 65);
+border-style: outset;
+border-width: 2px;
+border-radius: 10px;
+border-color: rgb(56, 102, 65);
+font: bold 14px;
+min-width: 10em;
+padding: 6px;
+color: white;</string>
+                          </property>
+                          <property name="placeholderText">
+                           <string>Router MAC</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QPushButton" name="sqlAttackbtn_3">
+                          <property name="styleSheet">
+                           <string notr="true">background-color: rgb(56, 102, 65);
+border-style: outset;
+border-width: 2px;
+border-radius: 10px;
+border-color: rgb(56, 102, 65);
+font: bold 14px;
+min-width: 10em;
+padding: 6px;
+color: white;</string>
+                          </property>
+                          <property name="text">
+                           <string>Exceute</string>
                           </property>
                          </widget>
                         </item>
