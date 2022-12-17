@@ -18,12 +18,17 @@ def NetworkScanner(IPRange, etherHeader):
 
 
 def PrintResult(results):
+    outputs = []
     if len(results) > 0:
         print("[+] Live PCs\n****************")
+        outputs.append("Live PCs ")
         for sendResult, receive in results:
             print(receive[Ether].psrc, "  is at ", receive[Ether].hwsrc)
+            outputs.append(f"{receive[Ether].psrc} is at {receive[Ether].hwsrc}")
     else:
         print("[+] No Live PCs ...")
+        outputs.append("no Lives PCS")
+    return outputs
 
 
 def sendingPackets(Victim_IP, Victim_MAC, Router_IP, Router_MAC):

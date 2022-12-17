@@ -326,9 +326,9 @@ class MainWindow(QtWidgets.QMainWindow):
         ip = self.ip_text.text()
         # try:
         etherHeader = ta2.Ether(dst="FF:FF:FF:FF:FF:FF")
-        result: list = ta2.NetworkScanner(ip, etherHeader)
-        result.insert(0, "Live PCS")
-        self.output_PCS.addItems(result)
+        result = ta2.NetworkScanner(ip, etherHeader)
+        results = ta2.PrintResult(result)
+        self.output_PCS.addItems(results)
         # except:
         #     msg = self.error
         #     msg.setIcon(msg.Warning)
