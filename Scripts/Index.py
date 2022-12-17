@@ -345,10 +345,10 @@ class MainWindow(QtWidgets.QMainWindow):
 
         try:
 
-            attack_is_here = ta2.MITMAttack(vip, vmac, rip, rmac)
-            if attack_is_here == "[-] Attack not Performed":
-                raise TypeError
-            self.output_PCS.addItem(attack_is_here)
+            ta2.MITMAttack(vip, vmac, rip, rmac)
+            # if attack_is_here == "[-] Attack not Performed":
+            #     raise TypeError
+            # self.output_PCS.addItem(attack_is_here)
         except TypeError:
             msg = self.error
             msg.setIcon(msg.Warning)

@@ -57,7 +57,6 @@ def sendingPackets(Victim_IP, Victim_MAC, Router_IP, Router_MAC):
 
 
 def MITMAttack(Victim_IP, Victim_MAC, Router_IP, Router_MAC):
-    attack_happen = ""
     IPCleaner = r"^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$"
     MACCleaner = r"^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$"
     ipCheck_V = re.match(IPCleaner, Victim_IP)
@@ -66,11 +65,8 @@ def MITMAttack(Victim_IP, Victim_MAC, Router_IP, Router_MAC):
     MACCheck_R = re.match(MACCleaner, Victim_MAC)
     if ipCheck_V and ipCheck_R and MACCheck_V and MACCheck_R:
         sendingPackets(Victim_IP, Victim_MAC, Router_IP, Router_MAC)
-        attack_happen = "[+] Attack Performed"
     else:
         print("[-] Please, Enter Valid Info ...")
-        attack_happen = "[-] Attack not Performed"
-    return attack_happen
 
 
 if __name__ == '__main__':
@@ -89,5 +85,3 @@ if __name__ == '__main__':
         print("[-] Exit")
     else:
         print("[-] Please, Enter Valid option ...")
-
-    
