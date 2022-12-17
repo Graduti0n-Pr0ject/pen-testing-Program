@@ -26,7 +26,7 @@ def brute_force(Url, v, name):
 
 def check_brute_force(type_brute_force: list, Url: str, name):
     os.makedirs(fr"Results_{Url.replace(':', '')}", exist_ok=True)
-    with concurrent.futures.ThreadPoolExecutor(max_workers=100) as executor:
+    with concurrent.futures.ThreadPoolExecutor(max_workers=50) as executor:
         for i, v in enumerate(type_brute_force):
             executor.submit(brute_force, Url,  v, name)
 

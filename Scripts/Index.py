@@ -11,6 +11,7 @@ import decoder as t4
 import UnionScripts
 import Error_based_attack
 import MIMA as ta2
+import LFI as ta3
 
 
 class MainWindow(QtWidgets.QMainWindow):
@@ -67,7 +68,7 @@ class MainWindow(QtWidgets.QMainWindow):
 
         # Second Tool in Attacks
         self.ip_text: QtWidgets.QLineEdit = None
-        self.search_live_PCS:  QtWidgets.QPushButton = None
+        self.search_live_PCS: QtWidgets.QPushButton = None
         self.output_PCS: QtWidgets.QListWidget = None
         self.victim_ip: QtWidgets.QLineEdit = None
         self.victim_mac: QtWidgets.QLineEdit = None
@@ -75,6 +76,13 @@ class MainWindow(QtWidgets.QMainWindow):
         self.router_mac: QtWidgets.QLineEdit = None
         self.execute_MINA: QtWidgets.QPushButton = None
         self.error: QtWidgets.QMessageBox = None
+
+        # Third Tool in Attacks
+        self.url_pram: QtWidgets.QLineEdit = None
+        self.search_payload: QtWidgets.QPushButton = None
+        self.tests_outputs: QtWidgets.QListWidget = None
+        self.payload_founded: QtWidgets.QListWidget = None
+        self.error_apply: QtWidgets.QMessageBox = None
         # **************************End Attacks************************************
         self.init_ui()
 
@@ -133,7 +141,16 @@ class MainWindow(QtWidgets.QMainWindow):
         self.router_ip = self.findChild(QtWidgets.QLineEdit, "RouterIP")
         self.router_mac = self.findChild(QtWidgets.QLineEdit, "RouterMAC")
         self.execute_MINA = self.findChild(QtWidgets.QPushButton, "MIMA_btn")
+        self.execute_MINA.clicked.connect(self.attack2_tool_2)
         self.error = QtWidgets.QMessageBox()
+
+        #Tab of attack Tool 3
+        self.url_pram = self.findChild(QtWidgets.QLineEdit, "url_pram")
+        self.search_payload = self.findChild(QtWidgets.QPushButton, "scan_payload_btn")
+        self.search_payload.clicked.connect(self.attack_tool_3)
+        self.tests_outputs = self.findChild(QtWidgets.QListWidget, "payload_tests")
+        self.payload_founded = self.findChild(QtWidgets.QListWidget, "found_payload")
+        self.error_apply = QtWidgets.QMessageBox()
         self.show()  # GUI window
 
     def recon_tool_1(self):
@@ -180,7 +197,6 @@ class MainWindow(QtWidgets.QMainWindow):
                 self.output_word_list.addItem(f"Nothing found for {success_sub_domains[0]} choose another one ")
             else:
                 self.output_word_list.addItems(success_sub_domains)
-
 
     def recon_tool_3(self):
         self.available_ports.clear()
@@ -283,7 +299,8 @@ class MainWindow(QtWidgets.QMainWindow):
             self.columns_combobox.clear()
             self.columns_combobox.addItem("Columns")
             self.columns_combobox.addItems(columns)
-            self.sql_output.addItem(f"[+] Exploiting {len(columns)} columns, this is names of this columns, insert one to show his data")
+            self.sql_output.addItem(
+                f"[+] Exploiting {len(columns)} columns, this is names of this columns, insert one to show his data")
 
         except IndexError as error:
             self.sql_output.addItem("plz choose table 📛")
@@ -321,9 +338,56 @@ class MainWindow(QtWidgets.QMainWindow):
             msg.exec_()
 
     def attack2_tool_2(self):
+        vip = self.victim_ip.text()
+        vmac = self.victim_mac.text()
+        rip = self.router_ip.text()
+        rmac = self.router_mac.text()
+
+        try:
+            ta2.MITMAttack(vip, vmac, rip, rmac)
+
+        except:
+            msg = self.error
+            msg.setIcon(msg.Warning)
+            msg.setText("Warning")
+            msg.setInformativeText("no_attack happen")
+            msg.setWindowTitle("Error")
+            msg.exec_()
 
         pass
 
+    def attack_tool_3(self):
+        url_parm = self.url_pram.text()
+        tests_outs = self.tests_outputs
+        found_payload = self.payload_founded
+        tests_outs.clear()
+        found_payload.clear()
+        try:
+            is_has, extension = ta3.testExtention(url_parm)
+            if not is_has:
+                raise BlockingIOError
+            tests_outs.addItem(f"URL querying file with extension {extension}")
+            tests_outs.addItem("Start LFI injection")
+            respone, pass_payload, fails = ta3.LFIinj(url_parm, extension)
+            tests_outs.addItems(fails)
+            found_payload.addItems(respone)
+            found_payload.addItem(pass_payload)
+
+        except BlockingIOError:
+            msg = self.error_apply
+            msg.setIcon(msg.Warning)
+            msg.setText("Warning")
+            msg.setInformativeText("[-] Must be querying file from server")
+            msg.setWindowTitle("Error")
+            msg.exec_()
+        # except:
+        #     msg = self.error_apply
+        #     msg.setIcon(msg.Warning)
+        #     msg.setText("Warning")
+        #     msg.setInformativeText("Enter Valid URL")
+        #     msg.setWindowTitle("Error")
+        #     msg.exec_()
+        pass
 
 def main():
     app = QtWidgets.QApplication([])  # Start App

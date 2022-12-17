@@ -980,7 +980,7 @@ color:white</string>
               <item row="0" column="0">
                <widget class="QTabWidget" name="tabWidget">
                 <property name="currentIndex">
-                 <number>1</number>
+                 <number>2</number>
                 </property>
                 <property name="iconSize">
                  <size>
@@ -1483,6 +1483,83 @@ color: white;</string>
                       </widget>
                      </item>
                     </layout>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+                <widget class="QWidget" name="tab_4">
+                 <attribute name="title">
+                  <string>LFI</string>
+                 </attribute>
+                 <layout class="QGridLayout" name="gridLayout_13">
+                  <item row="0" column="0" colspan="2">
+                   <widget class="QLineEdit" name="url_pram">
+                    <property name="maximumSize">
+                     <size>
+                      <width>16777215</width>
+                      <height>39</height>
+                     </size>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">background-color: rgb(56, 102, 65);
+border-style: outset;
+border-width: 2px;
+border-radius: 10px;
+border-color: rgb(56, 102, 65);
+font: bold 14px;
+min-width: 10em;
+padding: 6px;
+color: white;</string>
+                    </property>
+                    <property name="placeholderText">
+                     <string>Enter URL</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="0" colspan="2">
+                   <widget class="QPushButton" name="scan_payload_btn">
+                    <property name="styleSheet">
+                     <string notr="true">background-color: rgb(56, 102, 65);
+border-style: outset;
+border-width: 2px;
+border-radius: 10px;
+border-color: rgb(56, 102, 65);
+font: bold 14px;
+min-width: 10em;
+padding: 6px;
+color: white;</string>
+                    </property>
+                    <property name="text">
+                     <string>Attack</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="2" column="0">
+                   <widget class="QListWidget" name="payload_tests">
+                    <property name="styleSheet">
+                     <string notr="true">background-color: black;
+color:white;
+background-attachment: scroll;
+border-width: 2px;
+border-radius: 10px;
+font: bold 16px;
+min-width: 10em;
+padding: 6px;</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="2" column="1">
+                   <widget class="QListWidget" name="found_payload">
+                    <property name="styleSheet">
+                     <string notr="true">background-color: black;
+color:white;
+background-attachment: scroll;
+border-width: 2px;
+border-radius: 10px;
+font: bold 16px;
+min-width: 10em;
+padding: 6px;</string>
+                    </property>
                    </widget>
                   </item>
                  </layout>
