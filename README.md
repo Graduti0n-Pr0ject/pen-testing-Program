@@ -31,4 +31,4 @@
 # Recon Tools 
 
 ## 1-Domainer :
-Emphasis hh
+Using to collect subdomain using brute force list and from search engines ( yahoo,Bing,Ask) and crt.sh it takes single target or list of targets
