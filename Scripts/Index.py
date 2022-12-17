@@ -20,7 +20,6 @@ class MainWindow(QtWidgets.QMainWindow):
         r'\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})'  # ...or ip
         r'(?::\d+)?'  # optional port
         r'(?:/?|[/?]\S+)$', re.IGNORECASE)
-    out1 = []
     payload = None
     is_orc = None
 
@@ -232,16 +231,15 @@ class MainWindow(QtWidgets.QMainWindow):
         pass
 
     def attack_tool_1(self):
-        self.sql_output.clear()
         try:
             url = self.sql_url.text()
             response = requests.get(url)
             outputs, tables, pay, orc = Error_based_attack.sample_Get_inj(url)
-            self.out1 = outputs
             self.payload = pay
             self.is_orc = orc
             tables.insert(0, self.tables_combobox.currentText())
             self.tables_combobox.clear()
+            self.tables_combobox.addItem("Tables")
             self.tables_combobox.addItems(tables)
             self.sql_output.addItems(outputs)
         except (requests.exceptions.MissingSchema, requests.exceptions.InvalidSchema,
@@ -249,7 +247,7 @@ class MainWindow(QtWidgets.QMainWindow):
             self.sql_output.addItem(f"Enter Failed Url {error}")
 
     def attack2_tool_1(self):
-        out = self.out1
+        self.sql_output.clear()
         current_index = self.tables_combobox.currentIndex()
         url = self.sql_url.text()
         table_name = self.tables_combobox.currentText()
@@ -257,15 +255,16 @@ class MainWindow(QtWidgets.QMainWindow):
             if current_index == 0:
                 raise IndexError
             columns = UnionScripts.figure_columns_in_table(url, self.payload, table_name, self.is_orc)
+            self.columns_combobox.clear()
+            self.columns_combobox.addItem("Columns")
             self.columns_combobox.addItems(columns)
-            out.append(
-                f"[+] Exploiting {len(columns)} columns, this is names of this columns, insert one to show his data")
-            self.sql_output.addItems(out)
+            self.sql_output.addItem(f"[+] Exploiting {len(columns)} columns, this is names of this columns, insert one to show his data")
 
         except IndexError as error:
             self.sql_output.addItem("plz choose table 📛")
 
     def attack3_tool_1(self):
+
         current_index_col = self.columns_combobox.currentIndex()
         current_index_tab = self.tables_combobox.currentIndex()
         url = self.sql_url.text()
