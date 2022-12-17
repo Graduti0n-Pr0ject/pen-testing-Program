@@ -4,7 +4,7 @@ from scapy.layers.l2 import Ether, ARP
 import time
 
 
-def NetworkScanner(IPRange):
+def NetworkScanner(IPRange, etherHeader):
     # cleaner = r"^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$||^\d{1,3}\.\d{1,3}\.\d{1,3}\.0\\([1-9]|1[0-9]|2[0-4])$"
     # Maybe need to make this Regex more Powerful
     # ipCheck = re.match(cleaner, IPRange)
@@ -67,7 +67,7 @@ def MITMAttack(Victim_IP, Victim_MAC, Router_IP, Router_MAC):
 if __name__ == '__main__':
     etherHeader = Ether(dst="FF:FF:FF:FF:FF:FF")
     ipRange = input("[+] Enter Ur IP(s)> ")
-    result = NetworkScanner(ipRange)
+    result = NetworkScanner(ipRange, etherHeader)
     PrintResult(result)
     choose = int(input("[+] Do you want MITM Aplay ? (yes:1 or no:0)> "))
     if choose == int(1):

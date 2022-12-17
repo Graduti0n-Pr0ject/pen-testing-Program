@@ -324,18 +324,18 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def attack1_tool_2(self):
         ip = self.ip_text.text()
-        try:
-            etherHeader = ta2.Ether(dst="FF:FF:FF:FF:FF:FF")
-            result: list = ta2.NetworkScanner(ip)
-            result.insert(0, "Live PCS")
-            self.output_PCS.addItems(result)
-        except:
-            msg = self.error
-            msg.setIcon(msg.Warning)
-            msg.setText("Warning")
-            msg.setInformativeText("Invalid Ip")
-            msg.setWindowTitle("Error")
-            msg.exec_()
+        # try:
+        etherHeader = ta2.Ether(dst="FF:FF:FF:FF:FF:FF")
+        result: list = ta2.NetworkScanner(ip, etherHeader)
+        result.insert(0, "Live PCS")
+        self.output_PCS.addItems(result)
+        # except:
+        #     msg = self.error
+        #     msg.setIcon(msg.Warning)
+        #     msg.setText("Warning")
+        #     msg.setInformativeText("Invalid Ip")
+        #     msg.setWindowTitle("Error")
+        #     msg.exec_()
 
     def attack2_tool_2(self):
         vip = self.victim_ip.text()
