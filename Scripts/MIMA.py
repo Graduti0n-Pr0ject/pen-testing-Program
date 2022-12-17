@@ -66,7 +66,7 @@ def MITMAttack(Victim_IP, Victim_MAC, Router_IP, Router_MAC):
 
 if __name__ == '__main__':
     etherHeader = Ether(dst="FF:FF:FF:FF:FF:FF")
-    ipRange = input("[+] Enter Ur IP(s)> ")
+    ipRange = input("[+] Enter Ur IP> ")
     result = NetworkScanner(ipRange, etherHeader)
     PrintResult(result)
     choose = int(input("[+] Do you want MITM Aplay ? (yes:1 or no:0)> "))
