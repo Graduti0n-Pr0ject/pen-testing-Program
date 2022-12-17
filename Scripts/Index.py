@@ -7,6 +7,7 @@ import JS as t1
 import PortScanning as t3
 import directory as t2
 import decoder as t4
+import domainer as t5
 
 import UnionScripts
 import Error_based_attack
@@ -53,6 +54,13 @@ class MainWindow(QtWidgets.QMainWindow):
         self.list_decode_output: QtWidgets.QListWidget = None
         self.execute_codes: QtWidgets.QPushButton = None
         self.error_dialog: QtWidgets.QMessageBox = None
+
+        # Fiftieth Tool in Recon
+        self.domain: QtWidgets.QLineEdit = None
+        self.file_sizes: QtWidgets.QComboBox = None
+        self.type_input: QtWidgets.QComboBox = None
+        self.start_btn: QtWidgets.QPushButton = None
+        self.outputs_list: QtWidgets.QListWidget = None
         # **************************End Recon************************************
 
         # ***************************Start Attacks*********************************
@@ -83,6 +91,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.tests_outputs: QtWidgets.QListWidget = None
         self.payload_founded: QtWidgets.QListWidget = None
         self.error_apply: QtWidgets.QMessageBox = None
+
         # **************************End Attacks************************************
         self.init_ui()
 
@@ -117,6 +126,14 @@ class MainWindow(QtWidgets.QMainWindow):
         self.execute_codes.clicked.connect(self.recon_tool_4)
         self.error_dialog = QtWidgets.QMessageBox()
 
+        # Tab of Recon Tool 5
+        self.domain = self.findChild(QtWidgets.QLineEdit, "domain")
+        self.file_sizes = self.findChild(QtWidgets.QComboBox, "file_size")
+        self.type_input = self.findChild(QtWidgets.QComboBox, "target")
+        self.start_btn = self.findChild(QtWidgets.QPushButton, "DStart")
+        self.start_btn.clicked.connect(self.recon_tool_5)
+        self.outputs_list = self.findChild(QtWidgets.QListWidget, "subdomains_output")
+
         # Tab of attacks Tool 1
         self.sql_url = self.findChild(QtWidgets.QLineEdit, "Sql_url")
         self.sql_btn = self.findChild(QtWidgets.QPushButton, "sqlAttackbtn")
@@ -144,7 +161,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.execute_MINA.clicked.connect(self.attack2_tool_2)
         self.error = QtWidgets.QMessageBox()
 
-        #Tab of attack Tool 3
+        # Tab of attack Tool 3
         self.url_pram = self.findChild(QtWidgets.QLineEdit, "url_pram")
         self.search_payload = self.findChild(QtWidgets.QPushButton, "scan_payload_btn")
         self.search_payload.clicked.connect(self.attack_tool_3)
@@ -171,10 +188,22 @@ class MainWindow(QtWidgets.QMainWindow):
         current_index = self.word_list.currentIndex()
         current_item = self.word_list.currentText()
         if not url1 or not check_url:
-            self.output_word_list.addItem("Please Enter Valid Url")
+            # self.output_word_list.addItem("Please Enter Valid Url")
+            msg = self.error
+            msg.setIcon(msg.Warning)
+            msg.setText("error")
+            msg.setInformativeText("Please Enter Valid Url")
+            msg.setWindowTitle("Error")
+            msg.exec_()
             print("goes first")
         elif current_index == 0:
-            self.output_word_list.addItem("Please Choose your World List")
+            # self.output_word_list.addItem("Please Choose your World List")
+            msg = self.error
+            msg.setIcon(msg.Warning)
+            msg.setText("error")
+            msg.setInformativeText("Please choose your world list")
+            msg.setWindowTitle("Error")
+            msg.exec_()
             print("goes second")
         else:
 
@@ -205,7 +234,13 @@ class MainWindow(QtWidgets.QMainWindow):
         domain = url[url.rfind('/') + 1:]
         print(check_url)
         if not url or not check_url:
-            self.available_ports.addItem("Please Enter Valid Url")
+            # self.available_ports.addItem("Please Enter Valid Url")
+            msg = self.error
+            msg.setIcon(msg.Warning)
+            msg.setText("error")
+            msg.setInformativeText("Please Enter Valid Url")
+            msg.setWindowTitle("Error")
+            msg.exec_()
         else:
             result = t3.run(domain, t3.scan, 1025)
             self.available_ports.addItems(result)
@@ -271,6 +306,26 @@ class MainWindow(QtWidgets.QMainWindow):
 
         pass
 
+    def recon_tool_5(self):
+        domain = self.domain.text()
+        file_size = self.file_sizes.currentIndex()
+        target = self.type_input.currentIndex()
+        output = self.outputs_list
+        try:
+            if not domain:
+                raise TypeError
+            result1 = t5.search_single(domain)
+            output.addItems(result1)
+            result2 = t5.bruteforce(domain, file_size)
+            output.addItems(result2)
+        except TypeError as Error:
+            msg = self.error
+            msg.setIcon(msg.Warning)
+            msg.setText("Warning")
+            msg.setInformativeText("Enter Valid domain")
+            msg.setWindowTitle("Error")
+            msg.exec_()
+
     def attack_tool_1(self):
         try:
             url = self.sql_url.text()
@@ -285,7 +340,13 @@ class MainWindow(QtWidgets.QMainWindow):
             self.sql_output.addItems(outputs)
         except (requests.exceptions.MissingSchema, requests.exceptions.InvalidSchema,
                 requests.exceptions.InvalidURL) as error:
-            self.sql_output.addItem(f"Enter Failed Url {error}")
+            # self.sql_output.addItem(f"Enter Failed Url {error}")
+            msg = self.error
+            msg.setIcon(msg.Warning)
+            msg.setText("error")
+            msg.setInformativeText(f"Enter Failed Url {error}")
+            msg.setWindowTitle("Error")
+            msg.exec_()
 
     def attack2_tool_1(self):
         self.sql_output.clear()
@@ -303,7 +364,13 @@ class MainWindow(QtWidgets.QMainWindow):
                 f"[+] Exploiting {len(columns)} columns, this is names of this columns, insert one to show his data")
 
         except IndexError as error:
-            self.sql_output.addItem("plz choose table 📛")
+            # self.sql_output.addItem("plz choose table 📛")
+            msg = self.error
+            msg.setIcon(msg.Warning)
+            msg.setText("Warning")
+            msg.setInformativeText("Plz choose table 📛")
+            msg.setWindowTitle("Error")
+            msg.exec_()
 
     def attack3_tool_1(self):
 
@@ -319,8 +386,14 @@ class MainWindow(QtWidgets.QMainWindow):
             data.insert(0, f"Data in column {column_name}")
             self.sql_output.addItems(data)
         except IndexError as error:
-            print("Plz choose column or table 📛")
-            self.sql_output.addItem("Plz choose column or table 📛")
+            # print("Plz choose column or table 📛")
+            # self.sql_output.addItem("Plz choose column or table 📛")
+            msg = self.error
+            msg.setIcon(msg.Warning)
+            msg.setText("Warning")
+            msg.setInformativeText("Plz choose column or table 📛")
+            msg.setWindowTitle("Error")
+            msg.exec_()
 
     def attack1_tool_2(self):
         ip = self.ip_text.text()
@@ -391,6 +464,7 @@ class MainWindow(QtWidgets.QMainWindow):
         #     msg.setWindowTitle("Error")
         #     msg.exec_()
         pass
+
 
 def main():
     app = QtWidgets.QApplication([])  # Start App
