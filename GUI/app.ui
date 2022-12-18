@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1119</width>
-    <height>675</height>
+    <width>1049</width>
+    <height>676</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -337,7 +337,7 @@ background-color: rgb(0, 0, 0);</string>
              </font>
             </property>
             <property name="currentIndex">
-             <number>0</number>
+             <number>1</number>
             </property>
             <property name="usesScrollButtons">
              <bool>true</bool>
@@ -371,7 +371,7 @@ background-color: rgb(0, 0, 0);</string>
                  <enum>QTabWidget::North</enum>
                 </property>
                 <property name="currentIndex">
-                 <number>4</number>
+                 <number>3</number>
                 </property>
                 <property name="movable">
                  <bool>true</bool>
@@ -998,7 +998,7 @@ padding: 6px;</string>
               <item row="0" column="0">
                <widget class="QTabWidget" name="tabWidget">
                 <property name="currentIndex">
-                 <number>2</number>
+                 <number>3</number>
                 </property>
                 <property name="iconSize">
                  <size>
@@ -1582,6 +1582,78 @@ padding: 6px;</string>
                   </item>
                  </layout>
                 </widget>
+                <widget class="QWidget" name="tab_5">
+                 <attribute name="title">
+                  <string>Rat</string>
+                 </attribute>
+                 <layout class="QGridLayout" name="gridLayout_15">
+                  <item row="0" column="0">
+                   <widget class="QPushButton" name="prepare_output">
+                    <property name="styleSheet">
+                     <string notr="true">background-color: rgb(56, 102, 65);
+border-style: outset;
+border-width: 2px;
+border-radius: 10px;
+border-color: rgb(56, 102, 65);
+font: bold 14px;
+min-width: 10em;
+padding: 6px;
+color: white;</string>
+                    </property>
+                    <property name="text">
+                     <string>Prepare</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="0">
+                   <widget class="QListWidget" name="prepare_outputs">
+                    <property name="maximumSize">
+                     <size>
+                      <width>500</width>
+                      <height>250</height>
+                     </size>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">background-color: black;
+color:white;
+background-attachment: scroll;
+border-width: 2px;
+border-radius: 10px;
+font: bold 16px;
+min-width: 10em;
+padding: 6px;</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="2" column="0">
+                   <widget class="QPushButton" name="listen_btn">
+                    <property name="styleSheet">
+                     <string notr="true">background-color: rgb(56, 102, 65);
+border-style: outset;
+border-width: 2px;
+border-radius: 10px;
+border-color: rgb(56, 102, 65);
+font: bold 14px;
+min-width: 10em;
+padding: 6px;
+color: white;</string>
+                    </property>
+                    <property name="text">
+                     <string>Listen</string>
+                    </property>
+                    <property name="autoDefault">
+                     <bool>false</bool>
+                    </property>
+                    <property name="default">
+                     <bool>false</bool>
+                    </property>
+                    <property name="flat">
+                     <bool>false</bool>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
                </widget>
               </item>
              </layout>
@@ -1611,7 +1683,7 @@ padding: 6px;</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1119</width>
+     <width>1049</width>
      <height>33</height>
     </rect>
    </property>

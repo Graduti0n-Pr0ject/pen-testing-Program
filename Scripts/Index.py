@@ -13,6 +13,7 @@ import UnionScripts
 import Error_based_attack
 import MIMA as ta2
 import LFI as ta3
+import Converter as ta4
 
 
 class MainWindow(QtWidgets.QMainWindow):
@@ -92,6 +93,11 @@ class MainWindow(QtWidgets.QMainWindow):
         self.payload_founded: QtWidgets.QListWidget = None
         self.error_apply: QtWidgets.QMessageBox = None
 
+        # Fourth Tool in Attacks
+        self.prepare_btn: QtWidgets.QPushButton = None
+        self.prepare_outputs: QtWidgets.QListWidget = None
+        self.listen_btn: QtWidgets.QListWidget = None
+
         # **************************End Attacks************************************
         self.init_ui()
 
@@ -168,6 +174,13 @@ class MainWindow(QtWidgets.QMainWindow):
         self.tests_outputs = self.findChild(QtWidgets.QListWidget, "payload_tests")
         self.payload_founded = self.findChild(QtWidgets.QListWidget, "found_payload")
         self.error_apply = QtWidgets.QMessageBox()
+
+        # Tab of attack Tool 4
+        self.prepare_btn = self.findChild(QtWidgets.QPushButton, "prepare_output")
+        self.prepare_btn.clicked.connect(self.attack1_tool_4)
+        self.prepare_outputs = self.findChild(QtWidgets.QListWidget, "prepare_outputs")
+        self.listen_btn = self.findChild(QtWidgets.QPushButton, "listen_btn")
+        self.listen_btn.clicked.connect(self.attack2_tool_4)
         self.show()  # GUI window
 
     def recon_tool_1(self):
@@ -463,6 +476,23 @@ class MainWindow(QtWidgets.QMainWindow):
         #     msg.setInformativeText("Enter Valid URL")
         #     msg.setWindowTitle("Error")
         #     msg.exec_()
+        pass
+
+    def attack1_tool_4(self):
+        torjan_output = self.prepare_outputs
+        try:
+            result = ta4.main()
+            torjan_output.addItem(torjan_output)
+
+        except:
+            msg = self.error_apply
+            msg.setIcon(msg.Warning)
+            msg.setText("Warning")
+            msg.setInformativeText("error Happened")
+            msg.setWindowTitle("Error")
+            msg.exec_()
+
+    def attack2_tool_4(self):
         pass
 
 
