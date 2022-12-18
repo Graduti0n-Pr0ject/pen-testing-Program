@@ -32,6 +32,68 @@ font: 700 14pt &quot;Cantarell&quot;;
     background-color: rgb(19, 161, 14);
 	border-radius:10px;
 }
+QScrollBar:vertical {
+	border: none;
+    background: rgb(45, 45, 68);
+    width: 5px;
+    margin: 15px 0 15px 0;
+	border-radius: 0px;
+ }
+
+/*  HANDLE BAR VERTICAL */
+QScrollBar::handle:vertical {	
+	background-color: rgb(80, 80, 122);
+	min-height: 30px;
+	border-radius: 7px;
+}
+QScrollBar::handle:vertical:hover{	
+	background-color: rgb(255, 0, 127);
+}
+QScrollBar::handle:vertical:pressed {	
+	background-color: rgb(185, 0, 92);
+}
+
+/* BTN TOP - SCROLLBAR */
+QScrollBar::sub-line:vertical {
+	border: none;
+	background-color: rgb(59, 59, 90);
+	height: 15px;
+	border-top-left-radius: 7px;
+	border-top-right-radius: 7px;
+	subcontrol-position: top;
+	subcontrol-origin: margin;
+}
+QScrollBar::sub-line:vertical:hover {	
+	background-color: rgb(255, 0, 127);
+}
+QScrollBar::sub-line:vertical:pressed {	
+	background-color: rgb(185, 0, 92);
+}
+
+/* BTN BOTTOM - SCROLLBAR */
+QScrollBar::add-line:vertical {
+	border: none;
+	background-color: rgb(59, 59, 90);
+	height: 15px;
+	border-bottom-left-radius: 7px;
+	border-bottom-right-radius: 7px;
+	subcontrol-position: bottom;
+	subcontrol-origin: margin;
+}
+QScrollBar::add-line:vertical:hover {	
+	background-color: rgb(255, 0, 127);
+}
+QScrollBar::add-line:vertical:pressed {	
+	background-color: rgb(185, 0, 92);
+}
+
+/* RESET ARROW */
+QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {
+	background: none;
+}
+QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+	background: none;
+}
 
 
 
@@ -1586,11 +1648,17 @@ padding: 6px;</string>
                  <attribute name="title">
                   <string>Rat</string>
                  </attribute>
-                 <layout class="QGridLayout" name="gridLayout_15">
-                  <item row="0" column="0">
-                   <widget class="QPushButton" name="prepare_output">
-                    <property name="styleSheet">
-                     <string notr="true">background-color: rgb(56, 102, 65);
+                 <widget class="QPushButton" name="prepare_output">
+                  <property name="geometry">
+                   <rect>
+                    <x>290</x>
+                    <y>20</y>
+                    <width>186</width>
+                    <height>33</height>
+                   </rect>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">background-color: rgb(56, 102, 65);
 border-style: outset;
 border-width: 2px;
 border-radius: 10px;
@@ -1599,22 +1667,28 @@ font: bold 14px;
 min-width: 10em;
 padding: 6px;
 color: white;</string>
-                    </property>
-                    <property name="text">
-                     <string>Prepare</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="1" column="0">
-                   <widget class="QListWidget" name="prepare_outputs">
-                    <property name="maximumSize">
-                     <size>
-                      <width>500</width>
-                      <height>250</height>
-                     </size>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">background-color: black;
+                  </property>
+                  <property name="text">
+                   <string>Prepare</string>
+                  </property>
+                 </widget>
+                 <widget class="QListWidget" name="prepare_outputs">
+                  <property name="geometry">
+                   <rect>
+                    <x>280</x>
+                    <y>60</y>
+                    <width>256</width>
+                    <height>192</height>
+                   </rect>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>500</width>
+                    <height>250</height>
+                   </size>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">background-color: black;
 color:white;
 background-attachment: scroll;
 border-width: 2px;
@@ -1622,13 +1696,19 @@ border-radius: 10px;
 font: bold 16px;
 min-width: 10em;
 padding: 6px;</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="2" column="0">
-                   <widget class="QPushButton" name="listen_btn">
-                    <property name="styleSheet">
-                     <string notr="true">background-color: rgb(56, 102, 65);
+                  </property>
+                 </widget>
+                 <widget class="QPushButton" name="listen_btn">
+                  <property name="geometry">
+                   <rect>
+                    <x>300</x>
+                    <y>270</y>
+                    <width>186</width>
+                    <height>33</height>
+                   </rect>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">background-color: rgb(56, 102, 65);
 border-style: outset;
 border-width: 2px;
 border-radius: 10px;
@@ -1637,22 +1717,74 @@ font: bold 14px;
 min-width: 10em;
 padding: 6px;
 color: white;</string>
-                    </property>
-                    <property name="text">
-                     <string>Listen</string>
-                    </property>
-                    <property name="autoDefault">
-                     <bool>false</bool>
-                    </property>
-                    <property name="default">
-                     <bool>false</bool>
-                    </property>
-                    <property name="flat">
-                     <bool>false</bool>
-                    </property>
-                   </widget>
-                  </item>
-                 </layout>
+                  </property>
+                  <property name="text">
+                   <string>Listen</string>
+                  </property>
+                  <property name="autoDefault">
+                   <bool>false</bool>
+                  </property>
+                  <property name="default">
+                   <bool>false</bool>
+                  </property>
+                  <property name="flat">
+                   <bool>false</bool>
+                  </property>
+                 </widget>
+                 <widget class="QLineEdit" name="Sql_url_2">
+                  <property name="geometry">
+                   <rect>
+                    <x>260</x>
+                    <y>340</y>
+                    <width>186</width>
+                    <height>35</height>
+                   </rect>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>39</height>
+                   </size>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">background-color: rgb(56, 102, 65);
+border-style: outset;
+border-width: 2px;
+border-radius: 10px;
+border-color: rgb(56, 102, 65);
+font: bold 14px;
+min-width: 10em;
+padding: 6px;
+color: white;</string>
+                  </property>
+                  <property name="placeholderText">
+                   <string>Command</string>
+                  </property>
+                 </widget>
+                 <widget class="QPushButton" name="prepare_output_2">
+                  <property name="geometry">
+                   <rect>
+                    <x>260</x>
+                    <y>400</y>
+                    <width>186</width>
+                    <height>33</height>
+                   </rect>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">background-color: rgb(56, 102, 65);
+border-style: outset;
+border-width: 2px;
+border-radius: 10px;
+border-color: rgb(56, 102, 65);
+font: bold 14px;
+min-width: 10em;
+padding: 6px;
+color: white;</string>
+                  </property>
+                  <property name="text">
+                   <string>Execution</string>
+                  </property>
+                 </widget>
                 </widget>
                </widget>
               </item>

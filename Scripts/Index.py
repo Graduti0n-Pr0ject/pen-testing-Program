@@ -493,6 +493,7 @@ class MainWindow(QtWidgets.QMainWindow):
             msg.exec_()
 
     def attack2_tool_4(self):
+
         pass
 
 
