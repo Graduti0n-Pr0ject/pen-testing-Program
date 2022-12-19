@@ -585,7 +585,7 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def attack2_tool_4(self):
         self.prepare_outputs.addItem("[+] Waiting for incoming connection ...")
-        # taa4.attack_start()
+        taa4.attack_start()
         pass
 
     def attack3_tool_4(self):
