@@ -36,7 +36,7 @@ QScrollBar:vertical {
 	border: none;
     background: rgb(45, 45, 68);
     width: 5px;
-    margin: 15px 0 15px 0;
+    margin: 4px 0 4px 0;
 	border-radius: 0px;
  }
 
@@ -399,7 +399,7 @@ background-color: rgb(0, 0, 0);</string>
              </font>
             </property>
             <property name="currentIndex">
-             <number>1</number>
+             <number>0</number>
             </property>
             <property name="usesScrollButtons">
              <bool>true</bool>
@@ -421,7 +421,7 @@ background-color: rgb(0, 0, 0);</string>
               <string>Recon</string>
              </attribute>
              <layout class="QGridLayout" name="gridLayout_2">
-              <item row="0" column="1">
+              <item row="0" column="0">
                <widget class="QTabWidget" name="ReconTabs">
                 <property name="layoutDirection">
                  <enum>Qt::LeftToRight</enum>
@@ -433,69 +433,77 @@ background-color: rgb(0, 0, 0);</string>
                  <enum>QTabWidget::North</enum>
                 </property>
                 <property name="currentIndex">
-                 <number>3</number>
+                 <number>0</number>
                 </property>
                 <property name="movable">
                  <bool>true</bool>
                 </property>
-                <widget class="QWidget" name="JStab">
-                 <attribute name="icon">
-                  <iconset>
-                   <normaloff>:/icons/js.png</normaloff>:/icons/js.png</iconset>
-                 </attribute>
+                <widget class="QWidget" name="tab_2">
                  <attribute name="title">
-                  <string>JS</string>
+                  <string>Domainer</string>
                  </attribute>
-                 <layout class="QGridLayout" name="gridLayout_4">
-                  <item row="2" column="0">
-                   <widget class="QListWidget" name="listWidget">
-                    <property name="styleSheet">
-                     <string notr="true">background-color: black;
-color:white;
-background-attachment: scroll;
-border-width: 2px;
-border-radius: 10px;
-font: bold 14px;
-min-width: 10em;
-padding: 6px;</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="0" column="0">
-                   <widget class="QLineEdit" name="lineEdit">
+                 <layout class="QGridLayout" name="gridLayout_14">
+                  <item row="0" column="0" colspan="2">
+                   <widget class="QLineEdit" name="domain">
                     <property name="styleSheet">
                      <string notr="true">background-color: rgb(56, 102, 65);
 border-style: outset;
 border-width: 2px;
 border-radius: 10px;
-border-color:rgb(57, 62, 70) ;
+border-color: rgb(56, 102, 65);
 font: bold 14px;
 min-width: 10em;
 padding: 6px;
-color:white;</string>
-                    </property>
-                    <property name="inputMask">
-                     <string/>
-                    </property>
-                    <property name="text">
-                     <string/>
-                    </property>
-                    <property name="maxLength">
-                     <number>32767</number>
+color: white;</string>
                     </property>
                     <property name="placeholderText">
-                     <string>Enter URL</string>
+                     <string>Enter Domain</string>
                     </property>
                    </widget>
                   </item>
                   <item row="1" column="0">
-                   <widget class="QPushButton" name="Searchbtn">
-                    <property name="cursor">
-                     <cursorShape>PointingHandCursor</cursorShape>
+                   <widget class="QComboBox" name="file_size">
+                    <property name="styleSheet">
+                     <string notr="true">color:white;
+</string>
                     </property>
-                    <property name="toolTip">
-                     <string/>
+                    <item>
+                     <property name="text">
+                      <string>small</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>medium</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>ultra medium</string>
+                     </property>
+                    </item>
+                   </widget>
+                  </item>
+                  <item row="1" column="1">
+                   <widget class="QComboBox" name="target">
+                    <property name="styleSheet">
+                     <string notr="true">color:white;
+</string>
                     </property>
+                    <item>
+                     <property name="text">
+                      <string>Single</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>List</string>
+                     </property>
+                    </item>
+                   </widget>
+                  </item>
+                  <item row="2" column="0" colspan="2">
+                   <widget class="QPushButton" name="DStart">
                     <property name="styleSheet">
                      <string notr="true">background-color: rgb(56, 102, 65);
 border-style: outset;
@@ -508,16 +516,92 @@ padding: 6px;
 color:white;</string>
                     </property>
                     <property name="text">
-                     <string>Search</string>
+                     <string>Start</string>
                     </property>
-                    <property name="autoDefault">
-                     <bool>false</bool>
+                   </widget>
+                  </item>
+                  <item row="3" column="0" colspan="2">
+                   <widget class="QListWidget" name="subdomains_output">
+                    <property name="styleSheet">
+                     <string notr="true">background-color: black;
+color:white;
+border-width: 2px;
+border-radius: 10px;
+font: bold 16px;
+min-width: 10em;
+padding: 6px;</string>
                     </property>
-                    <property name="default">
-                     <bool>false</bool>
+                    <property name="verticalScrollBarPolicy">
+                     <enum>Qt::ScrollBarAlwaysOff</enum>
                     </property>
-                    <property name="flat">
-                     <bool>false</bool>
+                    <property name="horizontalScrollBarPolicy">
+                     <enum>Qt::ScrollBarAlwaysOff</enum>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+                <widget class="QWidget" name="Portscantab">
+                 <attribute name="icon">
+                  <iconset>
+                   <normaloff>:/icons/port.png</normaloff>:/icons/port.png</iconset>
+                 </attribute>
+                 <attribute name="title">
+                  <string>Port Scan</string>
+                 </attribute>
+                 <layout class="QVBoxLayout" name="verticalLayout_4">
+                  <item>
+                   <widget class="QLineEdit" name="lineEdit_2">
+                    <property name="styleSheet">
+                     <string notr="true">background-color: rgb(56, 102, 65);
+border-style: outset;
+border-width: 2px;
+border-radius: 10px;
+border-color: rgb(56, 102, 65);
+font: bold 14px;
+min-width: 10em;
+padding: 6px;
+color: white;</string>
+                    </property>
+                    <property name="placeholderText">
+                     <string>Enter URL</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="searchportbtn">
+                    <property name="styleSheet">
+                     <string notr="true">background-color: rgb(56, 102, 65);
+border-style: outset;
+border-width: 2px;
+border-radius: 10px;
+border-color: rgb(56, 102, 65);
+font: bold 14px;
+min-width: 10em;
+padding: 6px;
+color: white;</string>
+                    </property>
+                    <property name="text">
+                     <string>Search Port</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QListWidget" name="listWidget_3">
+                    <property name="styleSheet">
+                     <string notr="true">background-color: black;
+color:white;
+border-width: 2px;
+border-radius: 10px;
+font: bold 14px;
+min-width: 10em;
+padding: 6px;</string>
+                    </property>
+                    <property name="verticalScrollBarPolicy">
+                     <enum>Qt::ScrollBarAlwaysOff</enum>
+                    </property>
+                    <property name="horizontalScrollBarPolicy">
+                     <enum>Qt::ScrollBarAlwaysOff</enum>
                     </property>
                    </widget>
                   </item>
@@ -621,64 +705,33 @@ color:white;</string>
                     <property name="styleSheet">
                      <string notr="true">background-color: black;
 color:white;
-background-attachment: scroll;
 border-width: 2px;
 border-radius: 10px;
 font: bold 14px;
 min-width: 10em;
 padding: 6px;</string>
                     </property>
+                    <property name="verticalScrollBarPolicy">
+                     <enum>Qt::ScrollBarAlwaysOff</enum>
+                    </property>
+                    <property name="horizontalScrollBarPolicy">
+                     <enum>Qt::ScrollBarAlwaysOff</enum>
+                    </property>
                    </widget>
                   </item>
                  </layout>
                 </widget>
-                <widget class="QWidget" name="Portscantab">
+                <widget class="QWidget" name="JStab">
                  <attribute name="icon">
                   <iconset>
-                   <normaloff>:/icons/port.png</normaloff>:/icons/port.png</iconset>
+                   <normaloff>:/icons/js.png</normaloff>:/icons/js.png</iconset>
                  </attribute>
                  <attribute name="title">
-                  <string>Port Scan</string>
+                  <string>JS</string>
                  </attribute>
-                 <layout class="QVBoxLayout" name="verticalLayout_4">
-                  <item>
-                   <widget class="QLineEdit" name="lineEdit_2">
-                    <property name="styleSheet">
-                     <string notr="true">background-color: rgb(56, 102, 65);
-border-style: outset;
-border-width: 2px;
-border-radius: 10px;
-border-color: rgb(56, 102, 65);
-font: bold 14px;
-min-width: 10em;
-padding: 6px;
-color: white;</string>
-                    </property>
-                    <property name="placeholderText">
-                     <string>Enter URL</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QPushButton" name="searchportbtn">
-                    <property name="styleSheet">
-                     <string notr="true">background-color: rgb(56, 102, 65);
-border-style: outset;
-border-width: 2px;
-border-radius: 10px;
-border-color: rgb(56, 102, 65);
-font: bold 14px;
-min-width: 10em;
-padding: 6px;
-color: white;</string>
-                    </property>
-                    <property name="text">
-                     <string>Search Port</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QListWidget" name="listWidget_3">
+                 <layout class="QGridLayout" name="gridLayout_4">
+                  <item row="2" column="0">
+                   <widget class="QListWidget" name="listWidget">
                     <property name="styleSheet">
                      <string notr="true">background-color: black;
 color:white;
@@ -688,6 +741,72 @@ border-radius: 10px;
 font: bold 14px;
 min-width: 10em;
 padding: 6px;</string>
+                    </property>
+                    <property name="verticalScrollBarPolicy">
+                     <enum>Qt::ScrollBarAlwaysOff</enum>
+                    </property>
+                    <property name="horizontalScrollBarPolicy">
+                     <enum>Qt::ScrollBarAlwaysOff</enum>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="0">
+                   <widget class="QLineEdit" name="lineEdit">
+                    <property name="styleSheet">
+                     <string notr="true">background-color: rgb(56, 102, 65);
+border-style: outset;
+border-width: 2px;
+border-radius: 10px;
+border-color:rgb(57, 62, 70) ;
+font: bold 14px;
+min-width: 10em;
+padding: 6px;
+color:white;</string>
+                    </property>
+                    <property name="inputMask">
+                     <string/>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="maxLength">
+                     <number>32767</number>
+                    </property>
+                    <property name="placeholderText">
+                     <string>Enter URL</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="0">
+                   <widget class="QPushButton" name="Searchbtn">
+                    <property name="cursor">
+                     <cursorShape>PointingHandCursor</cursorShape>
+                    </property>
+                    <property name="toolTip">
+                     <string/>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">background-color: rgb(56, 102, 65);
+border-style: outset;
+border-width: 2px;
+border-radius: 10px;
+border-color: rgb(56, 102, 65);
+font: bold 14px;
+min-width: 10em;
+padding: 6px;
+color:white;</string>
+                    </property>
+                    <property name="text">
+                     <string>Search</string>
+                    </property>
+                    <property name="autoDefault">
+                     <bool>false</bool>
+                    </property>
+                    <property name="default">
+                     <bool>false</bool>
+                    </property>
+                    <property name="flat">
+                     <bool>false</bool>
                     </property>
                    </widget>
                   </item>
@@ -846,9 +965,18 @@ color: white;</string>
                    </widget>
                   </item>
                   <item>
-                   <widget class="QPushButton" name="execute">
-                    <property name="styleSheet">
-                     <string notr="true">background-color: rgb(56, 102, 65);
+                   <widget class="QFrame" name="frame_8">
+                    <property name="frameShape">
+                     <enum>QFrame::StyledPanel</enum>
+                    </property>
+                    <property name="frameShadow">
+                     <enum>QFrame::Raised</enum>
+                    </property>
+                    <layout class="QHBoxLayout" name="horizontalLayout_4">
+                     <item>
+                      <widget class="QPushButton" name="enbtn">
+                       <property name="styleSheet">
+                        <string notr="true">background-color: rgb(56, 102, 65);
 border-style: outset;
 border-width: 2px;
 border-radius: 10px;
@@ -857,10 +985,31 @@ font: bold 14px;
 min-width: 10em;
 padding: 6px;
 color: white;</string>
-                    </property>
-                    <property name="text">
-                     <string>Let's do ait</string>
-                    </property>
+                       </property>
+                       <property name="text">
+                        <string>Encode</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QPushButton" name="debtn">
+                       <property name="styleSheet">
+                        <string notr="true">background-color: rgb(56, 102, 65);
+border-style: outset;
+border-width: 2px;
+border-radius: 10px;
+border-color: rgb(56, 102, 65);
+font: bold 14px;
+min-width: 10em;
+padding: 6px;
+color: white;</string>
+                       </property>
+                       <property name="text">
+                        <string>Decode</string>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
                    </widget>
                   </item>
                   <item>
@@ -898,12 +1047,26 @@ color: white;</string>
                           <property name="styleSheet">
                            <string notr="true">background-color: black;
 color:white;
-background-attachment: scroll;
 border-width: 2px;
 border-radius: 10px;
 font: bold 14px;
 min-width: 10em;
 padding: 6px;</string>
+                          </property>
+                          <property name="verticalScrollBarPolicy">
+                           <enum>Qt::ScrollBarAlwaysOff</enum>
+                          </property>
+                          <property name="horizontalScrollBarPolicy">
+                           <enum>Qt::ScrollBarAlwaysOff</enum>
+                          </property>
+                          <property name="autoScroll">
+                           <bool>true</bool>
+                          </property>
+                          <property name="autoScrollMargin">
+                           <number>0</number>
+                          </property>
+                          <property name="verticalScrollMode">
+                           <enum>QAbstractItemView::ScrollPerItem</enum>
                           </property>
                          </widget>
                         </item>
@@ -933,12 +1096,17 @@ padding: 6px;</string>
                           <property name="styleSheet">
                            <string notr="true">background-color: black;
 color:white;
-background-attachment: scroll;
 border-width: 2px;
 border-radius: 10px;
 font: bold 14px;
 min-width: 10em;
 padding: 6px;</string>
+                          </property>
+                          <property name="verticalScrollBarPolicy">
+                           <enum>Qt::ScrollBarAlwaysOff</enum>
+                          </property>
+                          <property name="horizontalScrollBarPolicy">
+                           <enum>Qt::ScrollBarAlwaysOff</enum>
                           </property>
                          </widget>
                         </item>
@@ -946,104 +1114,6 @@ padding: 6px;</string>
                       </widget>
                      </item>
                     </layout>
-                   </widget>
-                  </item>
-                 </layout>
-                </widget>
-                <widget class="QWidget" name="tab_2">
-                 <attribute name="title">
-                  <string>Domainer</string>
-                 </attribute>
-                 <layout class="QGridLayout" name="gridLayout_14">
-                  <item row="0" column="0" colspan="2">
-                   <widget class="QLineEdit" name="domain">
-                    <property name="styleSheet">
-                     <string notr="true">background-color: rgb(56, 102, 65);
-border-style: outset;
-border-width: 2px;
-border-radius: 10px;
-border-color: rgb(56, 102, 65);
-font: bold 14px;
-min-width: 10em;
-padding: 6px;
-color: white;</string>
-                    </property>
-                    <property name="placeholderText">
-                     <string>Enter Domain</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="1" column="0">
-                   <widget class="QComboBox" name="file_size">
-                    <property name="styleSheet">
-                     <string notr="true">color:white;
-</string>
-                    </property>
-                    <item>
-                     <property name="text">
-                      <string>small</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>medium</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>ultra medium</string>
-                     </property>
-                    </item>
-                   </widget>
-                  </item>
-                  <item row="1" column="1">
-                   <widget class="QComboBox" name="target">
-                    <property name="styleSheet">
-                     <string notr="true">color:white;
-</string>
-                    </property>
-                    <item>
-                     <property name="text">
-                      <string>Single</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>List</string>
-                     </property>
-                    </item>
-                   </widget>
-                  </item>
-                  <item row="2" column="0" colspan="2">
-                   <widget class="QPushButton" name="DStart">
-                    <property name="styleSheet">
-                     <string notr="true">background-color: rgb(56, 102, 65);
-border-style: outset;
-border-width: 2px;
-border-radius: 10px;
-border-color: rgb(56, 102, 65);
-font: bold 14px;
-min-width: 10em;
-padding: 6px;
-color:white;</string>
-                    </property>
-                    <property name="text">
-                     <string>Start</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="3" column="0" colspan="2">
-                   <widget class="QListWidget" name="subdomains_output">
-                    <property name="styleSheet">
-                     <string notr="true">background-color: black;
-color:white;
-background-attachment: scroll;
-border-width: 2px;
-border-radius: 10px;
-font: bold 16px;
-min-width: 10em;
-padding: 6px;</string>
-                    </property>
                    </widget>
                   </item>
                  </layout>
@@ -1172,12 +1242,17 @@ color: white;</string>
                           <property name="styleSheet">
                            <string notr="true">background-color: black;
 color:white;
-background-attachment: scroll;
 border-width: 2px;
 border-radius: 10px;
 font: bold 16px;
 min-width: 10em;
 padding: 6px;</string>
+                          </property>
+                          <property name="verticalScrollBarPolicy">
+                           <enum>Qt::ScrollBarAlwaysOff</enum>
+                          </property>
+                          <property name="horizontalScrollBarPolicy">
+                           <enum>Qt::ScrollBarAlwaysOff</enum>
                           </property>
                          </widget>
                         </item>
@@ -1431,6 +1506,12 @@ font: bold 16px;
 min-width: 10em;
 padding: 6px;</string>
                           </property>
+                          <property name="verticalScrollBarPolicy">
+                           <enum>Qt::ScrollBarAlwaysOff</enum>
+                          </property>
+                          <property name="horizontalScrollBarPolicy">
+                           <enum>Qt::ScrollBarAlwaysOff</enum>
+                          </property>
                          </widget>
                         </item>
                        </layout>
@@ -1626,6 +1707,12 @@ font: bold 16px;
 min-width: 10em;
 padding: 6px;</string>
                     </property>
+                    <property name="verticalScrollBarPolicy">
+                     <enum>Qt::ScrollBarAlwaysOff</enum>
+                    </property>
+                    <property name="horizontalScrollBarPolicy">
+                     <enum>Qt::ScrollBarAlwaysOff</enum>
+                    </property>
                    </widget>
                   </item>
                   <item row="2" column="1">
@@ -1640,6 +1727,12 @@ font: bold 16px;
 min-width: 10em;
 padding: 6px;</string>
                     </property>
+                    <property name="verticalScrollBarPolicy">
+                     <enum>Qt::ScrollBarAlwaysOff</enum>
+                    </property>
+                    <property name="horizontalScrollBarPolicy">
+                     <enum>Qt::ScrollBarAlwaysOff</enum>
+                    </property>
                    </widget>
                   </item>
                  </layout>
@@ -1648,17 +1741,20 @@ padding: 6px;</string>
                  <attribute name="title">
                   <string>Rat</string>
                  </attribute>
-                 <widget class="QPushButton" name="prepare_output">
-                  <property name="geometry">
-                   <rect>
-                    <x>290</x>
-                    <y>20</y>
-                    <width>186</width>
-                    <height>33</height>
-                   </rect>
-                  </property>
-                  <property name="styleSheet">
-                   <string notr="true">background-color: rgb(56, 102, 65);
+                 <layout class="QGridLayout" name="gridLayout_15">
+                  <item row="0" column="0">
+                   <widget class="QFrame" name="frame_7">
+                    <property name="frameShape">
+                     <enum>QFrame::StyledPanel</enum>
+                    </property>
+                    <property name="frameShadow">
+                     <enum>QFrame::Raised</enum>
+                    </property>
+                    <layout class="QVBoxLayout" name="verticalLayout_8">
+                     <item>
+                      <widget class="QPushButton" name="prepare_output">
+                       <property name="styleSheet">
+                        <string notr="true">background-color: rgb(56, 102, 65);
 border-style: outset;
 border-width: 2px;
 border-radius: 10px;
@@ -1667,28 +1763,22 @@ font: bold 14px;
 min-width: 10em;
 padding: 6px;
 color: white;</string>
-                  </property>
-                  <property name="text">
-                   <string>Prepare</string>
-                  </property>
-                 </widget>
-                 <widget class="QListWidget" name="prepare_outputs">
-                  <property name="geometry">
-                   <rect>
-                    <x>280</x>
-                    <y>60</y>
-                    <width>256</width>
-                    <height>192</height>
-                   </rect>
-                  </property>
-                  <property name="maximumSize">
-                   <size>
-                    <width>500</width>
-                    <height>250</height>
-                   </size>
-                  </property>
-                  <property name="styleSheet">
-                   <string notr="true">background-color: black;
+                       </property>
+                       <property name="text">
+                        <string>Prepare</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QListWidget" name="prepare_outputs">
+                       <property name="maximumSize">
+                        <size>
+                         <width>1000</width>
+                         <height>250</height>
+                        </size>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">background-color: black;
 color:white;
 background-attachment: scroll;
 border-width: 2px;
@@ -1696,19 +1786,19 @@ border-radius: 10px;
 font: bold 16px;
 min-width: 10em;
 padding: 6px;</string>
-                  </property>
-                 </widget>
-                 <widget class="QPushButton" name="listen_btn">
-                  <property name="geometry">
-                   <rect>
-                    <x>300</x>
-                    <y>270</y>
-                    <width>186</width>
-                    <height>33</height>
-                   </rect>
-                  </property>
-                  <property name="styleSheet">
-                   <string notr="true">background-color: rgb(56, 102, 65);
+                       </property>
+                       <property name="verticalScrollBarPolicy">
+                        <enum>Qt::ScrollBarAlwaysOff</enum>
+                       </property>
+                       <property name="horizontalScrollBarPolicy">
+                        <enum>Qt::ScrollBarAlwaysOff</enum>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QPushButton" name="listen_btn">
+                       <property name="styleSheet">
+                        <string notr="true">background-color: rgb(56, 102, 65);
 border-style: outset;
 border-width: 2px;
 border-radius: 10px;
@@ -1717,37 +1807,31 @@ font: bold 14px;
 min-width: 10em;
 padding: 6px;
 color: white;</string>
-                  </property>
-                  <property name="text">
-                   <string>Listen</string>
-                  </property>
-                  <property name="autoDefault">
-                   <bool>false</bool>
-                  </property>
-                  <property name="default">
-                   <bool>false</bool>
-                  </property>
-                  <property name="flat">
-                   <bool>false</bool>
-                  </property>
-                 </widget>
-                 <widget class="QLineEdit" name="Sql_url_2">
-                  <property name="geometry">
-                   <rect>
-                    <x>260</x>
-                    <y>340</y>
-                    <width>186</width>
-                    <height>35</height>
-                   </rect>
-                  </property>
-                  <property name="maximumSize">
-                   <size>
-                    <width>16777215</width>
-                    <height>39</height>
-                   </size>
-                  </property>
-                  <property name="styleSheet">
-                   <string notr="true">background-color: rgb(56, 102, 65);
+                       </property>
+                       <property name="text">
+                        <string>Listen</string>
+                       </property>
+                       <property name="autoDefault">
+                        <bool>false</bool>
+                       </property>
+                       <property name="default">
+                        <bool>false</bool>
+                       </property>
+                       <property name="flat">
+                        <bool>false</bool>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QLineEdit" name="commd_line">
+                       <property name="maximumSize">
+                        <size>
+                         <width>16777215</width>
+                         <height>39</height>
+                        </size>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">background-color: rgb(56, 102, 65);
 border-style: outset;
 border-width: 2px;
 border-radius: 10px;
@@ -1756,22 +1840,16 @@ font: bold 14px;
 min-width: 10em;
 padding: 6px;
 color: white;</string>
-                  </property>
-                  <property name="placeholderText">
-                   <string>Command</string>
-                  </property>
-                 </widget>
-                 <widget class="QPushButton" name="prepare_output_2">
-                  <property name="geometry">
-                   <rect>
-                    <x>260</x>
-                    <y>400</y>
-                    <width>186</width>
-                    <height>33</height>
-                   </rect>
-                  </property>
-                  <property name="styleSheet">
-                   <string notr="true">background-color: rgb(56, 102, 65);
+                       </property>
+                       <property name="placeholderText">
+                        <string>Command</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QPushButton" name="execute_command">
+                       <property name="styleSheet">
+                        <string notr="true">background-color: rgb(56, 102, 65);
 border-style: outset;
 border-width: 2px;
 border-radius: 10px;
@@ -1780,11 +1858,16 @@ font: bold 14px;
 min-width: 10em;
 padding: 6px;
 color: white;</string>
-                  </property>
-                  <property name="text">
-                   <string>Execution</string>
-                  </property>
-                 </widget>
+                       </property>
+                       <property name="text">
+                        <string>Execution</string>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                 </layout>
                 </widget>
                </widget>
               </item>

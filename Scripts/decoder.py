@@ -49,12 +49,18 @@ class Decode:
 
     @staticmethod
     def base64_decode(String):
-        String += '=' * (len(String) % 4)
-        return base64.b64decode(String).decode()
+        try:
+            String += '=' * (len(String) % 4)
+            return base64.b64decode(String).decode()
+        except:
+            return None
 
     @staticmethod
     def base32_decode(String):
-        return base64.b32decode(String).decode()
+        try:
+            return base64.b32decode(String).decode()
+        except:
+            return None
 
     @staticmethod
     def html_decode(String):

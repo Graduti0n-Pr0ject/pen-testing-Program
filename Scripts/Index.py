@@ -1,3 +1,4 @@
+import binascii
 import re
 import requests
 import logo_rc
@@ -53,7 +54,8 @@ class MainWindow(QtWidgets.QMainWindow):
         self.list_decode: QtWidgets.QComboBox = None
         self.list_encode_output: QtWidgets.QListWidget = None
         self.list_decode_output: QtWidgets.QListWidget = None
-        self.execute_codes: QtWidgets.QPushButton = None
+        self.enbtn: QtWidgets.QPushButton = None
+        self.debtn: QtWidgets.QPushButton = None
         self.error_dialog: QtWidgets.QMessageBox = None
 
         # Fiftieth Tool in Recon
@@ -97,7 +99,8 @@ class MainWindow(QtWidgets.QMainWindow):
         self.prepare_btn: QtWidgets.QPushButton = None
         self.prepare_outputs: QtWidgets.QListWidget = None
         self.listen_btn: QtWidgets.QListWidget = None
-
+        self.command_line: QtWidgets.QLineEdit = None
+        self.execute_command: QtWidgets.QPushButton = None
         # **************************End Attacks************************************
         self.init_ui()
 
@@ -128,8 +131,10 @@ class MainWindow(QtWidgets.QMainWindow):
         self.list_decode = self.findChild(QtWidgets.QComboBox, "combox_decode")
         self.list_encode_output = self.findChild(QtWidgets.QListWidget, "enListView")
         self.list_decode_output = self.findChild(QtWidgets.QListWidget, "deListView")
-        self.execute_codes = self.findChild(QtWidgets.QPushButton, "execute")
-        self.execute_codes.clicked.connect(self.recon_tool_4)
+        self.enbtn = self.findChild(QtWidgets.QPushButton, "enbtn")
+        self.enbtn.clicked.connect(self.recon1_tool_4)
+        self.debtn = self.findChild(QtWidgets.QPushButton, "debtn")
+        self.debtn.clicked.connect(self.recon2_tool_4)
         self.error_dialog = QtWidgets.QMessageBox()
 
         # Tab of Recon Tool 5
@@ -181,6 +186,10 @@ class MainWindow(QtWidgets.QMainWindow):
         self.prepare_outputs = self.findChild(QtWidgets.QListWidget, "prepare_outputs")
         self.listen_btn = self.findChild(QtWidgets.QPushButton, "listen_btn")
         self.listen_btn.clicked.connect(self.attack2_tool_4)
+        self.command_line = self.findChild(QtWidgets.QLineEdit, "commd_line")
+        self.execute_command = self.findChild(QtWidgets.QPushButton, "execute_command")
+        self.execute_command.clicked.connect(self.attack3_tool_4)
+
         self.show()  # GUI window
 
     def recon_tool_1(self):
@@ -258,18 +267,18 @@ class MainWindow(QtWidgets.QMainWindow):
             result = t3.run(domain, t3.scan, 1025)
             self.available_ports.addItems(result)
 
-    def recon_tool_4(self):
+    def recon1_tool_4(self):
         text = self.get_string.text()
         encrypted_text = ""
-        decrypted_text = ""
+        # decrypted_text = ""
         current_encode = self.list_encode.currentIndex()
-        current_decode = self.list_decode.currentIndex()
+        # current_decode = self.list_decode.currentIndex()
         output_encode = self.list_encode_output
-        output_decode = self.list_decode_output
+        # output_decode = self.list_decode_output
         try:
             if not text:
                 raise IOError
-            if current_encode == 0 and current_decode == 0:
+            if current_encode == 0:
                 raise IndexError
 
             match current_encode:
@@ -290,18 +299,18 @@ class MainWindow(QtWidgets.QMainWindow):
                 case 8:
                     encrypted_text = t4.Encode.html_encode(text)
 
-            match current_decode:
-                case 1:
-                    decrypted_text = t4.Decode.url_decode(encrypted_text)
-                case 2:
-                    decrypted_text = t4.Decode.base64_decode(encrypted_text)
-                case 3:
-                    decrypted_text = t4.Decode.base32_decode(encrypted_text)
-                case 4:
-                    decrypted_text = t4.Decode.html_decode(encrypted_text)
+            # match current_decode:
+            #     case 1:
+            #         decrypted_text = t4.Decode.url_decode(encrypted_text)
+            #     case 2:
+            #         decrypted_text = t4.Decode.base64_decode(encrypted_text)
+            #     case 3:
+            #         decrypted_text = t4.Decode.base32_decode(encrypted_text)
+            #     case 4:
+            #         decrypted_text = t4.Decode.html_decode(encrypted_text)
 
             output_encode.addItem(encrypted_text)
-            output_decode.addItem(decrypted_text)
+            # output_decode.addItem(decrypted_text)
         except IOError as error:
             msg = self.error_dialog
             msg.setIcon(msg.Warning)
@@ -313,11 +322,64 @@ class MainWindow(QtWidgets.QMainWindow):
             msg = self.error_dialog
             msg.setIcon(msg.Warning)
             msg.setText("Warning")
-            msg.setInformativeText("Choose encode or decode")
+            msg.setInformativeText("Choose encode method")
             msg.setWindowTitle("Error")
             msg.exec_()
 
         pass
+
+    def recon2_tool_4(self):
+        text = self.get_string.text()
+        decrypted_text = ""
+        current_decode = self.list_decode.currentIndex()
+        output_decode = self.list_decode_output
+        try:
+            if not text:
+                raise IOError
+            if current_decode == 0:
+                raise IndexError
+
+            match current_decode:
+                case 1:
+                    decrypted_text = t4.Decode.url_decode(text)
+                case 2:
+
+                    decrypted_text = t4.Decode.base64_decode(text)
+                    if not decrypted_text:
+                        msg = self.error_dialog
+                        msg.setIcon(msg.Warning)
+                        msg.setText("Warning")
+                        msg.setInformativeText("not base64 encoding")
+                        msg.setWindowTitle("Error")
+                        msg.exec_()
+                case 3:
+                    decrypted_text = t4.Decode.base32_decode(text)
+                    if not decrypted_text:
+                        msg = self.error_dialog
+                        msg.setIcon(msg.Warning)
+                        msg.setText("Warning")
+                        msg.setInformativeText("not base32 encoding")
+                        msg.setWindowTitle("Error")
+                        msg.exec_()
+                case 4:
+                    decrypted_text = t4.Decode.html_decode(text)
+
+            output_decode.addItem(decrypted_text)
+            # output_decode.addItem(decrypted_text)
+        except IOError as error:
+            msg = self.error_dialog
+            msg.setIcon(msg.Warning)
+            msg.setText("Warning")
+            msg.setInformativeText("write something in input filed")
+            msg.setWindowTitle("Error")
+            msg.exec_()
+        except IndexError as ierror:
+            msg = self.error_dialog
+            msg.setIcon(msg.Warning)
+            msg.setText("Warning")
+            msg.setInformativeText("Choose decode method")
+            msg.setWindowTitle("Error")
+            msg.exec_()
 
     def recon_tool_5(self):
         domain = self.domain.text()
@@ -493,6 +555,9 @@ class MainWindow(QtWidgets.QMainWindow):
             msg.exec_()
 
     def attack2_tool_4(self):
+
+        pass
+    def attack3_tool_4(self):
 
         pass
 
