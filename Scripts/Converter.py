@@ -35,7 +35,7 @@ def main():
     # 2- Convert it to exe file
     if platform == "linux" or platform == "linux2":
         Command = "pyinstaller --noconfirm --exclude-module _bootlocale --onefile --windowed \"{}\"".format(workingDire)
-        result = sp.call(Command, shell=True)
+        result = sp.call(Command, shell=True, stdin=sp.DEVNULL)
     else:
         Command = "pyinstaller --noconfirm --onefile --windowed \"{}\"".format(workingDire)
         result = sp.run(["powershell.exe", Command], shell=True, stdin=sp.DEVNULL)

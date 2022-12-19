@@ -33,8 +33,8 @@ def run(ip_num: str, scan_fn, nums_ports: int) -> list:
             # in 100 other threads
         result = []
         for future in futures:
-            r = future.result()   # Wait on each result
-            if r is not None:     # Save only the non-None results
+            r = future.result()  # Wait on each result
+            if r is not None:  # Save only the non-None results
                 result.append(r)
         return result
     except:

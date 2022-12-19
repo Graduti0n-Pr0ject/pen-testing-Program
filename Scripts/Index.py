@@ -15,6 +15,7 @@ import Error_based_attack
 import MIMA as ta2
 import LFI as ta3
 import Converter as ta4
+import attacker as taa4
 
 
 class MainWindow(QtWidgets.QMainWindow):
@@ -572,7 +573,7 @@ class MainWindow(QtWidgets.QMainWindow):
         torjan_output = self.prepare_outputs
         try:
             result = ta4.main()
-            torjan_output.addItem(torjan_output)
+            torjan_output.addItem(result)
 
         except:
             msg = self.error_apply
@@ -583,8 +584,10 @@ class MainWindow(QtWidgets.QMainWindow):
             msg.exec_()
 
     def attack2_tool_4(self):
-
+        self.prepare_outputs.addItem("[+] Waiting for incoming connection ...")
+        # taa4.attack_start()
         pass
+
     def attack3_tool_4(self):
 
         pass
