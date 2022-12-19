@@ -197,10 +197,27 @@ class MainWindow(QtWidgets.QMainWindow):
         url = self.get_url.text()
         check_url = re.match(self.regex_url, url) is not None
         if not url or not check_url:
-            self.output_list.addItem("please Enter valid Url")
+            # self.output_list.addItem("please Enter valid Url")
+            msg = self.error
+            msg.setIcon(msg.Warning)
+            msg.setText("error")
+            msg.setInformativeText("please Enter valid Url")
+            msg.setWindowTitle("Error")
+            msg.exec_()
         else:
-            js_files = t1.fetch_js(url)
-            self.output_list.addItems(js_files)
+            try:
+                js_files = t1.fetch_js(url)
+                if not js_files:
+                    self.output_list.addItem("nothing to output")
+                else:
+                    self.output_list.addItems(js_files)
+            except:
+                msg = self.error
+                msg.setIcon(msg.Warning)
+                msg.setText("error")
+                msg.setInformativeText("this website not responding")
+                msg.setWindowTitle("Error")
+                msg.exec_()
 
     def recon_tool_2(self):
         self.output_word_list.clear()
@@ -252,6 +269,8 @@ class MainWindow(QtWidgets.QMainWindow):
     def recon_tool_3(self):
         self.available_ports.clear()
         url = self.get_url3.text()
+        if url.endswith(r'/'):
+            url = url[:-1]
         check_url = re.match(self.regex_url, url) is not None
         domain = url[url.rfind('/') + 1:]
         print(check_url)
@@ -265,7 +284,15 @@ class MainWindow(QtWidgets.QMainWindow):
             msg.exec_()
         else:
             result = t3.run(domain, t3.scan, 1025)
-            self.available_ports.addItems(result)
+            if not result:
+                msg = self.error
+                msg.setIcon(msg.Warning)
+                msg.setText("error")
+                msg.setInformativeText("Invaild URL")
+                msg.setWindowTitle("Error")
+                msg.exec_()
+            else:
+                self.available_ports.addItems(result)
 
     def recon1_tool_4(self):
         text = self.get_string.text()
