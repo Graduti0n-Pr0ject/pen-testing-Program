@@ -12,25 +12,25 @@ def brute_force(Url, v, name):
     else:
         urls = open(fr"Results_{Url.replace(':', '')}\urls_{name}.txt", 'a')
     try:
-        url_subdomain = (Url+v).strip()
+        url_subdomain = (Url + v).strip()
         req = requests.get(url_subdomain)
         if req.status_code == 200:
             print("200 ok :" + url_subdomain)
             urls.write(url_subdomain + "\n")
             urls.close()
         else:
-            print(f"{req.status_code}  {Url}")
+            print(f"{req.status_code}  {url_subdomain}")
     except:
         pass
 
 
 def check_brute_force(type_brute_force: list, Url: str, name):
     os.makedirs(fr"Results_{Url.replace(':', '')}", exist_ok=True)
-    # with concurrent.futures.ThreadPoolExecutor(max_workers=50) as executor:
-    for i, v in enumerate(type_brute_force):
-        brute_force(Url,  v, name)
-        if i == 100:
-            break
+    with concurrent.futures.ThreadPoolExecutor(max_workers=25) as executor:
+        for i, v in enumerate(type_brute_force):
+            executor.submit(brute_force, Url, v, name)
+            if i == 200:
+                break
 
 
 def choose_list(n: int) -> list:
@@ -76,7 +76,7 @@ def proccess():
             5-HTML files wordlist
             6-XML files wordlist
             7-Self wordlist
-        
+
          """)  # Combo box
     num = input("Enter :")
     print(num)

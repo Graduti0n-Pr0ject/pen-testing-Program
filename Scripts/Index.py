@@ -222,6 +222,7 @@ class MainWindow(QtWidgets.QMainWindow):
     def recon_tool_2(self):
         self.output_word_list.clear()
         url1 = self.get_url2.text()
+        new_url = url1
         check_url = re.match(self.regex_url, url1) is not None
         print(check_url)
         current_index = self.word_list.currentIndex()
@@ -245,26 +246,26 @@ class MainWindow(QtWidgets.QMainWindow):
             msg.exec_()
             print("goes second")
         else:
-
-            new_url = url1 + '/'
+            if not url1.endswith('/'):
+                new_url = url1 + '/'
             print(new_url)
             word_type, name = t2.choose_list(current_index)
             t2.check_brute_force(word_type, new_url, name)
             success_sub_domains = [current_item]
-        if platform == "linux" or platform == "linux2":
-            with open(rf"Results_{new_url.replace(':', '')}/urls_{name}.txt", "r") as u:
-                success_sub_domains += u.readlines()
-            if len(success_sub_domains) == 1:
-                self.output_word_list.addItem(f"Nothing found for {success_sub_domains[0]} choose another one ")
+            if platform == "linux" or platform == "linux2":
+                with open(rf"Results_{new_url.replace(':', '')}/urls_{name}.txt", "r") as u:
+                    success_sub_domains += u.readlines()
+                if len(success_sub_domains) == 1:
+                    self.output_word_list.addItem(f"Nothing found for {success_sub_domains[0]} choose another one ")
+                else:
+                    self.output_word_list.addItems(success_sub_domains)
             else:
-                self.output_word_list.addItems(success_sub_domains)
-        else:
-            with open(rf"Results_{new_url.replace(':', '')}\urls_{name}.txt", "r") as u:
-                success_sub_domains += u.readlines()
-            if len(success_sub_domains) == 1:
-                self.output_word_list.addItem(f"Nothing found for {success_sub_domains[0]} choose another one ")
-            else:
-                self.output_word_list.addItems(success_sub_domains)
+                with open(rf"Results_{new_url.replace(':', '')}\urls_{name}.txt", "r") as u:
+                    success_sub_domains += u.readlines()
+                if len(success_sub_domains) == 1:
+                    self.output_word_list.addItem(f"Nothing found for {success_sub_domains[0]} choose another one ")
+                else:
+                    self.output_word_list.addItems(success_sub_domains)
 
     def recon_tool_3(self):
         self.available_ports.clear()
