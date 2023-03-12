@@ -1,0 +1,18 @@
+<RCC>
+  <qresource prefix="icons">
+    <file>sqli.png</file>
+    <file>cryptography.png</file>
+    <file>directory.png</file>
+    <file>fire.png</file>
+    <file>firewall.png</file>
+    <file>hacker (2).png</file>
+    <file>js.png</file>
+    <file>news-report.png</file>
+    <file>official logo.png</file>
+    <file>port.png</file>
+    <file>recon.png</file>
+    <file>recon 2.png</file>
+    <file>search.png</file>
+    <file>sqli.png</file>
+  </qresource>
+</RCC>

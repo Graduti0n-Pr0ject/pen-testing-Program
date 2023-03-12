@@ -1,0 +1,2 @@
+in this folder we have all patterns of errors that happens 
+in DBs, we use this to identify the DBMS that we are dealing with 
