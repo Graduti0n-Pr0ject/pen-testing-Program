@@ -4,11 +4,75 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0468a429-7d6c-4c94-8bf0-d524c8bc27ea" name="Changes" comment="" />
+    <list default="true" id="0468a429-7d6c-4c94-8bf0-d524c8bc27ea" name="Changes" comment="come back">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Icons/cryptography.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Icons/directory.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Icons/fire.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Icons/firewall.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Icons/github.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Icons/hacker (2).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Icons/icons.qrc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Icons/js.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Icons/news-report.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Icons/official logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Icons/port.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Icons/recon 2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Icons/recon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Icons/search.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Icons/sqli.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/.xdp-app.ui.GlyjeV-7Nv2D2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/.xdp-app.ui.iSyxpW-YcTwtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/.xdp-app.ui.suhVeM-2FOnwj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/.xdp-app.ui.swslfK-ticB3I" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/app.ui" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/Converter.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/Dirctories.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/Error-regexs/Error-based-payloads.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/Error-regexs/MsSQL_Error.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/Error-regexs/MySQL_Error.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/Error-regexs/Oracle_Error.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/Error-regexs/PostgreSQL_Error.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/Error-regexs/Read me.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/Error_based_attack.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/HTML.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/Index.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/JS.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/LFI.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/LFI_fies/extensions.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/LFI_fies/payloads.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/MIMA.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/PHP.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/PortScanning.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/UnionScripts.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/Union_based_attack.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/Victim.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/XML.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/asp.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/decoder.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/dir2.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/directory.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/domainer.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/domainer_files/list.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/domainer_files/meduim.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/domainer_files/small.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/js.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/list.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/logo_rc.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/main.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/activate_icons.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2MgtIlZ1WCESnMtHLzg0GcYbf0M" />
   <component name="ProjectLevelVcsManager">
@@ -63,9 +127,21 @@
       <option name="presentableId" value="Default" />
       <updated>1678535824125</updated>
     </task>
+    <task id="LOCAL-00001" summary="come back">
+      <created>1678645996494</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1678645996494</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="UnknownFeatures">
     <option featureType="com.intellij.fileTypeFactory" implementationName="requirements.txt" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="come back" />
+    <option name="LAST_COMMIT_MESSAGE" value="come back" />
   </component>
 </project>
