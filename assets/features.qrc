@@ -1,0 +1,6 @@
+<RCC>
+  <qresource prefix="~">
+    <file>hacker.png</file>
+    <file>pentesting.png</file>
+  </qresource>
+</RCC>
