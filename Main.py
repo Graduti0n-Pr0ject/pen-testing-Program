@@ -44,13 +44,16 @@ class MainWindow(QMainWindow):
             QMessageBox.warning(self, 'Warning', 'Choose Option')
 
     def back_home(self):
-        stack_widget: QStackedWidget = self.stackedWidget
-        stack_widget.setCurrentIndex(0)
-        self.widget.hide()
         waf_widget: QtWidgets.QRadioButton = self.WafRadio
         frame_widget: QtWidgets.QRadioButton = self.FrameRadio
+        self.widget.hide()
         waf_widget.setChecked(False)
         frame_widget.setChecked(False)
+        stack_widget: QStackedWidget = self.stackedWidget
+        stack_widget.setCurrentIndex(0)
+
+
+
 
 
 app = QApplication([])  # Start App

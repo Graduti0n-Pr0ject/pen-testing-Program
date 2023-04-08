@@ -48,6 +48,9 @@
         <property name="text">
          <string>WAF Config</string>
         </property>
+        <property name="autoExclusive">
+         <bool>false</bool>
+        </property>
        </widget>
        <widget class="QPushButton" name="WAFbtn">
         <property name="geometry">
@@ -73,6 +76,9 @@
         </property>
         <property name="text">
          <string>Framework</string>
+        </property>
+        <property name="autoExclusive">
+         <bool>false</bool>
         </property>
        </widget>
        <widget class="QPushButton" name="WAFbtn_2">
