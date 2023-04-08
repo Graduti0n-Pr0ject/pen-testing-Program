@@ -7,6 +7,8 @@ import logo_rc
 
 
 class MainWindow(QMainWindow):
+    path: str = None
+    selected_directory: str = None
     def __init__(self):
         super().__init__()
         loadUi("design.ui", self)
@@ -23,13 +25,13 @@ class MainWindow(QMainWindow):
         file_dialog.setOption(QFileDialog.ShowDirsOnly, True)
         if project_name.strip() != '':
             if file_dialog.exec_() == file_dialog.Accepted:
-                selected_directory = file_dialog.selectedFiles()[0]
-                path = selected_directory + r'/' + project_name
-                print(path)
+                self.selected_directory = file_dialog.selectedFiles()[0]
+                self.path = self.selected_directory + r'/' + project_name
+
             else:
                 QMessageBox.warning(self, 'Warning', 'No directory selected.')
         else:
-            QMessageBox.information(self, 'Information', f'The line edit contains "{project_name}".')
+            QMessageBox.information(self, 'Information', f'write project name correct.')
 
     def do_work(self):
         project_name: QtWidgets.QLineEdit = self.projectName
@@ -39,7 +41,14 @@ class MainWindow(QMainWindow):
         if waf_widget.isChecked():
             stack_widget.setCurrentIndex(1)
         elif frame_widget.isChecked():
-            stack_widget.setCurrentIndex(2)
+            # print(f"What's happen {self.path}")
+            if self.selected_directory is None:
+                QMessageBox.information(self, 'Information', f'Select Path.')
+            elif os.path.exists(self.path):
+                QMessageBox.information(self, 'Warning', f'Project is already in this {self.path} change project name')
+            else:
+                os.mkdir(self.path)
+                stack_widget.setCurrentIndex(2)
         else:
             QMessageBox.warning(self, 'Warning', 'Choose Option')
 
@@ -51,9 +60,6 @@ class MainWindow(QMainWindow):
         frame_widget.setChecked(False)
         stack_widget: QStackedWidget = self.stackedWidget
         stack_widget.setCurrentIndex(0)
-
-
-
 
 
 app = QApplication([])  # Start App

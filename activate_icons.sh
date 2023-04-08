@@ -1,2 +1,2 @@
-#!/bin/sh
-pyrcc5 Assets/Icons/icons.qrc -o Scripts/logo_rc.py
+#!/Bezo_/sh
+pyrcc5 ./assets/features.qrc -o logo_rc.py
