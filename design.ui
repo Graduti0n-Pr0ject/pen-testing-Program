@@ -32,8 +32,14 @@
       <property name="styleSheet">
        <string notr="true">font: 18pt &quot;Sakkal Majalla&quot;;</string>
       </property>
+      <property name="frameShape">
+       <enum>QFrame::NoFrame</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Plain</enum>
+      </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="Home">
        <widget class="QRadioButton" name="WafRadio">
@@ -81,7 +87,7 @@
          <bool>true</bool>
         </property>
        </widget>
-       <widget class="QPushButton" name="WAFbtn_2">
+       <widget class="QPushButton" name="helpbtn">
         <property name="geometry">
          <rect>
           <x>390</x>
@@ -135,44 +141,34 @@
          <pixmap resource="assets/features.qrc">:/~/hacker.png</pixmap>
         </property>
        </widget>
-       <widget class="QWidget" name="widget" native="true">
+       <widget class="QWidget" name="chooseProject" native="true">
         <property name="geometry">
          <rect>
-          <x>280</x>
+          <x>244</x>
           <y>240</y>
-          <width>191</width>
-          <height>80</height>
+          <width>281</width>
+          <height>56</height>
          </rect>
         </property>
-        <widget class="QLineEdit" name="projectName">
-         <property name="geometry">
-          <rect>
-           <x>20</x>
-           <y>10</y>
-           <width>161</width>
-           <height>31</height>
-          </rect>
-         </property>
-         <property name="placeholderText">
-          <string>Project Name</string>
-         </property>
-        </widget>
-        <widget class="QToolButton" name="filebtn">
-         <property name="geometry">
-          <rect>
-           <x>150</x>
-           <y>50</y>
-           <width>31</width>
-           <height>19</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>...</string>
-         </property>
-         <property name="autoRaise">
-          <bool>false</bool>
-         </property>
-        </widget>
+        <layout class="QFormLayout" name="formLayout_3">
+         <item row="0" column="0">
+          <widget class="QLineEdit" name="projectName">
+           <property name="placeholderText">
+            <string>Project Name</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QToolButton" name="filebtn">
+           <property name="text">
+            <string>...</string>
+           </property>
+           <property name="autoRaise">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+        </layout>
        </widget>
       </widget>
       <widget class="QWidget" name="WAF">
@@ -204,19 +200,154 @@
        </widget>
       </widget>
       <widget class="QWidget" name="FrameWork">
-       <widget class="QPushButton" name="BackHomebtn_2">
-        <property name="geometry">
-         <rect>
-          <x>10</x>
-          <y>400</y>
-          <width>161</width>
-          <height>23</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>Back</string>
-        </property>
-       </widget>
+       <layout class="QGridLayout" name="gridLayout">
+        <item row="3" column="0">
+         <widget class="QPushButton" name="BackHomebtn_2">
+          <property name="text">
+           <string>Back</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="0">
+         <widget class="QTabWidget" name="Tools">
+          <property name="tabPosition">
+           <enum>QTabWidget::North</enum>
+          </property>
+          <property name="tabShape">
+           <enum>QTabWidget::Rounded</enum>
+          </property>
+          <property name="currentIndex">
+           <number>0</number>
+          </property>
+          <property name="documentMode">
+           <bool>true</bool>
+          </property>
+          <property name="movable">
+           <bool>true</bool>
+          </property>
+          <property name="tabBarAutoHide">
+           <bool>true</bool>
+          </property>
+          <widget class="QWidget" name="recogn_tab">
+           <attribute name="title">
+            <string>Recon</string>
+           </attribute>
+           <layout class="QGridLayout" name="gridLayout_3">
+            <item row="1" column="0">
+             <widget class="QRadioButton" name="singleRadio">
+              <property name="text">
+               <string>Single Domain</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="1" colspan="2">
+             <widget class="QRadioButton" name="listRadio">
+              <property name="text">
+               <string>List of Domain</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="0" colspan="3">
+             <widget class="QGroupBox" name="groupBox">
+              <property name="title">
+               <string>Options</string>
+              </property>
+              <layout class="QFormLayout" name="formLayout">
+               <item row="0" column="0">
+                <widget class="QCheckBox" name="collect_subdomain">
+                 <property name="text">
+                  <string>Collect subdomain</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <widget class="QCheckBox" name="Live_subdomain">
+                 <property name="text">
+                  <string>Live subdomain</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QCheckBox" name="Screenshot">
+                 <property name="text">
+                  <string>Screenshot</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="1">
+                <widget class="QCheckBox" name="Endpoint">
+                 <property name="text">
+                  <string>End points</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="0">
+                <widget class="QCheckBox" name="Js_files">
+                 <property name="text">
+                  <string>JS Files</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="1">
+                <widget class="QCheckBox" name="Parameter">
+                 <property name="text">
+                  <string>Parameter</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="2" column="0" colspan="2">
+             <widget class="QWidget" name="widget_single_domain" native="true">
+              <layout class="QGridLayout" name="gridLayout_4">
+               <item row="0" column="0">
+                <widget class="QLineEdit" name="target_line">
+                 <property name="placeholderText">
+                  <string>Enter Target</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QWidget" name="widget_list_domain" native="true">
+                 <layout class="QFormLayout" name="formLayout_2">
+                  <item row="0" column="0">
+                   <widget class="QLabel" name="label_3">
+                    <property name="text">
+                     <string>Choose File</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="1">
+                   <widget class="QToolButton" name="toolButton">
+                    <property name="text">
+                     <string>...</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="2" column="2">
+             <widget class="QPushButton" name="reconbtn">
+              <property name="text">
+               <string>Submit</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="attack_tab">
+           <attribute name="title">
+            <string>Attack</string>
+           </attribute>
+          </widget>
+         </widget>
+        </item>
+       </layout>
       </widget>
      </widget>
     </item>
@@ -241,7 +372,7 @@
   <connection>
    <sender>FrameRadio</sender>
    <signal>clicked()</signal>
-   <receiver>widget</receiver>
+   <receiver>chooseProject</receiver>
    <slot>show()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -257,7 +388,7 @@
   <connection>
    <sender>WafRadio</sender>
    <signal>clicked()</signal>
-   <receiver>widget</receiver>
+   <receiver>chooseProject</receiver>
    <slot>hide()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -267,6 +398,102 @@
     <hint type="destinationlabel">
      <x>345</x>
      <y>300</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>singleRadio</sender>
+   <signal>clicked()</signal>
+   <receiver>target_line</receiver>
+   <slot>show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>92</x>
+     <y>217</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>160</x>
+     <y>262</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>listRadio</sender>
+   <signal>clicked()</signal>
+   <receiver>widget_list_domain</receiver>
+   <slot>show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>233</x>
+     <y>222</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>306</x>
+     <y>335</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>listRadio</sender>
+   <signal>clicked()</signal>
+   <receiver>widget_single_domain</receiver>
+   <slot>show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>348</x>
+     <y>225</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>318</x>
+     <y>284</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>singleRadio</sender>
+   <signal>clicked()</signal>
+   <receiver>widget_single_domain</receiver>
+   <slot>show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>42</x>
+     <y>224</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>28</x>
+     <y>294</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>singleRadio</sender>
+   <signal>clicked()</signal>
+   <receiver>widget_list_domain</receiver>
+   <slot>hide()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>110</x>
+     <y>226</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>39</x>
+     <y>322</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>listRadio</sender>
+   <signal>clicked()</signal>
+   <receiver>target_line</receiver>
+   <slot>hide()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>375</x>
+     <y>228</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>273</x>
+     <y>265</y>
     </hint>
    </hints>
   </connection>
