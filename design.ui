@@ -232,77 +232,49 @@
            <attribute name="title">
             <string>Recon</string>
            </attribute>
-           <layout class="QGridLayout" name="gridLayout_3">
+           <layout class="QGridLayout" name="gridLayout_6">
             <item row="0" column="0" colspan="3">
              <widget class="QGroupBox" name="groupBox">
               <property name="title">
                <string>Options</string>
               </property>
-              <widget class="QCheckBox" name="Live_subdomain">
-               <property name="geometry">
-                <rect>
-                 <x>10</x>
-                 <y>40</y>
-                 <width>141</width>
-                 <height>28</height>
-                </rect>
-               </property>
-               <property name="text">
-                <string>Live Subdomain</string>
-               </property>
-              </widget>
-              <widget class="QCheckBox" name="Screenshot">
-               <property name="geometry">
-                <rect>
-                 <x>10</x>
-                 <y>76</y>
-                 <width>106</width>
-                 <height>28</height>
-                </rect>
-               </property>
-               <property name="text">
-                <string>Screenshot</string>
-               </property>
-              </widget>
-              <widget class="QCheckBox" name="Endpoint">
-               <property name="geometry">
-                <rect>
-                 <x>122</x>
-                 <y>76</y>
-                 <width>314</width>
-                 <height>28</height>
-                </rect>
-               </property>
-               <property name="text">
-                <string>End points</string>
-               </property>
-              </widget>
-              <widget class="QCheckBox" name="Js_files">
-               <property name="geometry">
-                <rect>
-                 <x>10</x>
-                 <y>110</y>
-                 <width>74</width>
-                 <height>29</height>
-                </rect>
-               </property>
-               <property name="text">
-                <string>JS Files</string>
-               </property>
-              </widget>
-              <widget class="QCheckBox" name="Parameter">
-               <property name="geometry">
-                <rect>
-                 <x>122</x>
-                 <y>110</y>
-                 <width>314</width>
-                 <height>29</height>
-                </rect>
-               </property>
-               <property name="text">
-                <string>Parameter</string>
-               </property>
-              </widget>
+              <layout class="QGridLayout" name="gridLayout_5">
+               <item row="0" column="0" colspan="2">
+                <widget class="QCheckBox" name="Live_subdomain">
+                 <property name="text">
+                  <string>Live Subdomain</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QCheckBox" name="Screenshot">
+                 <property name="text">
+                  <string>Screenshot</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="1">
+                <widget class="QCheckBox" name="Endpoint">
+                 <property name="text">
+                  <string>End points</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="0">
+                <widget class="QCheckBox" name="Js_files">
+                 <property name="text">
+                  <string>JS Files</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="1">
+                <widget class="QCheckBox" name="Parameter">
+                 <property name="text">
+                  <string>Parameter</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
              </widget>
             </item>
             <item row="1" column="0">
@@ -312,10 +284,10 @@
               </property>
              </widget>
             </item>
-            <item row="2" column="2">
-             <widget class="QPushButton" name="reconbtn">
+            <item row="1" column="1" colspan="2">
+             <widget class="QRadioButton" name="listRadio">
               <property name="text">
-               <string>Submit</string>
+               <string>List of Domain</string>
               </property>
              </widget>
             </item>
@@ -352,11 +324,24 @@
               </layout>
              </widget>
             </item>
-            <item row="1" column="1" colspan="2">
-             <widget class="QRadioButton" name="listRadio">
-              <property name="text">
-               <string>List of Domain</string>
-              </property>
+            <item row="2" column="2">
+             <widget class="QWidget" name="widget" native="true">
+              <layout class="QGridLayout" name="gridLayout_3">
+               <item row="0" column="0">
+                <widget class="QPushButton" name="reconbtn">
+                 <property name="text">
+                  <string>Submit</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QPushButton" name="stopbtn">
+                 <property name="text">
+                  <string>Stop</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
              </widget>
             </item>
            </layout>
@@ -429,12 +414,12 @@
    <slot>show()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>92</x>
-     <y>217</y>
+     <x>101</x>
+     <y>280</y>
     </hint>
     <hint type="destinationlabel">
-     <x>160</x>
-     <y>262</y>
+     <x>178</x>
+     <y>333</y>
     </hint>
    </hints>
   </connection>
@@ -445,12 +430,12 @@
    <slot>show()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>233</x>
-     <y>222</y>
+     <x>321</x>
+     <y>280</y>
     </hint>
     <hint type="destinationlabel">
-     <x>306</x>
-     <y>335</y>
+     <x>312</x>
+     <y>395</y>
     </hint>
    </hints>
   </connection>
@@ -461,12 +446,12 @@
    <slot>show()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>348</x>
-     <y>225</y>
+     <x>321</x>
+     <y>280</y>
     </hint>
     <hint type="destinationlabel">
-     <x>318</x>
-     <y>284</y>
+     <x>321</x>
+     <y>404</y>
     </hint>
    </hints>
   </connection>
@@ -477,8 +462,8 @@
    <slot>show()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>42</x>
-     <y>224</y>
+     <x>51</x>
+     <y>280</y>
     </hint>
     <hint type="destinationlabel">
      <x>28</x>
@@ -493,12 +478,12 @@
    <slot>hide()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>110</x>
-     <y>226</y>
+     <x>119</x>
+     <y>280</y>
     </hint>
     <hint type="destinationlabel">
-     <x>39</x>
-     <y>322</y>
+     <x>57</x>
+     <y>395</y>
     </hint>
    </hints>
   </connection>
@@ -509,12 +494,44 @@
    <slot>hide()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>375</x>
-     <y>228</y>
+     <x>321</x>
+     <y>280</y>
     </hint>
     <hint type="destinationlabel">
-     <x>273</x>
-     <y>265</y>
+     <x>291</x>
+     <y>333</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>reconbtn</sender>
+   <signal>clicked()</signal>
+   <receiver>stopbtn</receiver>
+   <slot>show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>429</x>
+     <y>318</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>426</x>
+     <y>363</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>stopbtn</sender>
+   <signal>clicked()</signal>
+   <receiver>stopbtn</receiver>
+   <slot>hide()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>387</x>
+     <y>379</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>456</x>
+     <y>387</y>
     </hint>
    </hints>
   </connection>

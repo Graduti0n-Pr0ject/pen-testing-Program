@@ -20,26 +20,32 @@ class Thread(QThread):
         self.domain = domain
         self.is_live = is_live
         self.is_end = is_end
+        self.is_running = True
 
     def run(self) -> None:
         # super().sleep(1)
         print("Im in thread")
+        if not self.is_running:
+            return
         subfinder_for_single_windows(self.domain)
         if self.is_live:
             httprobe_w()
-        elif self.is_end:
+        if self.is_end:
             wwayback()
-        elif self.is_JS:
+        if self.is_JS:
             Js_file()
-        elif self.is_par:
+        if self.is_par:
             Parameter()
-        elif self.is_screen:
+        if self.is_screen:
             screenwin()
         self.finished.emit()
+    def stop(self):
+        self.is_running = False
 
 
 class MainWindow(QMainWindow):
     path: str = None
+    thread = None
     selected_directory: str = None
     is_live_subdomain: bool = None
     is_endpoints: bool = None
@@ -47,9 +53,9 @@ class MainWindow(QMainWindow):
     is_parameter: bool = None
     is_screenshot: bool = None
 
+
     def __init__(self):
         super().__init__()
-        self.thread = None
         loadUi("design.ui", self)
         # ----------- Home ------------ #
         self.chooseProject.hide()
@@ -66,6 +72,9 @@ class MainWindow(QMainWindow):
         # self.Js_files
         # self.Endpoint
         # self.Live_subdomain
+        # self.stopbtn
+        self.stopbtn.hide()
+
         self.reconbtn.clicked.connect(self.start_single_list_task)
 
     def start_single_list_task(self):
@@ -78,30 +87,32 @@ class MainWindow(QMainWindow):
 
         if self.singleRadio.isChecked():
             if target.strip() == '':
+                self.stopbtn.hide()
                 QMessageBox.information(self, 'Information', f'Enter Right Target Plz')
             else:
                 # Subdomain Checkbox
                 if is_live.isChecked():
                     self.is_live_subdomain = True
                     is_live.setEnabled(False)
-                elif is_endpoint.isChecked():
+
+                if is_endpoint.isChecked():
                     self.is_endpoints = True
-                    is_live.setEnabled(False)
                     is_endpoint.setEnabled(False)
-                elif is_JS.isChecked():
+
+                if is_JS.isChecked():
                     self.is_JS_files = True
                     is_JS.setEnabled(False)
 
-                elif is_screen.isChecked():
+                if is_screen.isChecked():
                     self.is_screenshot = True
                     is_screen.setEnabled(False)
 
-                elif is_parameter.isChecked():
+                if is_parameter.isChecked():
                     self.is_parameter = True
                     is_parameter.setEnabled(False)
 
                 self.reconbtn.setEnabled(False)
-                self.thread = Thread(target.strip(),
+                thread = Thread(target.strip(),
                                      is_live=self.is_live_subdomain,
                                      is_end=self.is_endpoints,
                                      is_par=self.is_parameter,
@@ -109,16 +120,22 @@ class MainWindow(QMainWindow):
                                      is_JS=self.is_JS_files)
 
                 self.thread.finished.connect(self.on_finished)
+                # self.stopbtn.pressed.connect(self.thread.stop)
                 self.thread.start()
 
         elif self.listRadio.isChecked():
             pass
         else:
+            self.stopbtn.hide()
             QMessageBox.information(self, 'Information', f'Choosing Single or List Domain')
 
     def on_finished(self):
         self.reconbtn.setEnabled(True)
         self.Live_subdomain.setEnabled(True)
+        self.is_parameter.setEnabled(True)
+        self.is_screenshot.setEnabled(True)
+        self.is_endpoints.setEnabled(True)
+        self.is_JS_files.setEnabled(True)
 
     def open_file_dialog(self):
         project_name: QLineEdit = self.projectName.text()

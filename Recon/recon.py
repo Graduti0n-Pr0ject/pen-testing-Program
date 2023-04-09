@@ -31,16 +31,16 @@ def subfinder_multi_linux(path):
 
 def httprobe_w():  # live domain
     cwd = os.path.dirname(__file__)
-    os.system(fr"type {cwd}\domains.txt | {cwd}\whttprobe.exe >>{cwd}\\urls.txt")
+    os.system(fr"type {cwd}\\domains.txt | {cwd}\whttprobe.exe >>{cwd}\\urls.txt")
 
-
+# testphp.vulnweb.com
 def httprobe_l():
     os.system("cat domains |httprobe >>urls")
 
 
 def screenwin():  # screenshot
     cwd = os.path.dirname(__file__)
-    os.system(fr"type {cwd}\domains.txt | {cwd}\whttprobe.exe | {cwd}\waquatone.exe -chrome-path chrome.exe ")
+    os.system(fr"type {cwd}\domains.txt | {cwd}\whttprobe.exe | {cwd}\waquatone.exe -chrome-path 'C:\Program Files\Google\Chrome\Application\chrome.exe' ")
     #os.system(fr"type {cwd}\urls.txt | {cwd}\waquatone.exe -chrome-path chrome.exe")
 
 
