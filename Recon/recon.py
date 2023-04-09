@@ -12,7 +12,8 @@ def subfinder_for_single_windows(Domain):  # single domain (collect subdomain)
     cwd = os.path.dirname(__file__)
     print(cwd)
     # os.system(f'{cwd}\wsubfinder.exe -d {Domain} -o domains.txt')
-    os.system(fr'{cwd}\wsubfinder.exe -d "{Domain}"  >>{cwd}\\domains.txt')
+    # Create Dictectory (domain_result)
+    os.system(fr'{cwd}\wsubfinder.exe -d "{Domain}"  >>{cwd}\domains.txt')
 
 
 def subfinder_for_file_windows(path):  # list domain (collect subdomain)
@@ -30,7 +31,7 @@ def subfinder_multi_linux(path):
 
 def httprobe_w():  # live domain
     cwd = os.path.dirname(__file__)
-    os.system(f"type domains.txt | {cwd}\whttprobe.exe >>{cwd}\\urls.txt")
+    os.system(f"type {cwd}\domains.txt | {cwd}\whttprobe.exe >>{cwd}\\urls.txt")
 
 
 def httprobe_l():
@@ -39,23 +40,23 @@ def httprobe_l():
 
 def screenwin():  # screenshot
     cwd = os.path.dirname(__file__)
-    os.system(f"type urls.txt | {cwd}\waquatone.exe -chrome-path chrome.exe")
+    os.system(fr"type {cwd}\urls.txt | {cwd}\waquatone.exe -chrome-path chrome.exe")
 
 
 def screenlinux():
     os.system("cat urls | aquatone ")
 
 
-def wwayback():  # endpoint, JS, Parameter
+def wwayback():  # endpoints
     cwd = os.path.dirname(__file__)
-    os.system(f'type domains.txt | {cwd}\wwaybackurls.exe >>archive.txt')
+    os.system(f'type {cwd}\domains.txt | {cwd}\wwaybackurls.exe >>archive.txt')
 
 
-def Js_file():
+def Js_file():  # Js_files
     pass
 
 
-def Parameter():
+def Parameter():  # Parameter
     pass
 
 
@@ -74,20 +75,20 @@ def main():
 
     """)
     choose = input()
-    if (choose == "1"):
+    if choose == "1":
         Domain = input("Enter target:")
-        if (platform.system() == "Windows"):
+        if platform.system() == "Windows":
             print("windows")
 
-        elif (platform.system() == "Linux"):
+        elif platform.system() == "Linux":
             print("Linux")
-        ## subfinder_single_linux(Domain)
+
     else:
         path = input("Enter file path:")
 
-    if (platform.system() == "Windows"):
+    if platform.system() == "Windows":
         print("windows")
-    elif (platform.system() == "Linux"):
+    elif platform.system() == "Linux":
         print("Linux")
 
 

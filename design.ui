@@ -233,6 +233,78 @@
             <string>Recon</string>
            </attribute>
            <layout class="QGridLayout" name="gridLayout_3">
+            <item row="0" column="0" colspan="3">
+             <widget class="QGroupBox" name="groupBox">
+              <property name="title">
+               <string>Options</string>
+              </property>
+              <widget class="QCheckBox" name="Live_subdomain">
+               <property name="geometry">
+                <rect>
+                 <x>10</x>
+                 <y>40</y>
+                 <width>141</width>
+                 <height>28</height>
+                </rect>
+               </property>
+               <property name="text">
+                <string>Live Subdomain</string>
+               </property>
+              </widget>
+              <widget class="QCheckBox" name="Screenshot">
+               <property name="geometry">
+                <rect>
+                 <x>10</x>
+                 <y>76</y>
+                 <width>106</width>
+                 <height>28</height>
+                </rect>
+               </property>
+               <property name="text">
+                <string>Screenshot</string>
+               </property>
+              </widget>
+              <widget class="QCheckBox" name="Endpoint">
+               <property name="geometry">
+                <rect>
+                 <x>122</x>
+                 <y>76</y>
+                 <width>314</width>
+                 <height>28</height>
+                </rect>
+               </property>
+               <property name="text">
+                <string>End points</string>
+               </property>
+              </widget>
+              <widget class="QCheckBox" name="Js_files">
+               <property name="geometry">
+                <rect>
+                 <x>10</x>
+                 <y>110</y>
+                 <width>74</width>
+                 <height>29</height>
+                </rect>
+               </property>
+               <property name="text">
+                <string>JS Files</string>
+               </property>
+              </widget>
+              <widget class="QCheckBox" name="Parameter">
+               <property name="geometry">
+                <rect>
+                 <x>122</x>
+                 <y>110</y>
+                 <width>314</width>
+                 <height>29</height>
+                </rect>
+               </property>
+               <property name="text">
+                <string>Parameter</string>
+               </property>
+              </widget>
+             </widget>
+            </item>
             <item row="1" column="0">
              <widget class="QRadioButton" name="singleRadio">
               <property name="text">
@@ -240,62 +312,11 @@
               </property>
              </widget>
             </item>
-            <item row="1" column="1" colspan="2">
-             <widget class="QRadioButton" name="listRadio">
+            <item row="2" column="2">
+             <widget class="QPushButton" name="reconbtn">
               <property name="text">
-               <string>List of Domain</string>
+               <string>Submit</string>
               </property>
-             </widget>
-            </item>
-            <item row="0" column="0" colspan="3">
-             <widget class="QGroupBox" name="groupBox">
-              <property name="title">
-               <string>Options</string>
-              </property>
-              <layout class="QFormLayout" name="formLayout">
-               <item row="0" column="0">
-                <widget class="QCheckBox" name="collect_subdomain">
-                 <property name="text">
-                  <string>Collect subdomain</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="1">
-                <widget class="QCheckBox" name="Live_subdomain">
-                 <property name="text">
-                  <string>Live subdomain</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="0">
-                <widget class="QCheckBox" name="Screenshot">
-                 <property name="text">
-                  <string>Screenshot</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="1">
-                <widget class="QCheckBox" name="Endpoint">
-                 <property name="text">
-                  <string>End points</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="2" column="0">
-                <widget class="QCheckBox" name="Js_files">
-                 <property name="text">
-                  <string>JS Files</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="2" column="1">
-                <widget class="QCheckBox" name="Parameter">
-                 <property name="text">
-                  <string>Parameter</string>
-                 </property>
-                </widget>
-               </item>
-              </layout>
              </widget>
             </item>
             <item row="2" column="0" colspan="2">
@@ -304,7 +325,7 @@
                <item row="0" column="0">
                 <widget class="QLineEdit" name="target_line">
                  <property name="placeholderText">
-                  <string>Enter Target</string>
+                  <string>Enter Target (Ex: google.com)</string>
                  </property>
                 </widget>
                </item>
@@ -331,10 +352,10 @@
               </layout>
              </widget>
             </item>
-            <item row="2" column="2">
-             <widget class="QPushButton" name="reconbtn">
+            <item row="1" column="1" colspan="2">
+             <widget class="QRadioButton" name="listRadio">
               <property name="text">
-               <string>Submit</string>
+               <string>List of Domain</string>
               </property>
              </widget>
             </item>

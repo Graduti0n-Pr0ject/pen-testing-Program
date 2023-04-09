@@ -3,31 +3,36 @@ import os
 from PyQt5 import QtWidgets
 from PyQt5.QtCore import QThread, pyqtSignal
 from PyQt5.uic import loadUi
-from PyQt5.QtWidgets import QMainWindow, QApplication, QStackedWidget, QFileDialog, QMessageBox, QLineEdit, QRadioButton
+from PyQt5.QtWidgets import QMainWindow, QApplication, QStackedWidget, QFileDialog, QMessageBox, QLineEdit, QRadioButton, QCheckBox
 import logo_rc
 from Recon.recon import *
 
 
 class Thread(QThread):
     finished = pyqtSignal()
-    function = pyqtSignal()
 
-    def __init__(self, domain=None):
+    def __init__(self, domain=None, is_live=None):
         super().__init__()
         self.domain = domain
+        self.is_live = is_live
 
     def run(self) -> None:
         # super().sleep(1)
         print("Im in thread")
         subfinder_for_single_windows(self.domain)
-        self.terminate()
+        if self.is_live:
+            httprobe_w()
         self.finished.emit()
-
 
 
 class MainWindow(QMainWindow):
     path: str = None
     selected_directory: str = None
+    is_live_subdomain: bool = None
+    is_endpoints: bool = None
+    is_JS_files: bool = None
+    is_parameter: bool = None
+    is_screenshot: bool = None
 
     def __init__(self):
         super().__init__()
@@ -43,17 +48,30 @@ class MainWindow(QMainWindow):
         self.filebtn.clicked.connect(self.open_file_dialog)
 
         # ------------- Recon ---------- #
-
+        # self.Screenshot
+        # self.Parameter
+        # self.Js_files
+        # self.Endpoint
+        # self.Live_subdomain
         self.reconbtn.clicked.connect(self.start_single_list_task)
 
     def start_single_list_task(self):
         target: str = self.target_line.text()
+        is_live: QCheckBox = self.Live_subdomain
+        is_endpoint: QCheckBox = self.Endpoint
         if self.singleRadio.isChecked():
             if target.strip() == '':
                 QMessageBox.information(self, 'Information', f'Enter Right Target Plz')
             else:
+                # Subdomain Checkbox
+                if is_live.isChecked():
+                    self.is_live_subdomain = True
+                    is_live.setEnabled(False)
+                elif is_endpoint.isChecked():
+                    se
+
                 self.reconbtn.setEnabled(False)
-                self.thread = Thread(target.strip())
+                self.thread = Thread(target.strip(), self.is_live_subdomain)
                 self.thread.finished.connect(self.on_finished)
                 self.thread.start()
 
@@ -64,6 +82,8 @@ class MainWindow(QMainWindow):
 
     def on_finished(self):
         self.reconbtn.setEnabled(True)
+        self.Live_subdomain.setEnabled(True)
+
     def open_file_dialog(self):
         project_name: QLineEdit = self.projectName.text()
         file_dialog = QFileDialog()
