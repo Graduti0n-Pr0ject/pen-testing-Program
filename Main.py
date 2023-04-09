@@ -10,13 +10,17 @@ from Recon.recon import *
 
 class Thread(QThread):
     finished = pyqtSignal()
+    function = pyqtSignal()
 
     def __init__(self, domain=None):
+        super().__init__()
         self.domain = domain
 
     def run(self) -> None:
-        super().sleep(1)
+        # super().sleep(1)
+        print("Im in thread")
         subfinder_for_single_windows(self.domain)
+        self.terminate()
         self.finished.emit()
 
 
@@ -43,13 +47,13 @@ class MainWindow(QMainWindow):
         self.reconbtn.clicked.connect(self.start_single_list_task)
 
     def start_single_list_task(self):
-        target: QLineEdit = self.target_line
+        target: str = self.target_line.text()
         if self.singleRadio.isChecked():
-            if target.text().strip() == '':
+            if target.strip() == '':
                 QMessageBox.information(self, 'Information', f'Enter Right Target Plz')
             else:
                 self.reconbtn.setEnabled(False)
-                self.thread = Thread()
+                self.thread = Thread(target.strip())
                 self.thread.finished.connect(self.on_finished)
                 self.thread.start()
 

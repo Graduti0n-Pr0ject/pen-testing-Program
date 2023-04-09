@@ -7,7 +7,6 @@
     <list default="true" id="ca2cd115-af3f-472c-bea0-3276102aa1c9" name="Changes" comment="solving issue of selecting path, issue of project name choosing multiple.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/design.ui" beforeDir="false" afterPath="$PROJECT_DIR$/design.ui" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
