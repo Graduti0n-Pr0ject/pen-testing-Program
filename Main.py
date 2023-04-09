@@ -3,7 +3,8 @@ import os
 from PyQt5 import QtWidgets
 from PyQt5.QtCore import QThread, pyqtSignal
 from PyQt5.uic import loadUi
-from PyQt5.QtWidgets import QMainWindow, QApplication, QStackedWidget, QFileDialog, QMessageBox, QLineEdit, QRadioButton, QCheckBox
+from PyQt5.QtWidgets import QMainWindow, QApplication, QStackedWidget, QFileDialog, QMessageBox, QLineEdit, \
+    QRadioButton, QCheckBox
 import logo_rc
 from Recon.recon import *
 
@@ -11,10 +12,14 @@ from Recon.recon import *
 class Thread(QThread):
     finished = pyqtSignal()
 
-    def __init__(self, domain=None, is_live=None):
+    def __init__(self, domain=None, is_live=None, is_end=None, is_par=None, is_JS=None, is_screen=None):
         super().__init__()
+        self.is_screen = is_screen
+        self.is_par = is_par
+        self.is_JS = is_JS
         self.domain = domain
         self.is_live = is_live
+        self.is_end = is_end
 
     def run(self) -> None:
         # super().sleep(1)
@@ -22,6 +27,14 @@ class Thread(QThread):
         subfinder_for_single_windows(self.domain)
         if self.is_live:
             httprobe_w()
+        elif self.is_end:
+            wwayback()
+        elif self.is_JS:
+            Js_file()
+        elif self.is_par:
+            Parameter()
+        elif self.is_screen:
+            screenwin()
         self.finished.emit()
 
 
@@ -59,6 +72,10 @@ class MainWindow(QMainWindow):
         target: str = self.target_line.text()
         is_live: QCheckBox = self.Live_subdomain
         is_endpoint: QCheckBox = self.Endpoint
+        is_JS: QCheckBox = self.Js_files
+        is_screen: QCheckBox = self.Screenshot
+        is_parameter: QCheckBox = self.Parameter
+
         if self.singleRadio.isChecked():
             if target.strip() == '':
                 QMessageBox.information(self, 'Information', f'Enter Right Target Plz')
@@ -68,10 +85,29 @@ class MainWindow(QMainWindow):
                     self.is_live_subdomain = True
                     is_live.setEnabled(False)
                 elif is_endpoint.isChecked():
-                    se
+                    self.is_endpoints = True
+                    is_live.setEnabled(False)
+                    is_endpoint.setEnabled(False)
+                elif is_JS.isChecked():
+                    self.is_JS_files = True
+                    is_JS.setEnabled(False)
+
+                elif is_screen.isChecked():
+                    self.is_screenshot = True
+                    is_screen.setEnabled(False)
+
+                elif is_parameter.isChecked():
+                    self.is_parameter = True
+                    is_parameter.setEnabled(False)
 
                 self.reconbtn.setEnabled(False)
-                self.thread = Thread(target.strip(), self.is_live_subdomain)
+                self.thread = Thread(target.strip(),
+                                     is_live=self.is_live_subdomain,
+                                     is_end=self.is_endpoints,
+                                     is_par=self.is_parameter,
+                                     is_screen=self.is_screenshot,
+                                     is_JS=self.is_JS_files)
+
                 self.thread.finished.connect(self.on_finished)
                 self.thread.start()
 
