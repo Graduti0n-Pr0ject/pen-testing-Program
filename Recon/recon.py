@@ -53,11 +53,14 @@ def wwayback():  # endpoints
 
 
 def Js_file():  # Js_files
-    pass
+    cwd = os.path.dirname(__file__)
+    os.system(f'type {cwd}\domains.txt | {cwd}\wwaybackurls.exe | find ".js" >>js.txt')
 
 
 def Parameter():  # Parameter
-    pass
+    cwd = os.path.dirname(__file__)
+    os.system(f'type {cwd}\domains.txt | {cwd}\wwaybackurls.exe | find "=" >>prameter.txt')
+
 
 
 def lwayback():
