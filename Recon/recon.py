@@ -40,7 +40,8 @@ def httprobe_l():
 
 def screenwin():  # screenshot
     cwd = os.path.dirname(__file__)
-    os.system(fr"type {cwd}\urls.txt | {cwd}\waquatone.exe -chrome-path chrome.exe")
+    os.system(f"type {cwd}\domains.txt | {cwd}\whttprobe.exe | {cwd}\waquatone.exe -chrome-path chrome.exe ")
+    #os.system(fr"type {cwd}\urls.txt | {cwd}\waquatone.exe -chrome-path chrome.exe")
 
 
 def screenlinux():
