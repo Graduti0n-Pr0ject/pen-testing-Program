@@ -17,4 +17,3 @@ def arjun(url):
     os.system(fr"arjun -u {url}")
 
 
-arjun("https://google.com")
