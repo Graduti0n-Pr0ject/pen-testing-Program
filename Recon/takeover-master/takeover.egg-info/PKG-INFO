@@ -1,0 +1,9 @@
+Metadata-Version: 2.1
+Name: takeover
+Version: 0.1
+Summary: Sub-Domain TakeOver Vulnerability Scanner
+Home-page: https://github.com/m4ll0k/takeover
+Author: m4ll0k
+Author-email: m4ll0k@protonmail.com
+License: MIT
+License-File: LICENSE

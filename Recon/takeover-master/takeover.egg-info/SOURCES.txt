@@ -1,0 +1,11 @@
+LICENSE
+README.md
+setup.py
+takeover.py
+takeover.egg-info/PKG-INFO
+takeover.egg-info/SOURCES.txt
+takeover.egg-info/dependency_links.txt
+takeover.egg-info/entry_points.txt
+takeover.egg-info/not-zip-safe
+takeover.egg-info/requires.txt
+takeover.egg-info/top_level.txt

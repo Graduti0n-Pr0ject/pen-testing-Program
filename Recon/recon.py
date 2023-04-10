@@ -1,6 +1,7 @@
 import os
 import platform
-
+from bs4 import BeautifulSoup
+import re ,requests,pyfiglet
 
 ####windows
 # cwd=os.path.dirname(__file__) get dir
@@ -54,8 +55,25 @@ def wwayback():  # endpoints
 
 
 def Js_file():  # Js_files
-    cwd = os.path.dirname(__file__)
-    os.system(f'type {cwd}\domains.txt | {cwd}\wwaybackurls.exe | find ".js" >>js.txt')
+   banner=pyfiglet.figlet_format("JS")
+   print(banner)
+   def fetchjs(url):
+    regx=re.compile("[https:\/\/http:\/\/\/\/\/a-zA-Z0-9\.\/]+\.js")
+    url="https://"+url
+    rq=requests.get(url)
+    
+    res=BeautifulSoup(rq.text,"html.parser").prettify()
+    JS=regx.findall(res)
+    myjs=set(JS)
+    f=open("js.txt","a")
+    for i in myjs:
+       f.writelines(i+'\n')
+   d=open("domains.txt","r").readlines()
+   for b in d:
+       
+       fetchjs(b)
+        
+
 
 
 def Parameter():  # Parameter
@@ -96,5 +114,6 @@ def main():
         print("Linux")
 
 
+Js_file()
 if __name__ == '__main__':
     main()
