@@ -1,7 +1,7 @@
 import sys
 import os
 from PyQt5 import QtWidgets
-from PyQt5.QtCore import QThread, pyqtSignal
+from PyQt5.QtCore import QThread, pyqtSignal, QMutex
 from PyQt5.uic import loadUi
 from PyQt5.QtWidgets import QMainWindow, QApplication, QStackedWidget, QFileDialog, QMessageBox, QLineEdit, \
     QRadioButton, QCheckBox
@@ -11,8 +11,14 @@ from Recon.recon import *
 
 class Thread(QThread):
     finished = pyqtSignal()
+    subdomain = pyqtSignal()
 
-    def __init__(self, domain=None, is_live=None, is_end=None, is_par=None, is_JS=None, is_screen=None):
+    def __init__(self, domain=None,
+                 is_live=None,
+                 is_end=None,
+                 is_par=None,
+                 is_JS=None,
+                 is_screen=None):
         super().__init__()
         self.is_screen = is_screen
         self.is_par = is_par
@@ -27,7 +33,9 @@ class Thread(QThread):
         print("Im in thread")
         if not self.is_running:
             return
+
         subfinder_for_single_windows(self.domain)
+
         if self.is_live:
             httprobe_w()
         if self.is_end:
@@ -38,9 +46,13 @@ class Thread(QThread):
             Parameter()
         if self.is_screen:
             screenwin()
+
         self.finished.emit()
+
     def stop(self):
         self.is_running = False
+        self.quit()
+        self.wait()
 
 
 class MainWindow(QMainWindow):
@@ -52,7 +64,6 @@ class MainWindow(QMainWindow):
     is_JS_files: bool = None
     is_parameter: bool = None
     is_screenshot: bool = None
-
 
     def __init__(self):
         super().__init__()
@@ -112,16 +123,16 @@ class MainWindow(QMainWindow):
                     is_parameter.setEnabled(False)
 
                 self.reconbtn.setEnabled(False)
-                thread = Thread(target.strip(),
+                self.thread = Thread(target.strip(),
                                      is_live=self.is_live_subdomain,
                                      is_end=self.is_endpoints,
                                      is_par=self.is_parameter,
                                      is_screen=self.is_screenshot,
                                      is_JS=self.is_JS_files)
-
                 self.thread.finished.connect(self.on_finished)
                 # self.stopbtn.pressed.connect(self.thread.stop)
                 self.thread.start()
+
 
         elif self.listRadio.isChecked():
             pass
@@ -131,11 +142,25 @@ class MainWindow(QMainWindow):
 
     def on_finished(self):
         self.reconbtn.setEnabled(True)
-        self.Live_subdomain.setEnabled(True)
-        self.is_parameter.setEnabled(True)
-        self.is_screenshot.setEnabled(True)
-        self.is_endpoints.setEnabled(True)
-        self.is_JS_files.setEnabled(True)
+        if self.is_live_subdomain:
+            self.Live_subdomain.setEnabled(True)
+        if self.is_parameter:
+            self.Parameter.setEnabled(True)
+        if self.is_screenshot:
+            self.Screenshot.setEnabled(True)
+        if self.is_endpoints:
+            self.Endpoint.setEnabled(True)
+        if self.is_JS_files:
+            self.JS_files.setEnabled(True)
+
+    def on_finished_subdomain(self):
+        # QMessageBox.information(self, 'Information', f'Collect Subdomain is finished')
+        msg = QMessageBox()
+        msg.setIcon(msg.Information)
+        msg.setText("ok")
+        msg.setInformativeText("Collect Subdomain is finished")
+        msg.setWindowTitle("Subdomain")
+        msg.exec_()
 
     def open_file_dialog(self):
         project_name: QLineEdit = self.projectName.text()
