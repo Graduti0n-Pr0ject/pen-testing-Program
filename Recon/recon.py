@@ -68,6 +68,8 @@ def wwayback():  # endpoints
 
 
 def fetchjs(url): # js Files
+
+    print(" start js")
     regx = re.compile("[https:\/\/http:\/\/\/\/\/a-zA-Z0-9\.\/]+\.js")
     url = "https://" + url
     rq = requests.get(url)
@@ -78,7 +80,7 @@ def fetchjs(url): # js Files
     f = open("js.txt", "a")
     for i in myjs:
         f.writelines(i + '\n')
-
+    print("js end")
 
 def Parameter():  # Parameter
     cwd = os.path.dirname(__file__)
