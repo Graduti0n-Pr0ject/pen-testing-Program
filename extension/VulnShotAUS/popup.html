@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Vulnerable Script Scanner</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+    }
+
+    h1 {
+      margin-top: 0;
+    }
+
+    table {
+      border-collapse: collapse;
+      margin-top: 20px;
+      width: 100%;
+    }
+
+    th,
+    td {
+      border: 1px solid #ccc;
+      padding: 5px;
+      text-align: left;
+      width: auto;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    
+    td:nth-child(1) {
+      min-width: 80px;
+    }
+    td:nth-child(2) {
+      min-width: 80px;
+    } 
+    td:nth-child(3) {
+      min-width: 200px;
+    }  
+
+    .button {
+      background-color: #4CAF50;
+      border: none;
+      color: white;
+      padding: 10px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+    }
+
+    .center {
+      display: flex;
+      justify-content: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="center">
+    <h1>Vulnerable Script Scanner</h1>
+  </div>
+  <div class="center">
+    <button id="scanButton" class="button">Scan Page</button>
+  </div>
+  <div class="center">
+    <table>
+      <thead>
+        <tr>
+          <th>Libarary</th>
+          <th>CVE Vesion</th>
+          <th>CVE Summary</th>
+        </tr>
+      </thead>
+      <tbody id="scanResults">
+      </tbody>
+    </table>
+  </div>
+  <script src="popup.js"></script>
+</body>
+
+</html>

@@ -2,7 +2,7 @@ import requests
 import re
 from sys import platform
 
-# extentionFile = open("LFI_fies/extensions.txt", "r")
+# extentionFile = open("LFI_fies/extension.txt", "r")
 # lfiPayloads = open("LFI_fies/payloads.txt", "r", encoding='utf-8')
 
 
@@ -51,7 +51,7 @@ def LFIinj(url, extension):
 
 if __name__ == "__main__":
     url = input("Enter url to LFI: ")
-    # test if url contain parameter with files extensions
+    # test if url contain parameter with files extension
     isHas, extention = testExtention(url)
     if isHas:
         print("URL querying file with extention {}".format(extention))

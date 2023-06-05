@@ -1,7 +1,7 @@
 from PyQt5.QtCore import QThread, pyqtSignal
 
 from Recon.recon import *
-
+from Recon.Directory.directory import check_brute_force
 
 # Recon Thread
 class Thread(QThread):
@@ -48,13 +48,29 @@ class Thread(QThread):
 
         self.finished.emit()
 
+
 # Attack Thread
 
-class ThreadAttack(QThread):
+class ThreadAttackDirectory(QThread):
     finished = pyqtSignal()
 
+    def __init__(self, search, name, url):
+        super().__init__()
+        self.search = search
+        self.name = name
+        self.new_url = url
+
+    def run(self) -> None:
+        check_brute_force(self.search, self.new_url, self.name)
+        self.finished.emit()
+
+        pass
+
+
+class ThreadAttackSQLInjection(QThread):
     def __init__(self):
         super().__init__()
+
 
     def run(self) -> None:
         pass

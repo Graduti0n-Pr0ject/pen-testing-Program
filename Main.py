@@ -7,10 +7,10 @@ from ThreadsApp import *
 
 import logo_rc
 
+from Recon.Directory.directory import choose_list
+
 
 # import pyqtcss
-
-
 
 
 class MainWindow(QMainWindow):
@@ -50,6 +50,53 @@ class MainWindow(QMainWindow):
         self.sr: QRadioButton = self.singleRadio
         self.reconbtn.clicked.connect(self.start_single_list_task)
         self.chooseFile.clicked.connect(self.open_choose_file)
+
+        # -------------- Attacks ----------- #
+
+        ## Directory
+
+        '''
+        1. URL_D -> Input
+        2. list_D -> Combobox
+        3. file_D -> button
+        4. start_D -> button
+        '''
+        self.start_D.clicked.connect(self.search_directories)
+
+        ## Sql injection
+        '''
+        1. output_list -> listQwidget
+        2. table_list -> comboBox
+        3. column_list -> combox
+        4. check_tbtn -> pushbutton
+        5. check_cbtn -> pushbutton
+        6. sql_url -> QLineEdit
+        7. attack_btn -> pushbutton
+        '''
+        self.attack_btn.clicked.connect(self.apply_Sql_Injection)
+
+    def apply_Sql_Injection(self):
+        try:
+            sure_url = self.URL_D.text().strip()
+            response = requests.get(sure_url)
+        except (requests.exceptions.MissingSchema, requests.exceptions.InvalidSchema,
+                requests.exceptions.InvalidURL) as error:
+            QMessageBox.warning(self, 'URL', f'Write Valid URL {error}')
+
+
+    def search_directories(self):
+        sure_url = self.URL_D.text().strip()
+        current_index_drop_box = self.list_D.currentIndex()
+        current_item_drop_box = self.list_D.currentText()
+        if not sure_url:
+            QMessageBox.information(self, 'Information', f'Enter Right URL Plz')
+        if not current_index_drop_box:
+            QMessageBox.information(self, 'Information', f'Enter Choose directory Plz')
+
+        what_search, type_search = choose_list(current_item_drop_box)
+
+        self.worker_bruteForce = ThreadAttackDirectory(search=what_search, name=type_search, url=sure_url)
+        self.worker_bruteForce.run()
 
     def start_single_list_task(self):
         target: str = self.target_line.text().strip()
