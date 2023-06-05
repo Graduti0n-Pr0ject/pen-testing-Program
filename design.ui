@@ -42,7 +42,7 @@
        <enum>QFrame::Plain</enum>
       </property>
       <property name="currentIndex">
-       <number>2</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="Home">
        <widget class="QRadioButton" name="WafRadio">
@@ -199,6 +199,35 @@
         </property>
         <property name="text">
          <string>Save</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="domainEdit_6">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>140</y>
+          <width>231</width>
+          <height>38</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="placeholderText">
+         <string>Ip (198.168.1.1)</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="domainEdit_7">
+        <property name="geometry">
+         <rect>
+          <x>260</x>
+          <y>140</y>
+          <width>211</width>
+          <height>38</height>
+         </rect>
+        </property>
+        <property name="placeholderText">
+         <string>Port (8080)</string>
         </property>
        </widget>
       </widget>
