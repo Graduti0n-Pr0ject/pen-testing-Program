@@ -3,14 +3,18 @@ from PyQt5.QtWidgets import QMainWindow, QApplication, QStackedWidget, QFileDial
     QRadioButton, QCheckBox, QDialog
 from PyQt5.uic import loadUi
 
+
 from ThreadsApp import *
 
 import logo_rc
 
 from Recon.Directory.directory import choose_list
+from Attacks.SqlInjecation.Error_based_attack import sample_Get_inj
+from Attacks.SqlInjecation.UnionScripts import figure_columns_in_table, figure_data_in_columns
 
 
-# import pyqtcss
+
+import pyqtcss
 
 
 class MainWindow(QMainWindow):
@@ -28,8 +32,8 @@ class MainWindow(QMainWindow):
         super().__init__()
         loadUi("design.ui", self)
 
-        # style_string = pyqtcss.get_style("dark_blue")
-        # self.setStyleSheet(style_string)
+        style_string = pyqtcss.get_style("dark_blue")
+        self.setStyleSheet(style_string)
         # ----------- Home ------------ #
         self.chooseProject.hide()
         self.widget_list_domain.hide()
@@ -65,7 +69,7 @@ class MainWindow(QMainWindow):
 
         ## Sql injection
         '''
-        1. output_list -> listQwidget
+        1. output_list -> listQ widget
         2. table_list -> comboBox
         3. column_list -> combox
         4. check_tbtn -> pushbutton
@@ -74,15 +78,60 @@ class MainWindow(QMainWindow):
         7. attack_btn -> pushbutton
         '''
         self.attack_btn.clicked.connect(self.apply_Sql_Injection)
+        self.check_tbtn.clicked.connect(self.check_tables_sql)
+        self.check_cbtn.clicked.connect(self.check_columns_data)
+
+        ###
 
     def apply_Sql_Injection(self):
         try:
             sure_url = self.URL_D.text().strip()
             response = requests.get(sure_url)
+            outputs, tables, pay, orc = sample_Get_inj(sure_url)
+            self.payload = pay
+            self.is_orc = orc
+            tables.insert(0, self.table_list.currentText())
+            self.table_list.clear()
+            self.table_list.addItem("Tables")
+            self.table_list.addItems(tables)
+            self.output_list.addItems(outputs)
         except (requests.exceptions.MissingSchema, requests.exceptions.InvalidSchema,
                 requests.exceptions.InvalidURL) as error:
-            QMessageBox.warning(self, 'URL', f'Write Valid URL {error}')
 
+            QMessageBox.warning(self, 'Warning', f'Write Valid URL {error}')
+
+    def check_tables_sql(self):
+        self.sql_output.clear()
+        current_index = self.table_list.currentIndex()
+        url = self.sql_url.text()
+        table_name = self.table_list.currentText()
+        try:
+            if current_index == 0:
+                raise IndexError
+            columns = figure_columns_in_table(url, self.payload, table_name, self.is_orc)
+            self.column_list.clear()
+            self.column_list.addItem("Columns")
+            self.column_list.addItems(columns)
+            self.sql_output.addItem(
+                f"[+] Exploiting {len(columns)} columns, this is names of this columns, insert one to show his data")
+
+        except IndexError as error:
+            QMessageBox.Warning(self, 'Warning', f'Plz choose table')
+
+    def check_columns_data(self):
+        current_index_col = self.column_list.currentIndex()
+        current_index_tab = self.tables_combobox.currentIndex()
+        url = self.sql_url.text()
+        table_name = self.table_list.currentText()
+        column_name = self.column_list.currentText()
+        try:
+            if current_index_col == 0 or current_index_tab == 0:
+                raise IndexError
+            data = figure_data_in_columns(url, self.payload, table_name, column_name)
+            data.insert(0, f"Data in column {column_name}")
+            self.sql_output.addItems(data)
+        except IndexError as error:
+            QMessageBox.Warning(self, 'Warning', f'Plz choose column or table')
 
     def search_directories(self):
         sure_url = self.URL_D.text().strip()

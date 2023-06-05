@@ -518,7 +518,7 @@
                   </property>
                   <layout class="QGridLayout" name="gridLayout_13">
                    <item row="0" column="0">
-                    <widget class="QListWidget" name="listWidget"/>
+                    <widget class="QListWidget" name="output_list"/>
                    </item>
                   </layout>
                  </widget>
@@ -530,7 +530,7 @@
                   </property>
                   <layout class="QGridLayout" name="gridLayout_12">
                    <item row="0" column="0">
-                    <widget class="QComboBox" name="tables_sql">
+                    <widget class="QComboBox" name="table_list">
                      <item>
                       <property name="text">
                        <string>Tables</string>
@@ -539,14 +539,14 @@
                     </widget>
                    </item>
                    <item row="0" column="1">
-                    <widget class="QPushButton" name="pushButton">
+                    <widget class="QPushButton" name="check_tbtn">
                      <property name="text">
                       <string>Check Tables</string>
                      </property>
                     </widget>
                    </item>
                    <item row="1" column="0">
-                    <widget class="QComboBox" name="comboBox_2">
+                    <widget class="QComboBox" name="column_list">
                      <item>
                       <property name="text">
                        <string>Columns</string>
@@ -555,7 +555,7 @@
                     </widget>
                    </item>
                    <item row="1" column="1">
-                    <widget class="QPushButton" name="pushButton_4">
+                    <widget class="QPushButton" name="check_cbtn">
                      <property name="text">
                       <string>Check Columns</string>
                      </property>

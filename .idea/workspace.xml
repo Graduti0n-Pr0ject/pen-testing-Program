@@ -4,13 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ca2cd115-af3f-472c-bea0-3276102aa1c9" name="Changes" comment="fix error">
-      <change afterPath="$PROJECT_DIR$/WAF/proxy.py" afterDir="false" />
+    <list default="true" id="ca2cd115-af3f-472c-bea0-3276102aa1c9" name="Changes" comment="add one tool of attack and upload extension">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Attacks/SqlInjecation/UnionScripts.py" beforeDir="false" afterPath="$PROJECT_DIR$/Attacks/SqlInjecation/UnionScripts.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Recon/Directory/directory.py" beforeDir="false" afterPath="$PROJECT_DIR$/Recon/Directory/directory.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ThreadsApp.py" beforeDir="false" afterPath="$PROJECT_DIR$/ThreadsApp.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/design.ui" beforeDir="false" afterPath="$PROJECT_DIR$/design.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WAF/proxy.py" beforeDir="false" afterPath="$PROJECT_DIR$/WAF/proxy.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/activate_icons.sh" beforeDir="false" afterPath="$PROJECT_DIR$/activate_icons.sh" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +30,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$USER_HOME$/AppData/Local/JetBrains/PyCharmCE2023.1/python_stubs/1002139942/PyQt5/QtWidgets/QStackedWidget.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/Attacks/SqlInjecation/Error_based_attack.py" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -47,17 +48,17 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/Bezo_/PycharmProjects/graduation_project/WAF",
+    "last_opened_file_path": "C:/Users/Bezo_/PycharmProjects/graduation_project/extensions",
     "settings.editor.selected.configurable": "reference.settingsdialog.project.grazie"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Bezo_\PycharmProjects\graduation_project\extensions" />
+      <recent name="C:\Users\Bezo_\PycharmProjects\graduation_project\WAF" />
       <recent name="C:\Users\Bezo_\PycharmProjects\graduation_project\assets" />
       <recent name="C:\Users\Bezo_\PycharmProjects\graduation_project\Attacks\LFI_files" />
       <recent name="C:\Users\Bezo_\PycharmProjects\graduation_project\Attacks" />
-      <recent name="C:\Users\Bezo_\PycharmProjects\graduation_project\Recon" />
-      <recent name="C:\Users\Bezo_\PycharmProjects\graduation_project" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Bezo_\PycharmProjects\graduation_project\Attacks\SqlInjecation" />
@@ -287,7 +288,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685986257735</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="add one tool of attack and upload extension">
+      <created>1685991853653</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1685991853653</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -333,7 +341,8 @@
     <MESSAGE value="Recon is done" />
     <MESSAGE value="upgrade readability of files" />
     <MESSAGE value="fix error" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix error" />
+    <MESSAGE value="add one tool of attack and upload extension" />
+    <option name="LAST_COMMIT_MESSAGE" value="add one tool of attack and upload extension" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -345,7 +354,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/ThreadsApp.py</url>
-          <line>6</line>
+          <line>7</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>

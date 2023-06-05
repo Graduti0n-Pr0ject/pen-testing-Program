@@ -2,10 +2,10 @@ from mitmproxy import http
 from mitmproxy.tools.main import mitmdump
 import html
 
+ip = ""
+port = ""
 
 
-ip=""
-port=""
 def request(flow: http.HTTPFlow) -> None:
     """
     This method is called when a client makes a request to the server.
@@ -34,7 +34,7 @@ def request(flow: http.HTTPFlow) -> None:
     # Check if there are any GET parameters in the request
     if flow.request.method == "GET" and flow.request.query:
         # Define a list of blacklisted strings
-        blacklist = ["<script>", "alert(", "document.cookie", "eval(","javascript"]
+        blacklist = ["<script>", "alert(", "document.cookie", "eval(", "javascript"]
         # Loop through each GET parameter to check for possible XSS
         for key, value in flow.request.query.items():
             # Check if the value contains any blacklisted strings

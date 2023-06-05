@@ -3,6 +3,7 @@ from PyQt5.QtCore import QThread, pyqtSignal
 from Recon.recon import *
 from Recon.Directory.directory import check_brute_force
 
+
 # Recon Thread
 class Thread(QThread):
     finished = pyqtSignal()
@@ -64,13 +65,4 @@ class ThreadAttackDirectory(QThread):
         check_brute_force(self.search, self.new_url, self.name)
         self.finished.emit()
 
-        pass
-
-
-class ThreadAttackSQLInjection(QThread):
-    def __init__(self):
-        super().__init__()
-
-
-    def run(self) -> None:
         pass
