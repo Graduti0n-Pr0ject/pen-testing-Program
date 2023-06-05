@@ -17,16 +17,11 @@
     ```shell
     pip install -r requirements.txt
     ```
-   
-3. go to directory `Scripts`
 
-   ```shell
-   cd Scripts
-   ```
-4. Run program
+3. Run program
 
     ```shell
-    python Index.py
+    python Main.py
     ```
 # Recon Tools 
 
