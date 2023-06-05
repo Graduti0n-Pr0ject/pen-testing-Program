@@ -67,7 +67,7 @@ def Js_file():  # Js_files
     print(banner)
 
 
-def fetchjs(url):
+def fetchjs(url): # js Files
     regx = re.compile("[https:\/\/http:\/\/\/\/\/a-zA-Z0-9\.\/]+\.js")
     url = "https://" + url
     rq = requests.get(url)

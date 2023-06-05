@@ -4,7 +4,7 @@ from PyQt5.QtWidgets import QMainWindow, QApplication, QStackedWidget, QFileDial
     QRadioButton, QCheckBox
 import logo_rc  # For Icons
 from Recon.recon import *
-
+import pyqtcss
 
 class Thread(QThread):
     finished = pyqtSignal()
@@ -15,7 +15,7 @@ class Thread(QThread):
                  is_end=None,
                  is_par=None,
                  is_JS=None,
-                 is_screen=None, path=None):
+                 is_screen=None, path=None, url=None):
         super().__init__()
         self.is_screen = is_screen
         self.is_par = is_par
@@ -25,6 +25,7 @@ class Thread(QThread):
         self.is_end = is_end
         self.is_running = True
         self.path = path
+        self.url = url
 
     def run(self) -> None:
         # super().sleep(1)
@@ -39,7 +40,8 @@ class Thread(QThread):
         if self.is_end:
             wwayback()
         if self.is_JS:
-            Js_file()
+            if self.url is not None:
+                fetchjs(self.url)
         if self.is_par:
             Parameter()
         if self.is_screen:
@@ -61,6 +63,9 @@ class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
         loadUi("design.ui", self)
+
+        style_string = pyqtcss.get_style("dark_blue")
+        self.setStyleSheet(style_string)
         # ----------- Home ------------ #
         self.chooseProject.hide()
         self.widget_list_domain.hide()
@@ -76,14 +81,14 @@ class MainWindow(QMainWindow):
         # self.Js_files
         # self.Endpoint
         # self.Live_subdomain
-        # self.toolButtoى
+        # self.toolButton
         self.reconbtn.hide()
         self.sr: QRadioButton = self.singleRadio
         self.reconbtn.clicked.connect(self.start_single_list_task)
         self.toolButton.clicked.connect(self.open_choose_file)
 
     def start_single_list_task(self):
-        target: str = self.target_line.text()
+        target: str = self.target_line.text().strip()
         is_live: QCheckBox = self.Live_subdomain
         is_endpoint: QCheckBox = self.Endpoint
         is_JS: QCheckBox = self.Js_files
@@ -122,7 +127,7 @@ class MainWindow(QMainWindow):
                                      is_end=self.is_endpoints,
                                      is_par=self.is_parameter,
                                      is_screen=self.is_screenshot,
-                                     is_JS=self.is_JS_files)
+                                     is_JS=self.is_JS_files, url=target)
                 self.thread.start()
                 self.thread.finished.connect(self.on_finished)
 
@@ -160,7 +165,8 @@ class MainWindow(QMainWindow):
         choose_file = QFileDialog()
         choose_file.setFileMode(QFileDialog.AnyFile)
         choose_file.setFilter("Text files (*.txt)")
-        file = choose_file.selectFile()
+        if choose_file.exec_():
+            file = choose_file.selectFile()
         print(file)
 
     def open_file_dialog(self):

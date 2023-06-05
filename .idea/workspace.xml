@@ -4,11 +4,75 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ca2cd115-af3f-472c-bea0-3276102aa1c9" name="Changes" comment="REcon is done">
+    <list default="true" id="ca2cd115-af3f-472c-bea0-3276102aa1c9" name="Changes" comment="Update Requirements">
+      <change afterPath="$PROJECT_DIR$/assets/pyqt-stylesheets-master/pyqt-stylesheets-master/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/pyqt-stylesheets-master/pyqt-stylesheets-master/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/pyqt-stylesheets-master/pyqt-stylesheets-master/MANIFEST.in" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/pyqt-stylesheets-master/pyqt-stylesheets-master/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/pyqt-stylesheets-master/pyqt-stylesheets-master/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/pyqt-stylesheets-master/pyqt-stylesheets-master/pyqtcss/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/pyqt-stylesheets-master/pyqt-stylesheets-master/pyqtcss/src/classic/style.qrc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/pyqt-stylesheets-master/pyqt-stylesheets-master/pyqtcss/src/classic/style.qss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/pyqt-stylesheets-master/pyqt-stylesheets-master/pyqtcss/src/dark_blue/critical.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/pyqt-stylesheets-master/pyqt-stylesheets-master/pyqtcss/src/dark_blue/error.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/pyqt-stylesheets-master/pyqt-stylesheets-master/pyqtcss/src/dark_blue/img/Hmovetoolbar.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/pyqt-stylesheets-master/pyqt-stylesheets-master/pyqtcss/src/dark_blue/img/Hsepartoolbar.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/pyqt-stylesheets-master/pyqt-stylesheets-master/pyqtcss/src/dark_blue/img/Vmovetoolbar.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/pyqt-stylesheets-master/pyqt-stylesheets-master/pyqtcss/src/dark_blue/img/Vsepartoolbar.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/pyqt-stylesheets-master/pyqt-stylesheets-master/pyqtcss/src/dark_blue/img/branch_closed-on.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/pyqt-stylesheets-master/pyqt-stylesheets-master/pyqtcss/src/dark_blue/img/branch_closed.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/pyqt-stylesheets-master/pyqt-stylesheets-master/pyqtcss/src/dark_blue/img/branch_open-on.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/pyqt-stylesheets-master/pyqt-stylesheets-master/pyqtcss/src/dark_blue/img/branch_open.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/pyqt-stylesheets-master/pyqt-stylesheets-master/pyqtcss/src/dark_blue/img/checkbox_checked.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/pyqt-stylesheets-master/pyqt-stylesheets-master/pyqtcss/src/dark_blue/img/checkbox_checked_disabled.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/pyqt-stylesheets-master/pyqt-stylesheets-master/pyqtcss/src/dark_blue/img/checkbox_checked_focus.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/pyqt-stylesheets-master/pyqt-stylesheets-master/pyqtcss/src/dark_blue/img/checkbox_indeterminate.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/pyqt-stylesheets-master/pyqt-stylesheets-master/pyqtcss/src/dark_blue/img/checkbox_indeterminate_disabled.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/pyqt-stylesheets-master/pyqt-stylesheets-master/pyqtcss/src/dark_blue/img/checkbox_indeterminate_focus.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/pyqt-stylesheets-master/pyqt-stylesheets-master/pyqtcss/src/dark_blue/img/checkbox_unchecked.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/pyqt-stylesheets-master/pyqt-stylesheets-master/pyqtcss/src/dark_blue/img/checkbox_unchecked_disabled.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/pyqt-stylesheets-master/pyqt-stylesheets-master/pyqtcss/src/dark_blue/img/checkbox_unchecked_focus.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/pyqt-stylesheets-master/pyqt-stylesheets-master/pyqtcss/src/dark_blue/img/close-hover.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/pyqt-stylesheets-master/pyqt-stylesheets-master/pyqtcss/src/dark_blue/img/close-pressed.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/pyqt-stylesheets-master/pyqt-stylesheets-master/pyqtcss/src/dark_blue/img/close.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/pyqt-stylesheets-master/pyqt-stylesheets-master/pyqtcss/src/dark_blue/img/critical.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/pyqt-stylesheets-master/pyqt-stylesheets-master/pyqtcss/src/dark_blue/img/down_arrow.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/pyqt-stylesheets-master/pyqt-stylesheets-master/pyqtcss/src/dark_blue/img/down_arrow_disabled.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/pyqt-stylesheets-master/pyqt-stylesheets-master/pyqtcss/src/dark_blue/img/error.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/pyqt-stylesheets-master/pyqt-stylesheets-master/pyqtcss/src/dark_blue/img/left_arrow.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/pyqt-stylesheets-master/pyqt-stylesheets-master/pyqtcss/src/dark_blue/img/left_arrow_disabled.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/pyqt-stylesheets-master/pyqt-stylesheets-master/pyqtcss/src/dark_blue/img/question.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/pyqt-stylesheets-master/pyqt-stylesheets-master/pyqtcss/src/dark_blue/img/radio_checked.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/pyqt-stylesheets-master/pyqt-stylesheets-master/pyqtcss/src/dark_blue/img/radio_checked_disabled.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/pyqt-stylesheets-master/pyqt-stylesheets-master/pyqtcss/src/dark_blue/img/radio_checked_focus.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/pyqt-stylesheets-master/pyqt-stylesheets-master/pyqtcss/src/dark_blue/img/radio_unchecked.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/pyqt-stylesheets-master/pyqt-stylesheets-master/pyqtcss/src/dark_blue/img/radio_unchecked_disabled.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/pyqt-stylesheets-master/pyqt-stylesheets-master/pyqtcss/src/dark_blue/img/radio_unchecked_focus.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/pyqt-stylesheets-master/pyqt-stylesheets-master/pyqtcss/src/dark_blue/img/right_arrow.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/pyqt-stylesheets-master/pyqt-stylesheets-master/pyqtcss/src/dark_blue/img/right_arrow_disabled.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/pyqt-stylesheets-master/pyqt-stylesheets-master/pyqtcss/src/dark_blue/img/sizegrip.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/pyqt-stylesheets-master/pyqt-stylesheets-master/pyqtcss/src/dark_blue/img/stylesheet-branch-end.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/pyqt-stylesheets-master/pyqt-stylesheets-master/pyqtcss/src/dark_blue/img/stylesheet-branch-more.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/pyqt-stylesheets-master/pyqt-stylesheets-master/pyqtcss/src/dark_blue/img/stylesheet-vline.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/pyqt-stylesheets-master/pyqt-stylesheets-master/pyqtcss/src/dark_blue/img/transparent.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/pyqt-stylesheets-master/pyqt-stylesheets-master/pyqtcss/src/dark_blue/img/undock.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/pyqt-stylesheets-master/pyqt-stylesheets-master/pyqtcss/src/dark_blue/img/up_arrow.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/pyqt-stylesheets-master/pyqt-stylesheets-master/pyqtcss/src/dark_blue/img/up_arrow_disabled.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/pyqt-stylesheets-master/pyqt-stylesheets-master/pyqtcss/src/dark_blue/img/warning.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/pyqt-stylesheets-master/pyqt-stylesheets-master/pyqtcss/src/dark_blue/question.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/pyqt-stylesheets-master/pyqt-stylesheets-master/pyqtcss/src/dark_blue/style.qrc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/pyqt-stylesheets-master/pyqt-stylesheets-master/pyqtcss/src/dark_blue/style.qss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/pyqt-stylesheets-master/pyqt-stylesheets-master/pyqtcss/src/dark_blue/warning.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/pyqt-stylesheets-master/pyqt-stylesheets-master/pyqtcss/src/dark_orange/img/checkbox.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/pyqt-stylesheets-master/pyqt-stylesheets-master/pyqtcss/src/dark_orange/img/down_arrow.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/pyqt-stylesheets-master/pyqt-stylesheets-master/pyqtcss/src/dark_orange/img/handle.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/pyqt-stylesheets-master/pyqt-stylesheets-master/pyqtcss/src/dark_orange/style.qrc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/pyqt-stylesheets-master/pyqt-stylesheets-master/pyqtcss/src/dark_orange/style.qss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/pyqt-stylesheets-master/pyqt-stylesheets-master/setup.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Recon/recon.py" beforeDir="false" afterPath="$PROJECT_DIR$/Recon/recon.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/design.ui" beforeDir="false" afterPath="$PROJECT_DIR$/design.ui" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,12 +105,13 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Bezo_/PycharmProjects/graduation_project/Attacks/LFI_files&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Bezo_/PycharmProjects/graduation_project/assets&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.grazie&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Bezo_\PycharmProjects\graduation_project\assets" />
       <recent name="C:\Users\Bezo_\PycharmProjects\graduation_project\Attacks\LFI_files" />
       <recent name="C:\Users\Bezo_\PycharmProjects\graduation_project\Attacks" />
       <recent name="C:\Users\Bezo_\PycharmProjects\graduation_project\Recon" />
@@ -232,11 +297,26 @@
       <option name="project" value="LOCAL" />
       <updated>1685960758687</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="some changes in README">
+      <created>1685963526835</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1685963526835</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Update Requirements">
+      <created>1685963643008</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1685963643008</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="UnknownFeatures">
     <option featureType="com.intellij.fileTypeFactory" implementationName="requirements.txt" />
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.qss" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -258,6 +338,8 @@
     <MESSAGE value="wait for Recon" />
     <MESSAGE value="solve some error in thread" />
     <MESSAGE value="REcon is done" />
-    <option name="LAST_COMMIT_MESSAGE" value="REcon is done" />
+    <MESSAGE value="some changes in README" />
+    <MESSAGE value="Update Requirements" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update Requirements" />
   </component>
 </project>
