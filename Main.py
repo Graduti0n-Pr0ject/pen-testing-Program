@@ -1,3 +1,5 @@
+import sys
+
 from PyQt5.QtCore import QThread, pyqtSignal, QMutex
 from PyQt5.uic import loadUi
 from PyQt5.QtWidgets import QMainWindow, QApplication, QStackedWidget, QFileDialog, QMessageBox, QLineEdit, \
@@ -6,9 +8,9 @@ import logo_rc  # For Icons
 from Recon.recon import *
 import pyqtcss
 
+
 class Thread(QThread):
     finished = pyqtSignal()
-    subdomain = pyqtSignal()
 
     def __init__(self, domain=None,
                  is_live=None,
@@ -64,7 +66,7 @@ class MainWindow(QMainWindow):
         super().__init__()
         loadUi("design.ui", self)
 
-        style_string = pyqtcss.get_style("dark_blue")
+        style_string = pyqtcss.get_style(pyqtcss.available_styles()[1])
         self.setStyleSheet(style_string)
         # ----------- Home ------------ #
         self.chooseProject.hide()
@@ -85,7 +87,7 @@ class MainWindow(QMainWindow):
         self.reconbtn.hide()
         self.sr: QRadioButton = self.singleRadio
         self.reconbtn.clicked.connect(self.start_single_list_task)
-        self.toolButton.clicked.connect(self.open_choose_file)
+        self.chooseFile.clicked.connect(self.open_choose_file)
 
     def start_single_list_task(self):
         target: str = self.target_line.text().strip()
@@ -152,22 +154,24 @@ class MainWindow(QMainWindow):
         if self.is_JS_files:
             self.JS_files.setEnabled(True)
 
-    def on_finished_subdomain(self):
-        # QMessageBox.information(self, 'Information', f'Collect Subdomain is finished')
-        msg = QMessageBox()
-        msg.setIcon(msg.Information)
-        msg.setText("ok")
-        msg.setInformativeText("Collect Subdomain is finished")
-        msg.setWindowTitle("Subdomain")
-        msg.exec_()
+    # def on_finished_subdomain(self):
+    #     # QMessageBox.information(self, 'Information', f'Collect Subdomain is finished')
+    #     msg = QMessageBox()
+    #     msg.setIcon(msg.Information)
+    #     msg.setText("ok")
+    #     msg.setInformativeText("Collect Subdomain is finished")
+    #     msg.setWindowTitle("Subdomain")
+    #     msg.exec_()
 
     def open_choose_file(self):
-        choose_file = QFileDialog()
-        choose_file.setFileMode(QFileDialog.AnyFile)
-        choose_file.setFilter("Text files (*.txt)")
-        if choose_file.exec_():
-            file = choose_file.selectFile()
-        print(file)
+        options = QFileDialog.Options()
+        options |= QFileDialog.DontUseDirectoryContents
+        options |= QFileDialog.ReadOnly
+        file_name, _ = QFileDialog.getOpenFileName(self, "Select File", "", "All Files (*);;Text Files (*.txt)",
+                                                   options=options)
+
+        if file_name:
+            print("Selected file:", file_name)
 
     def open_file_dialog(self):
         project_name: QLineEdit = self.projectName.text()
@@ -183,6 +187,8 @@ class MainWindow(QMainWindow):
                 QMessageBox.warning(self, 'Warning', 'No directory selected.')
         else:
             QMessageBox.information(self, 'Information', f'write project name correct.')
+
+
 
     def do_work(self):
         project_name: QLineEdit = self.projectName
@@ -217,10 +223,11 @@ def main():
     app = QApplication([])  # Start App
     main_app = MainWindow()
     main_app.show()
-    try:
-        sys.exit(app.exec_())  # Exit app when Press X
-    except Exception as error:
-        print(error)
+    app.exec_()
+    # try:
+    #     sys.exit()  # Exit app when Press X
+    # except Exception as error:
+    #     print(error)
 
 
 if __name__ == '__main__':
