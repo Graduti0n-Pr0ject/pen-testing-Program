@@ -1,9 +1,8 @@
-
 from PyQt5.QtCore import QThread, pyqtSignal, QMutex
 from PyQt5.uic import loadUi
 from PyQt5.QtWidgets import QMainWindow, QApplication, QStackedWidget, QFileDialog, QMessageBox, QLineEdit, \
     QRadioButton, QCheckBox
-import logo_rc # For Icons
+import logo_rc  # For Icons
 from Recon.recon import *
 
 
@@ -16,9 +15,8 @@ class Thread(QThread):
                  is_end=None,
                  is_par=None,
                  is_JS=None,
-                 is_screen=None):
+                 is_screen=None, path=None):
         super().__init__()
-        self.subfinder_process: Popen = None
         self.is_screen = is_screen
         self.is_par = is_par
         self.is_JS = is_JS
@@ -26,14 +24,14 @@ class Thread(QThread):
         self.is_live = is_live
         self.is_end = is_end
         self.is_running = True
+        self.path = path
 
     def run(self) -> None:
         # super().sleep(1)
-        print("Im in thread")
-        if not self.is_running:
-            return
-
-        self.subfinder_process = subfinder_for_single_windows(self.domain)
+        if self.path is None:
+            subfinder_for_single_windows(self.domain)
+        else:
+            subfinder_for_file_windows(self.path)
 
         if self.is_live:
             httprobe_w()
@@ -48,13 +46,6 @@ class Thread(QThread):
             screenwin()
 
         self.finished.emit()
-
-    def stop(self):
-        try:
-            super().terminate()
-            self.subfinder_process.kill()
-        except:
-            pass
 
 
 class MainWindow(QMainWindow):
@@ -85,10 +76,11 @@ class MainWindow(QMainWindow):
         # self.Js_files
         # self.Endpoint
         # self.Live_subdomain
-        # self.stopbtn
+        # self.toolButtoى
         self.reconbtn.hide()
         self.sr: QRadioButton = self.singleRadio
         self.reconbtn.clicked.connect(self.start_single_list_task)
+        self.toolButton.clicked.connect(self.open_choose_file)
 
     def start_single_list_task(self):
         target: str = self.target_line.text()
@@ -136,6 +128,7 @@ class MainWindow(QMainWindow):
 
 
         elif self.listRadio.isChecked():
+
             pass
         else:
             self.stopbtn.hide()
@@ -162,6 +155,13 @@ class MainWindow(QMainWindow):
         msg.setInformativeText("Collect Subdomain is finished")
         msg.setWindowTitle("Subdomain")
         msg.exec_()
+
+    def open_choose_file(self):
+        choose_file = QFileDialog()
+        choose_file.setFileMode(QFileDialog.AnyFile)
+        choose_file.setFilter("Text files (*.txt)")
+        file = choose_file.selectFile()
+        print(file)
 
     def open_file_dialog(self):
         project_name: QLineEdit = self.projectName.text()

@@ -26,8 +26,6 @@ def subfinder_for_single_windows(Domain):  # single domain (collect subdomain)
 def subfinder_for_file_windows(path):  # list domain (collect subdomain)
     cwd = os.path.dirname(__file__)
     os.system(fr'{cwd}\wsubfinder.exe -dL {path}  >>{cwd}\domains.txt')
-    # command = fr'{cwd}\wsubfinder.exe -dL {path}  >>{cwd}\domains.txt'
-    # result = subprocess.run(command)
 
 
 def subfinder_single_linux(Domain):
@@ -39,30 +37,9 @@ def subfinder_multi_linux(path):
 
 
 def httprobe_w():  # live domain
-    # cwd = os.path.dirname(__file__)
-    # print("live subdomain is started")
-    # # os.system(f"type {cwd}\domains.txt | {cwd}\whttprobe.exe >>{cwd}\\urls.txt")
-    # command = fr"type {cwd}\domains.txt | {cwd}\whttprobe.exe >>{cwd}\urls.txt"
-    # process = subprocess.Popen(command, shell=True)
-    # print("live subdomain is stopped")
     cwd = os.path.dirname(__file__)
     print("live subdomain is started")
-
-    # Check if termination is requested
-    if should_terminate.is_set():
-        print("Termination requested. Stopping live subdomain.")
-        return
-
-    command = fr"type {cwd}\domains.txt | {cwd}\whttprobe.exe >>{cwd}\urls.txt"
-    process = subprocess.Popen(command, shell=True)
-
-    # Wait for the process to complete or termination to be requested
-    while process.poll() is None:
-        if should_terminate.is_set():
-            process.terminate()
-            break
-
-    print("live subdomain is stopped")
+    os.system(fr"type {cwd}\domains.txt | {cwd}\whttprobe.exe >>{cwd}\urls.txt")
 
 
 def httprobe_l():

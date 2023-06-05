@@ -4,51 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ca2cd115-af3f-472c-bea0-3276102aa1c9" name="Changes" comment="solve some error in thread">
-      <change afterPath="$PROJECT_DIR$/Attacks/LFI_files/LFI.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Attacks/LFI_files/extensions.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Attacks/LFI_files/payloads.txt" afterDir="false" />
+    <list default="true" id="ca2cd115-af3f-472c-bea0-3276102aa1c9" name="Changes" comment="REcon is done">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Recon/Arjun-master/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Recon/Arjun-master/.travis.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Recon/Arjun-master/CHANGELOG.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Recon/Arjun-master/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Recon/Arjun-master/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Recon/Arjun-master/arjun/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Recon/Arjun-master/arjun/__main__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Recon/Arjun-master/arjun/core/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Recon/Arjun-master/arjun/core/anomaly.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Recon/Arjun-master/arjun/core/bruter.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Recon/Arjun-master/arjun/core/colors.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Recon/Arjun-master/arjun/core/config.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Recon/Arjun-master/arjun/core/error_handler.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Recon/Arjun-master/arjun/core/exporter.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Recon/Arjun-master/arjun/core/importer.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Recon/Arjun-master/arjun/core/prompt.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Recon/Arjun-master/arjun/core/requester.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Recon/Arjun-master/arjun/core/utils.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Recon/Arjun-master/arjun/db/large.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Recon/Arjun-master/arjun/db/medium.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Recon/Arjun-master/arjun/db/small.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Recon/Arjun-master/arjun/db/special.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Recon/Arjun-master/arjun/plugins/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Recon/Arjun-master/arjun/plugins/commoncrawl.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Recon/Arjun-master/arjun/plugins/heuristic.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Recon/Arjun-master/arjun/plugins/otx.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Recon/Arjun-master/arjun/plugins/wayback.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Recon/Arjun-master/setup.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Recon/Attack.py" beforeDir="false" afterPath="$PROJECT_DIR$/Recon/Attack.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Recon/Directory/JS.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Recon/Directory/JS.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Recon/Directory/directory.py" beforeDir="false" afterPath="$PROJECT_DIR$/Recon/Directory/directory.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Recon/recon.py" beforeDir="false" afterPath="$PROJECT_DIR$/Recon/recon.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Recon/takeover-master/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Recon/takeover-master/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Recon/takeover-master/screen2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Recon/takeover-master/takeover.py" beforeDir="false" afterPath="$PROJECT_DIR$/Recon/takeover-master/takeover.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Recon/takeover.py" beforeDir="false" afterPath="$PROJECT_DIR$/Recon/takeover.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Recon/whttprobe.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/design.ui" beforeDir="false" afterPath="$PROJECT_DIR$/design.ui" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,7 +58,7 @@
       <recent name="C:\Users\Bezo_\PycharmProjects\graduation_project\Attacks\LFI_files" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.Main">
+  <component name="RunManager" selected="Python.python Main.py">
     <configuration name="Main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="graduation_project" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -112,6 +72,28 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="python Main.py" type="PythonConfigurationType" factoryName="Python">
+      <module name="graduation_project" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\Bezo_\PycharmProjects\graduation_project\venv\Scripts\python.exe" />
+      <option name="SDK_NAME" value="Python 3.11 (graduation_project)" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="Main.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -243,7 +225,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681106958319</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="REcon is done">
+      <created>1685960758687</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1685960758687</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -268,6 +257,7 @@
     <MESSAGE value="done Recon" />
     <MESSAGE value="wait for Recon" />
     <MESSAGE value="solve some error in thread" />
-    <option name="LAST_COMMIT_MESSAGE" value="solve some error in thread" />
+    <MESSAGE value="REcon is done" />
+    <option name="LAST_COMMIT_MESSAGE" value="REcon is done" />
   </component>
 </project>
