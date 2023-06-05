@@ -110,7 +110,7 @@ class MainWindow(QMainWindow):
                     is_endpoint.setEnabled(False)
 
                 if is_JS.isChecked():
-                    self.is_JS_files = True
+                    self.is_Js_files = True
                     is_JS.setEnabled(False)
 
                 if is_screen.isChecked():
