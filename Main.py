@@ -4,7 +4,7 @@ from PyQt5.QtWidgets import QMainWindow, QApplication, QStackedWidget, QFileDial
     QRadioButton, QCheckBox
 import logo_rc  # For Icons
 from Recon.recon import *
-import pyqtcss
+#import pyqtcss
 
 class Thread(QThread):
     finished = pyqtSignal()
@@ -64,8 +64,8 @@ class MainWindow(QMainWindow):
         super().__init__()
         loadUi("design.ui", self)
 
-        style_string = pyqtcss.get_style("dark_blue")
-        self.setStyleSheet(style_string)
+        #style_string = pyqtcss.get_style("dark_blue")
+        #self.setStyleSheet(style_string)
         # ----------- Home ------------ #
         self.chooseProject.hide()
         self.widget_list_domain.hide()
