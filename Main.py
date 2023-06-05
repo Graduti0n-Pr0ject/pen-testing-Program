@@ -85,7 +85,7 @@ class MainWindow(QMainWindow):
         self.reconbtn.hide()
         self.sr: QRadioButton = self.singleRadio
         self.reconbtn.clicked.connect(self.start_single_list_task)
-        self.toolButton.clicked.connect(self.open_choose_file)
+        self.chooseFile.clicked.connect(self.open_choose_file)
 
     def start_single_list_task(self):
         target: str = self.target_line.text().strip()

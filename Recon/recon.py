@@ -62,9 +62,9 @@ def wwayback():  # endpoints
     os.system(f'type {cwd}\domains.txt | {cwd}\wwaybackurls.exe >>archive.txt')
 
 
-def Js_file():  # Js_files
-    banner = pyfiglet.figlet_format("JS")
-    print(banner)
+# def Js_file():  # Js_files
+#     banner = pyfiglet.figlet_format("JS")
+#     print(banner)
 
 
 def fetchjs(url): # js Files
@@ -121,6 +121,5 @@ def main():
         fetchjs(b)
 
 
-Js_file()
 if __name__ == '__main__':
     main()
