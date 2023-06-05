@@ -12,10 +12,10 @@
     cd pen-testing-Program
     ```
    
-2. Install requirements
+2. Install Installation File
 
     ```shell
-    pip install -r requirements.txt
+    bash installation.sh
     ```
 
 3. Run program
