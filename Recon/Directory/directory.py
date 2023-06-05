@@ -74,4 +74,5 @@ def proccess():
     print(choose_List(num))
 
 
-proccess()
+if __name__ == '__main__':
+    proccess()

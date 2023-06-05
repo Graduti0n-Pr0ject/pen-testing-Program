@@ -1,10 +1,12 @@
 import os
 import platform
-import re
-import requests
-import threading
+import subprocess
+import sys
 
 from bs4 import BeautifulSoup
+import re, requests, pyfiglet
+from subprocess import Popen
+import threading
 
 should_terminate = threading.Event()
 
@@ -60,9 +62,9 @@ def wwayback():  # endpoints
     os.system(f'type {cwd}\domains.txt | {cwd}\wwaybackurls.exe >>archive.txt')
 
 
-# def Js_file():  # Js_files
-#     banner = pyfiglet.figlet_format("JS")
-#     print(banner)
+def Js_file():  # Js_files
+    banner = pyfiglet.figlet_format("JS")
+    print(banner)
 
 
 def fetchjs(url): # js Files
@@ -119,5 +121,6 @@ def main():
         fetchjs(b)
 
 
+Js_file()
 if __name__ == '__main__':
     main()
