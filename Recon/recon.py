@@ -1,7 +1,15 @@
 import os
 import platform
+import subprocess
+import sys
+
 from bs4 import BeautifulSoup
-import re ,requests,pyfiglet
+import re, requests, pyfiglet
+from subprocess import Popen
+import threading
+
+should_terminate = threading.Event()
+
 
 ####windows
 # cwd=os.path.dirname(__file__) get dir
@@ -12,14 +20,14 @@ import re ,requests,pyfiglet
 def subfinder_for_single_windows(Domain):  # single domain (collect subdomain)
     cwd = os.path.dirname(__file__)
     print(cwd)
-    # os.system(f'{cwd}\wsubfinder.exe -d {Domain} -o domains.txt')
-    # Create Dictectory (domain_result)
     os.system(fr'{cwd}\wsubfinder.exe -d "{Domain}"  >>{cwd}\domains.txt')
 
 
 def subfinder_for_file_windows(path):  # list domain (collect subdomain)
     cwd = os.path.dirname(__file__)
-    os.system(f'{cwd}\wsubfinder.exe -dL {path}  >>{cwd}\\domains.txt')
+    os.system(fr'{cwd}\wsubfinder.exe -dL {path}  >>{cwd}\domains.txt')
+    # command = fr'{cwd}\wsubfinder.exe -dL {path}  >>{cwd}\domains.txt'
+    # result = subprocess.run(command)
 
 
 def subfinder_single_linux(Domain):
@@ -31,8 +39,30 @@ def subfinder_multi_linux(path):
 
 
 def httprobe_w():  # live domain
+    # cwd = os.path.dirname(__file__)
+    # print("live subdomain is started")
+    # # os.system(f"type {cwd}\domains.txt | {cwd}\whttprobe.exe >>{cwd}\\urls.txt")
+    # command = fr"type {cwd}\domains.txt | {cwd}\whttprobe.exe >>{cwd}\urls.txt"
+    # process = subprocess.Popen(command, shell=True)
+    # print("live subdomain is stopped")
     cwd = os.path.dirname(__file__)
-    os.system(f"type {cwd}\domains.txt | {cwd}\whttprobe.exe >>{cwd}\\urls.txt")
+    print("live subdomain is started")
+
+    # Check if termination is requested
+    if should_terminate.is_set():
+        print("Termination requested. Stopping live subdomain.")
+        return
+
+    command = fr"type {cwd}\domains.txt | {cwd}\whttprobe.exe >>{cwd}\urls.txt"
+    process = subprocess.Popen(command, shell=True)
+
+    # Wait for the process to complete or termination to be requested
+    while process.poll() is None:
+        if should_terminate.is_set():
+            process.terminate()
+            break
+
+    print("live subdomain is stopped")
 
 
 def httprobe_l():
@@ -41,8 +71,9 @@ def httprobe_l():
 
 def screenwin():  # screenshot
     cwd = os.path.dirname(__file__)
-    os.system(fr"type {cwd}\domains.txt | {cwd}\whttprobe.exe | {cwd}\waquatone.exe -chrome-path C:\Program Files\Google\Chrome\Application\chrome.exe ")
-    #os.system(fr"type {cwd}\urls.txt | {cwd}\waquatone.exe -chrome-path chrome.exe")
+    os.system(
+        fr"type {cwd}\domains.txt | {cwd}\whttprobe.exe | {cwd}\waquatone.exe -chrome-path C:\Program Files\Google\Chrome\Application\chrome.exe ")
+    # os.system(fr"type {cwd}\urls.txt | {cwd}\waquatone.exe -chrome-path chrome.exe")
 
 
 def screenlinux():
@@ -55,31 +86,26 @@ def wwayback():  # endpoints
 
 
 def Js_file():  # Js_files
-   banner=pyfiglet.figlet_format("JS")
-   print(banner)
-   def fetchjs(url):
-    regx=re.compile("[https:\/\/http:\/\/\/\/\/a-zA-Z0-9\.\/]+\.js")
-    url="https://"+url
-    rq=requests.get(url)
-    
-    res=BeautifulSoup(rq.text,"html.parser").prettify()
-    JS=regx.findall(res)
-    myjs=set(JS)
-    f=open("js.txt","a")
-    for i in myjs:
-       f.writelines(i+'\n')
-   d=open("domains.txt","r").readlines()
-   for b in d:
-       
-       fetchjs(b)
-        
+    banner = pyfiglet.figlet_format("JS")
+    print(banner)
 
+
+def fetchjs(url):
+    regx = re.compile("[https:\/\/http:\/\/\/\/\/a-zA-Z0-9\.\/]+\.js")
+    url = "https://" + url
+    rq = requests.get(url)
+
+    res = BeautifulSoup(rq.text, "html.parser").prettify()
+    JS = regx.findall(res)
+    myjs = set(JS)
+    f = open("js.txt", "a")
+    for i in myjs:
+        f.writelines(i + '\n')
 
 
 def Parameter():  # Parameter
     cwd = os.path.dirname(__file__)
     os.system(f'type {cwd}\domains.txt | {cwd}\wwaybackurls.exe | find "=" >>prameter.txt')
-
 
 
 def lwayback():
@@ -112,6 +138,10 @@ def main():
         print("windows")
     elif platform.system() == "Linux":
         print("Linux")
+
+    d = open("domains.txt", "r").readlines()
+    for b in d:
+        fetchjs(b)
 
 
 Js_file()

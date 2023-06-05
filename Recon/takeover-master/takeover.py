@@ -147,7 +147,7 @@ def request(domain, proxy, timeout, user_agent):
             proxies=proxies
         )
         return req.status_code, req.content
-    except Exception as err:
+    except Exception:
         if k_.get('d_list'):
             print("")
             warn('Failed to establish a new connection for: %s' % (domain), 1)
@@ -167,8 +167,6 @@ def banner():
     print("  C oo   ---------------")
     print(" _( ^)  |T|A|K|E|O|V|E|R|")
     print("/   ~\\  ----------------")
-    print("#> by M'hamed (@m4ll0k) Outaadi")
-    print("#> http://github.com/m4ll0k")
     print("-"*40)
 
 
@@ -301,7 +299,6 @@ def savetxt(path, content, v):
     out += ''+br+'\n'
     with open(path, 'w+') as outtxtfile:
         outtxtfile.write(out)
-        outtxtfile.close()
     info('Saved at '+path+'..')
 
 

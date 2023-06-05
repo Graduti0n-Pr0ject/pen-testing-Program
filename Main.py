@@ -1,11 +1,9 @@
-import sys
-import os
-from PyQt5 import QtWidgets
+
 from PyQt5.QtCore import QThread, pyqtSignal, QMutex
 from PyQt5.uic import loadUi
 from PyQt5.QtWidgets import QMainWindow, QApplication, QStackedWidget, QFileDialog, QMessageBox, QLineEdit, \
     QRadioButton, QCheckBox
-import logo_rc
+import logo_rc # For Icons
 from Recon.recon import *
 
 
@@ -20,6 +18,7 @@ class Thread(QThread):
                  is_JS=None,
                  is_screen=None):
         super().__init__()
+        self.subfinder_process: Popen = None
         self.is_screen = is_screen
         self.is_par = is_par
         self.is_JS = is_JS
@@ -34,10 +33,11 @@ class Thread(QThread):
         if not self.is_running:
             return
 
-        subfinder_for_single_windows(self.domain)
+        self.subfinder_process = subfinder_for_single_windows(self.domain)
 
         if self.is_live:
             httprobe_w()
+
         if self.is_end:
             wwayback()
         if self.is_JS:
@@ -50,14 +50,16 @@ class Thread(QThread):
         self.finished.emit()
 
     def stop(self):
-        self.is_running = False
-        self.quit()
-        self.wait()
+        try:
+            super().terminate()
+            self.subfinder_process.kill()
+        except:
+            pass
 
 
 class MainWindow(QMainWindow):
     path: str = None
-    thread = None
+    thread = Thread()
     selected_directory: str = None
     is_live_subdomain: bool = None
     is_endpoints: bool = None
@@ -84,8 +86,8 @@ class MainWindow(QMainWindow):
         # self.Endpoint
         # self.Live_subdomain
         # self.stopbtn
-        self.stopbtn.hide()
-
+        self.reconbtn.hide()
+        self.sr: QRadioButton = self.singleRadio
         self.reconbtn.clicked.connect(self.start_single_list_task)
 
     def start_single_list_task(self):
@@ -129,9 +131,8 @@ class MainWindow(QMainWindow):
                                      is_par=self.is_parameter,
                                      is_screen=self.is_screenshot,
                                      is_JS=self.is_JS_files)
-                self.thread.finished.connect(self.on_finished)
-                # self.stopbtn.pressed.connect(self.thread.stop)
                 self.thread.start()
+                self.thread.finished.connect(self.on_finished)
 
 
         elif self.listRadio.isChecked():
@@ -200,6 +201,7 @@ class MainWindow(QMainWindow):
         # waf_widget: QtWidgets.QRadioButton = self.WafRadio
         # frame_widget: QtWidgets.QRadioButton = self.FrameRadio
         self.stackedWidget.setCurrentIndex(0)
+
         self.chooseProject.hide()
         # waf_widget.setChecked(False)
         # frame_widget.setChecked(False)

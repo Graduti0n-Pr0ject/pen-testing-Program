@@ -279,8 +279,20 @@
             </item>
             <item row="1" column="0">
              <widget class="QRadioButton" name="singleRadio">
+              <property name="enabled">
+               <bool>true</bool>
+              </property>
               <property name="text">
                <string>Single Domain</string>
+              </property>
+              <property name="checkable">
+               <bool>true</bool>
+              </property>
+              <property name="checked">
+               <bool>false</bool>
+              </property>
+              <property name="autoExclusive">
+               <bool>false</bool>
               </property>
              </widget>
             </item>
@@ -301,7 +313,7 @@
                  </property>
                 </widget>
                </item>
-               <item row="1" column="0">
+               <item row="2" column="0">
                 <widget class="QWidget" name="widget_list_domain" native="true">
                  <layout class="QFormLayout" name="formLayout_2">
                   <item row="0" column="0">
@@ -334,13 +346,6 @@
                  </property>
                 </widget>
                </item>
-               <item row="1" column="0">
-                <widget class="QPushButton" name="stopbtn">
-                 <property name="text">
-                  <string>Stop</string>
-                 </property>
-                </widget>
-               </item>
               </layout>
              </widget>
             </item>
@@ -350,6 +355,136 @@
            <attribute name="title">
             <string>Attack</string>
            </attribute>
+           <layout class="QGridLayout" name="gridLayout_7">
+            <item row="0" column="0">
+             <widget class="QTabWidget" name="tabWidget">
+              <property name="currentIndex">
+               <number>1</number>
+              </property>
+              <widget class="QWidget" name="Directory">
+               <attribute name="title">
+                <string>Directory</string>
+               </attribute>
+               <layout class="QGridLayout" name="gridLayout_9">
+                <item row="0" column="0" colspan="2">
+                 <widget class="QLineEdit" name="URLEdit">
+                  <property name="placeholderText">
+                   <string>Enter URL (https://google.com/)</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="0">
+                 <widget class="QComboBox" name="listBox">
+                  <item>
+                   <property name="text">
+                    <string>Choose List</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Directories</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Php files</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>JS files</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Asp.net files</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>HTML files</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>XML files</string>
+                   </property>
+                  </item>
+                 </widget>
+                </item>
+                <item row="1" column="1">
+                 <widget class="QWidget" name="widget_2" native="true">
+                  <layout class="QGridLayout" name="gridLayout_8">
+                   <item row="0" column="2">
+                    <widget class="QToolButton" name="fileBtn">
+                     <property name="text">
+                      <string>...</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="0">
+                    <widget class="QLabel" name="label_4">
+                     <property name="text">
+                      <string>Choose File</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item row="2" column="1">
+                 <widget class="QPushButton" name="subBtn">
+                  <property name="text">
+                   <string>Submit</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+              <widget class="QWidget" name="Takeover">
+               <attribute name="title">
+                <string>Takeover</string>
+               </attribute>
+               <layout class="QGridLayout" name="gridLayout_11">
+                <item row="0" column="0">
+                 <widget class="QLineEdit" name="domainEdit">
+                  <property name="placeholderText">
+                   <string>Enter Domain (google.com)</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="1">
+                 <widget class="QWidget" name="widget_3" native="true">
+                  <layout class="QGridLayout" name="gridLayout_10">
+                   <item row="0" column="2">
+                    <widget class="QToolButton" name="fileBtn2">
+                     <property name="text">
+                      <string>...</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="0">
+                    <widget class="QLabel" name="label_5">
+                     <property name="text">
+                      <string>Choose File</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item row="1" column="1">
+                 <widget class="QPushButton" name="pushButton_2">
+                  <property name="text">
+                   <string>Submit</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+             </widget>
+            </item>
+           </layout>
           </widget>
          </widget>
         </item>
@@ -504,34 +639,34 @@
    </hints>
   </connection>
   <connection>
-   <sender>reconbtn</sender>
-   <signal>clicked()</signal>
-   <receiver>stopbtn</receiver>
+   <sender>singleRadio</sender>
+   <signal>pressed()</signal>
+   <receiver>reconbtn</receiver>
    <slot>show()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>429</x>
-     <y>318</y>
+     <x>130</x>
+     <y>259</y>
     </hint>
     <hint type="destinationlabel">
-     <x>426</x>
-     <y>363</y>
+     <x>421</x>
+     <y>309</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>stopbtn</sender>
+   <sender>listRadio</sender>
    <signal>clicked()</signal>
-   <receiver>stopbtn</receiver>
-   <slot>hide()</slot>
+   <receiver>reconbtn</receiver>
+   <slot>show()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>387</x>
-     <y>379</y>
+     <x>456</x>
+     <y>263</y>
     </hint>
     <hint type="destinationlabel">
-     <x>456</x>
-     <y>387</y>
+     <x>452</x>
+     <y>310</y>
     </hint>
    </hints>
   </connection>
