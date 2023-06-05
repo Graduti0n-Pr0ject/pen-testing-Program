@@ -2,7 +2,6 @@ import os
 import platform
 import subprocess
 import sys
-import webbrowser as wb
 
 from bs4 import BeautifulSoup
 import re, requests, pyfiglet
@@ -18,15 +17,15 @@ should_terminate = threading.Event()
 # os.system(f'"{cwd}\wsubfinder.exe"') exe script
 # platform.system()
 
-def subfinder_for_single_windows(Domain, place):  # single domain (collect subdomain)
+def subfinder_for_single_windows(Domain):  # single domain (collect subdomain)
     cwd = os.path.dirname(__file__)
     print(cwd)
-    os.system(fr'{cwd}\wsubfinder.exe -d "{Domain}"  >>{place}\recon_result\domains.txt')
+    os.system(fr'{cwd}\wsubfinder.exe -d "{Domain}"  >>{cwd}\domains.txt')
 
 
-def subfinder_for_file_windows(path, place):  # list domain (collect subdomain)
+def subfinder_for_file_windows(path):  # list domain (collect subdomain)
     cwd = os.path.dirname(__file__)
-    os.system(fr'{cwd}\wsubfinder.exe -dL {path}  >>{place}\recon_result\domains.txt')
+    os.system(fr'{cwd}\wsubfinder.exe -dL {path}  >>{cwd}\domains.txt')
 
 
 def subfinder_single_linux(Domain):
@@ -37,20 +36,20 @@ def subfinder_multi_linux(path):
     os.system(f'subfinder -dL {path} >>domains')
 
 
-def httprobe_w(place):  # live domain
+def httprobe_w():  # live domain
     cwd = os.path.dirname(__file__)
     print("live subdomain is started")
-    os.system(fr"type {place}\recon_result\domains.txt | {cwd}\whttprobe.exe >>{place}\recon_result\urls.txt")
+    os.system(fr"type {cwd}\domains.txt | {cwd}\whttprobe.exe >>{cwd}\urls.txt")
 
 
 def httprobe_l():
     os.system("cat domains |httprobe >>urls")
 
 
-def screenwin(place):  # screenshot
+def screenwin():  # screenshot
     cwd = os.path.dirname(__file__)
     os.system(
-        fr"type {place}\recon_result\domains.txt | {cwd}\whttprobe.exe | {cwd}\waquatone.exe -chrome-path 'C:\Program Files\Google\Chrome\Application\chrome.exe'")
+        fr"type {cwd}\domains.txt | {cwd}\whttprobe.exe | {cwd}\waquatone.exe -chrome-path C:\Program Files\Google\Chrome\Application\chrome.exe ")
     # os.system(fr"type {cwd}\urls.txt | {cwd}\waquatone.exe -chrome-path chrome.exe")
 
 
@@ -58,9 +57,9 @@ def screenlinux():
     os.system("cat urls | aquatone ")
 
 
-def wwayback(place):  # endpoints
+def wwayback():  # endpoints
     cwd = os.path.dirname(__file__)
-    os.system(fr'type {place}\recon_result\domains.txt | {cwd}\wwaybackurls.exe >>{place}\recon_result\archive.txt')
+    os.system(f'type {cwd}\domains.txt | {cwd}\wwaybackurls.exe >>archive.txt')
 
 
 # def Js_file():  # Js_files
@@ -68,7 +67,9 @@ def wwayback(place):  # endpoints
 #     print(banner)
 
 
-def fetchjs(url, place):  # js Files
+def fetchjs(url): # js Files
+
+    print(" start js")
     regx = re.compile("[https:\/\/http:\/\/\/\/\/a-zA-Z0-9\.\/]+\.js")
     url = "https://" + url
     rq = requests.get(url)
@@ -76,14 +77,14 @@ def fetchjs(url, place):  # js Files
     res = BeautifulSoup(rq.text, "html.parser").prettify()
     JS = regx.findall(res)
     myjs = set(JS)
-    f = open(rf"{place}\recon_result\js.txt", "a+")
+    f = open("js.txt", "a")
     for i in myjs:
         f.writelines(i + '\n')
+    print("js end")
 
-
-def Parameter(place):  # Parameter
+def Parameter():  # Parameter
     cwd = os.path.dirname(__file__)
-    os.system(fr'type {place}\recon_result\domains.txt | {cwd}\wwaybackurls.exe | find "=" >>{place}\recon_result\prameter.txt')
+    os.system(f'type {cwd}\domains.txt | {cwd}\wwaybackurls.exe | find "=" >>prameter.txt')
 
 
 def lwayback():

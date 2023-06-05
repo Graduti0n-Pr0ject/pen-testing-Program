@@ -61,7 +61,7 @@ class MainWindow(QMainWindow):
     selected_directory: str = None
     is_live_subdomain: bool = None
     is_endpoints: bool = None
-    is_JS_files: bool = None
+    is_Js_files: bool = None
     is_parameter: bool = None
     is_screenshot: bool = None
 
@@ -154,7 +154,7 @@ class MainWindow(QMainWindow):
             self.Screenshot.setEnabled(True)
         if self.is_endpoints:
             self.Endpoint.setEnabled(True)
-        if self.is_JS_files:
+        if self.is_Js_files:
             self.JS_files.setEnabled(True)
 
     # def on_finished_subdomain(self):
