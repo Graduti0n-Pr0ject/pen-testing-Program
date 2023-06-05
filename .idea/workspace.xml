@@ -4,11 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ca2cd115-af3f-472c-bea0-3276102aa1c9" name="Changes" comment="Update design">
+    <list default="true" id="ca2cd115-af3f-472c-bea0-3276102aa1c9" name="Changes" comment="path is done">
+      <change afterPath="$PROJECT_DIR$/Recon/whttprobe.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Recon/Attack.py" beforeDir="false" afterPath="$PROJECT_DIR$/Recon/Attack.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Recon/Directory/directory.py" beforeDir="false" afterPath="$PROJECT_DIR$/Recon/Directory/directory.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Recon/recon.py" beforeDir="false" afterPath="$PROJECT_DIR$/Recon/recon.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/design.ui" beforeDir="false" afterPath="$PROJECT_DIR$/design.ui" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,15 +38,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Bezo_/PycharmProjects/graduation_project/assets&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.grazie&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "Merging main",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/Bezo_/PycharmProjects/graduation_project/assets",
+    "settings.editor.selected.configurable": "reference.settingsdialog.project.grazie"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Bezo_\PycharmProjects\graduation_project\assets" />
@@ -266,7 +268,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="main" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -284,6 +298,18 @@
     <MESSAGE value="some changes in README" />
     <MESSAGE value="Update Requirements" />
     <MESSAGE value="Update design" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update design" />
+    <MESSAGE value="path is done" />
+    <option name="LAST_COMMIT_MESSAGE" value="path is done" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Recon/recon.py</url>
+          <line>17</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
