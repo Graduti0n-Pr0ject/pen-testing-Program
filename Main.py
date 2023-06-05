@@ -1,9 +1,12 @@
-from PyQt5.QtCore import QThread, pyqtSignal, QMutex
-from PyQt5.uic import loadUi
+from PyQt5.QtCore import QThread, pyqtSignal, QDir
 from PyQt5.QtWidgets import QMainWindow, QApplication, QStackedWidget, QFileDialog, QMessageBox, QLineEdit, \
-    QRadioButton, QCheckBox
-import logo_rc  # For Icons
+    QRadioButton, QCheckBox, QDialog
+from PyQt5.uic import loadUi
+
 from Recon.recon import *
+
+import logo_rc
+
 # import pyqtcss
 
 class Thread(QThread):
@@ -15,7 +18,7 @@ class Thread(QThread):
                  is_end=None,
                  is_par=None,
                  is_JS=None,
-                 is_screen=None, path=None, url=None):
+                 is_screen=None, path=None, url=None, project_place=None):
         super().__init__()
         self.is_screen = is_screen
         self.is_par = is_par
@@ -26,32 +29,34 @@ class Thread(QThread):
         self.is_running = True
         self.path = path
         self.url = url
+        self.Recon_place = project_place
 
     def run(self) -> None:
         # super().sleep(1)
         if self.path is None:
-            subfinder_for_single_windows(self.domain)
+            subfinder_for_single_windows(self.domain, self.Recon_place)
         else:
-            subfinder_for_file_windows(self.path)
+            subfinder_for_file_windows(self.path, self.Recon_place)
 
         if self.is_live:
-            httprobe_w()
+            httprobe_w(self.Recon_place)
 
         if self.is_end:
-            wwayback()
+            wwayback(self.Recon_place)
         if self.is_JS:
             if self.url is not None:
-                fetchjs(self.url)
+                fetchjs(self.url, self.Recon_place)
         if self.is_par:
-            Parameter()
+            Parameter(self.Recon_place)
         if self.is_screen:
-            screenwin()
+            screenwin(self.Recon_place)
 
         self.finished.emit()
 
 
 class MainWindow(QMainWindow):
     path: str = None
+    file_location = None
     thread = Thread()
     selected_directory: str = None
     is_live_subdomain: bool = None
@@ -127,7 +132,7 @@ class MainWindow(QMainWindow):
                                      is_end=self.is_endpoints,
                                      is_par=self.is_parameter,
                                      is_screen=self.is_screenshot,
-                                     is_JS=self.is_JS_files, url=target)
+                                     is_JS=self.is_JS_files, url=target, project_place=self.path, path=self.file_location)
                 self.thread.start()
                 self.thread.finished.connect(self.on_finished)
 
@@ -152,22 +157,34 @@ class MainWindow(QMainWindow):
         if self.is_JS_files:
             self.JS_files.setEnabled(True)
 
-    def on_finished_subdomain(self):
-        # QMessageBox.information(self, 'Information', f'Collect Subdomain is finished')
-        msg = QMessageBox()
-        msg.setIcon(msg.Information)
-        msg.setText("ok")
-        msg.setInformativeText("Collect Subdomain is finished")
-        msg.setWindowTitle("Subdomain")
-        msg.exec_()
+    # def on_finished_subdomain(self):
+    #     # QMessageBox.information(self, 'Information', f'Collect Subdomain is finished')
+    #     msg = QMessageBox()
+    #     msg.setIcon(msg.Information)
+    #     msg.setText("ok")
+    #     msg.setInformativeText("Collect Subdomain is finished")
+    #     msg.setWindowTitle("Subdomain")
+    #     msg.exec_()
 
     def open_choose_file(self):
-        choose_file = QFileDialog()
-        choose_file.setFileMode(QFileDialog.AnyFile)
-        choose_file.setFilter("Text files (*.txt)")
-        if choose_file.exec_():
-            file = choose_file.selectFile()
-        print(file)
+        options = QFileDialog.Options()
+        options |= QFileDialog.DontUseNativeDialog
+        options |= QFileDialog.DontUseCustomDirectoryIcons
+        dialog = QFileDialog()
+        dialog.setOptions(options)
+
+        dialog.setFilter(dialog.filter() | QDir.Hidden)
+
+        dialog.setFileMode(QFileDialog.AnyFile)
+        dialog.setAcceptMode(QFileDialog.AcceptOpen)
+
+        dialog.setNameFilters([f'(*.txt)'])
+
+        if dialog.exec_() == QDialog.Accepted:
+            path = dialog.selectedFiles()[0]  # returns a list
+            self.file_location = path
+        else:
+            QMessageBox.warning(self, 'Warning', 'No File selected.')
 
     def open_file_dialog(self):
         project_name: QLineEdit = self.projectName.text()
@@ -199,6 +216,9 @@ class MainWindow(QMainWindow):
                 QMessageBox.information(self, 'Warning', f'Project is already in this {self.path} change project name')
             else:
                 os.mkdir(self.path)
+                os.mkdir(self.path + '/' + "recon_result")
+                os.mkdir(self.path + '/' + "attack_result")
+                os.mkdir(self.path + '/' + "waf_result")
                 stack_widget.setCurrentIndex(2)
         else:
             QMessageBox.warning(self, 'Warning', 'Choose Option')
