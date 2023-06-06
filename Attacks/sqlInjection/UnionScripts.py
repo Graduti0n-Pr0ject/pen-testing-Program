@@ -1,7 +1,8 @@
-import re
+import urllib
 
-import requests
 from bs4 import BeautifulSoup
+import requests
+import re
 
 reserved_words = ['TestSQLinj', 'union', 'select', 'table_name=', 'information_schema.tables--', 'null', 'FROM',
                   'WHERE', 'column_name', 'information_schema.columns']

@@ -1,17 +1,15 @@
-from PyQt5.QtCore import QThread, pyqtSignal, QDir
+from PyQt5.QtCore import QDir
 from PyQt5.QtWidgets import QMainWindow, QApplication, QStackedWidget, QFileDialog, QMessageBox, QLineEdit, \
     QRadioButton, QCheckBox, QDialog
 from PyQt5.uic import loadUi
 
-
 from ThreadsApp import *
 
-import logo_rc
-
 from Recon.Directory.directory import choose_list
-from Attacks.SqlInjecation.Error_based_attack import sample_Get_inj
-from Attacks.SqlInjecation.UnionScripts import figure_columns_in_table, figure_data_in_columns
+# from Attacks.UnionScripts import figure_columns_in_table, figure_data_in_columns
+# from Attacks.Error_based_attack import *
 
+from Attacks.sqlInjection.Error_based_attack import *
 
 
 import pyqtcss
@@ -85,12 +83,12 @@ class MainWindow(QMainWindow):
 
     def apply_Sql_Injection(self):
         try:
-            sure_url = self.URL_D.text().strip()
+            sure_url = self.sql_url.text().strip()
             response = requests.get(sure_url)
             outputs, tables, pay, orc = sample_Get_inj(sure_url)
             self.payload = pay
             self.is_orc = orc
-            tables.insert(0, self.table_list.currentText())
+            # tables.insert(0, self.table_list.currentText())
             self.table_list.clear()
             self.table_list.addItem("Tables")
             self.table_list.addItems(tables)
@@ -101,7 +99,7 @@ class MainWindow(QMainWindow):
             QMessageBox.warning(self, 'Warning', f'Write Valid URL {error}')
 
     def check_tables_sql(self):
-        self.sql_output.clear()
+        self.output_list.clear()
         current_index = self.table_list.currentIndex()
         url = self.sql_url.text()
         table_name = self.table_list.currentText()
@@ -112,7 +110,7 @@ class MainWindow(QMainWindow):
             self.column_list.clear()
             self.column_list.addItem("Columns")
             self.column_list.addItems(columns)
-            self.sql_output.addItem(
+            self.output_list.addItem(
                 f"[+] Exploiting {len(columns)} columns, this is names of this columns, insert one to show his data")
 
         except IndexError as error:
@@ -120,7 +118,7 @@ class MainWindow(QMainWindow):
 
     def check_columns_data(self):
         current_index_col = self.column_list.currentIndex()
-        current_index_tab = self.tables_combobox.currentIndex()
+        current_index_tab = self.table_list.currentIndex()
         url = self.sql_url.text()
         table_name = self.table_list.currentText()
         column_name = self.column_list.currentText()
@@ -129,7 +127,7 @@ class MainWindow(QMainWindow):
                 raise IndexError
             data = figure_data_in_columns(url, self.payload, table_name, column_name)
             data.insert(0, f"Data in column {column_name}")
-            self.sql_output.addItems(data)
+            self.output_list.addItems(data)
         except IndexError as error:
             QMessageBox.Warning(self, 'Warning', f'Plz choose column or table')
 

@@ -4,13 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ca2cd115-af3f-472c-bea0-3276102aa1c9" name="Changes" comment="add one tool of attack and upload extension">
+    <list default="true" id="ca2cd115-af3f-472c-bea0-3276102aa1c9" name="Changes" comment="sql injection added until to maintain it and Adding installation file">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Attacks/SqlInjecation/UnionScripts.py" beforeDir="false" afterPath="$PROJECT_DIR$/Attacks/SqlInjecation/UnionScripts.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Attacks/SqlInjecation/Error-regexs/Error-based-payloads.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Attacks/sqlInjection/Error-regexs/Error-based-payloads.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Attacks/SqlInjecation/Error-regexs/MsSQL_Error.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Attacks/sqlInjection/Error-regexs/MsSQL_Error.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Attacks/SqlInjecation/Error-regexs/MySQL_Error.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Attacks/sqlInjection/Error-regexs/MySQL_Error.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Attacks/SqlInjecation/Error-regexs/Oracle_Error.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Attacks/sqlInjection/Error-regexs/Oracle_Error.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Attacks/SqlInjecation/Error-regexs/PostgreSQL_Error.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Attacks/sqlInjection/Error-regexs/PostgreSQL_Error.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Attacks/SqlInjecation/Error-regexs/Read me.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Attacks/sqlInjection/Error-regexs/Read me.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Attacks/SqlInjecation/Error_based_attack.py" beforeDir="false" afterPath="$PROJECT_DIR$/Attacks/sqlInjection/Error_based_attack.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Attacks/SqlInjecation/UnionScripts.py" beforeDir="false" afterPath="$PROJECT_DIR$/Attacks/sqlInjection/UnionScripts.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Attacks/SqlInjecation/Union_based_attack.py" beforeDir="false" afterPath="$PROJECT_DIR$/Attacks/sqlInjection/Union_based_attack.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Attacks/SqlInjecation/main.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ThreadsApp.py" beforeDir="false" afterPath="$PROJECT_DIR$/ThreadsApp.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WAF/proxy.py" beforeDir="false" afterPath="$PROJECT_DIR$/WAF/proxy.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/activate_icons.sh" beforeDir="false" afterPath="$PROJECT_DIR$/activate_icons.sh" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,23 +52,24 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/Bezo_/PycharmProjects/graduation_project/extensions",
+    "last_opened_file_path": "C:/Users/Bezo_/PycharmProjects/graduation_project/Attacks/sqlInjection",
     "settings.editor.selected.configurable": "reference.settingsdialog.project.grazie"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Bezo_\PycharmProjects\graduation_project\Attacks\sqlInjection" />
+      <recent name="C:\Users\Bezo_\PycharmProjects\graduation_project\Attacks" />
       <recent name="C:\Users\Bezo_\PycharmProjects\graduation_project\extensions" />
       <recent name="C:\Users\Bezo_\PycharmProjects\graduation_project\WAF" />
       <recent name="C:\Users\Bezo_\PycharmProjects\graduation_project\assets" />
-      <recent name="C:\Users\Bezo_\PycharmProjects\graduation_project\Attacks\LFI_files" />
-      <recent name="C:\Users\Bezo_\PycharmProjects\graduation_project\Attacks" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Bezo_\PycharmProjects\graduation_project\Attacks\SqlInjecation" />
       <recent name="C:\Users\Bezo_\PycharmProjects\graduation_project\Attacks" />
+      <recent name="C:\Users\Bezo_\PycharmProjects\graduation_project\Attacks\SqlInjecation" />
       <recent name="C:\Users\Bezo_\PycharmProjects\graduation_project\Attacks\LFI_files" />
     </key>
   </component>
@@ -295,7 +302,21 @@
       <option name="project" value="LOCAL" />
       <updated>1685991853653</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="sql injection added until to maintain it and Adding installation file">
+      <created>1686008198442</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1686008198442</updated>
+    </task>
+    <task id="LOCAL-00020" summary="sql injection added until to maintain it and Adding installation file">
+      <created>1686008214815</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1686008214815</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -342,7 +363,8 @@
     <MESSAGE value="upgrade readability of files" />
     <MESSAGE value="fix error" />
     <MESSAGE value="add one tool of attack and upload extension" />
-    <option name="LAST_COMMIT_MESSAGE" value="add one tool of attack and upload extension" />
+    <MESSAGE value="sql injection added until to maintain it and Adding installation file" />
+    <option name="LAST_COMMIT_MESSAGE" value="sql injection added until to maintain it and Adding installation file" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
