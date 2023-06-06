@@ -39,7 +39,7 @@ def subfinder_multi_linux(path):
 def httprobe_w(place):  # live domain
     cwd = os.path.dirname(__file__)
     print("live subdomain is started")
-    os.system(fr"type {place}\recon_result\domains.txt | {cwd}\whttprobe.exe >>{place}\recon_result\urls.txt")
+    os.system(fr"type {place}\recon_result\domains.txt | {cwd}\httpx.exe >>{place}\recon_result\urls.txt")
 
 
 def httprobe_l():
@@ -49,7 +49,7 @@ def httprobe_l():
 def screenwin(place):  # screenshot
     cwd = os.path.dirname(__file__)
     os.system(
-        fr"type {place}\recon_result\domains.txt | {cwd}\whttprobe.exe | {cwd}\waquatone.exe -chrome-path 'C:\Program Files\Google\Chrome\Application\chrome.exe' ")
+        fr"type {place}\recon_result\domains.txt | {cwd}\httpx.exe | {cwd}\httpx.exe  -ss -o screens ")
     # os.system(fr"type {cwd}\urls.txt | {cwd}\waquatone.exe -chrome-path chrome.exe")
 
 

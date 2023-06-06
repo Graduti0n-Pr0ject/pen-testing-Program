@@ -170,7 +170,7 @@ class MainWindow(QMainWindow):
                     is_endpoint.setEnabled(False)
 
                 if is_JS.isChecked():
-                    self.is_JS_files = True
+                    self.is_Js_files = True
                     is_JS.setEnabled(False)
 
                 if is_screen.isChecked():
@@ -187,7 +187,7 @@ class MainWindow(QMainWindow):
                                      is_end=self.is_endpoints,
                                      is_par=self.is_parameter,
                                      is_screen=self.is_screenshot,
-                                     is_JS=self.is_JS_files, url=target, project_place=self.path,
+                                     is_JS=self.is_Js_files, url=target, project_place=self.path,
                                      path=self.file_location)
                 self.thread.start()
                 self.thread.finished.connect(self.on_finished)
