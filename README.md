@@ -2,9 +2,12 @@
 
 ## Introduction
 
-- Sample Program that contains tools for `Recon` & `Exploitation` and more ....
+- Sample Program that contains tools for `Recon` & `Exploitation` and more etc..
 
 ## Run
+
+- Open `git bash` terminal in your local.
+
 1. clone repo
 
     ```shell
