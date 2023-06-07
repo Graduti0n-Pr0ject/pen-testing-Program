@@ -1,3 +1,5 @@
+import os.path
+
 import requests
 import re
 from sys import platform
@@ -5,28 +7,23 @@ from sys import platform
 # extentionFile = open("LFI_fies/extension.txt", "r")
 # lfiPayloads = open("LFI_fies/payloads.txt", "r", encoding='utf-8')
 
-
+file_path = os.path.dirname(__file__)
 def testExtention(url):
-    place_file = r"extensions.txt"
-    if platform == "linux" or platform == "linux2":
-        place_file = r"extensions.txt"
-    else:
-        place_file = r"extensions.txt"
-
-    with open(place_file, "r",encoding="utf8") as extentionFile:
+    print("hrtr")
+    file = fr"{file_path}/extensions.txt"
+    print("hf")
+    with open(file, "r", encoding="utf8") as extentionFile:
+        print("in file")
         for extension in extentionFile:
             ext = re.compile(".*{}".format(extension.strip()))
+            print(extension)
             if ext.search(url):
                 return True, extension
         return False, ""
 
 
 def LFIinj(url, extension):
-    place_file = r"payloads.txt"
-    if platform == "linux" or platform == "linux2":
-        place_file = r"payloads.txt"
-    else:
-        place_file = r"payloads.txt"
+    place_file = fr"{file_path}/payloads.txt"
     pass_payload = ""
     responses = []
     fails = []

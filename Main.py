@@ -11,6 +11,9 @@ from Recon.Directory.directory import choose_list
 
 from Attacks.sqlInjection.Error_based_attack import *
 
+from Attacks.LFI_files.LFI import testExtention, LFIinj
+
+
 # import pyqtcss
 
 
@@ -83,8 +86,30 @@ class MainWindow(QMainWindow):
         1. LFI_URL -> EditText
         2. LFI_btn -> pushbutton
         3. payload_list -> QListWidget
-        4. LFI_output_list
+        4. LFI_output_list -> QListWidget
         '''
+        self.LFI_btn.clicked.connect(self.LFI_task)
+
+    def LFI_task(self):
+        self.payload_list.clear()
+        self.LFI_output_list.clear()
+        url_parm = self.LFI_URL.text()
+
+        try:
+            print("I")
+            is_has, extension = testExtention(url_parm)
+            # response = requests.get()
+            if not is_has:
+                raise BlockingIOError
+
+            # self.LFI_output_list.addItem(f"URL querying file with extension {extension}")
+            self.LFI_output_list.addItem("Start LFI injection")
+            respone, pass_payload, fails = LFIinj(url_parm, extension)
+            # self.LFI_output_list.addItems(fails)
+            self.LFI_output_list.addItems(respone)
+            self.payload_list.addItem(pass_payload)
+        except BlockingIOError:
+            QMessageBox.warning(self, 'Warning', f'[-] Must be querying file from server')
 
     def apply_Sql_Injection(self):
         try:
@@ -160,7 +185,6 @@ class MainWindow(QMainWindow):
 
         if self.singleRadio.isChecked():
             if target.strip() == '':
-                self.stopbtn.hide()
                 QMessageBox.information(self, 'Information', f'Enter Right Target Plz')
             else:
                 # Subdomain Checkbox
@@ -200,7 +224,6 @@ class MainWindow(QMainWindow):
 
             pass
         else:
-            self.stopbtn.hide()
             QMessageBox.information(self, 'Information', f'Choosing Single or List Domain')
 
     def on_finished(self):
