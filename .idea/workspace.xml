@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ca2cd115-af3f-472c-bea0-3276102aa1c9" name="Changes" comment="Fix SqlInjection &amp; Update README.md">
+    <list default="true" id="ca2cd115-af3f-472c-bea0-3276102aa1c9" name="Changes" comment="Update README">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/design.ui" beforeDir="false" afterPath="$PROJECT_DIR$/design.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/installation.sh" beforeDir="false" afterPath="$PROJECT_DIR$/installation.sh" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -313,7 +315,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686065685945</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Update README">
+      <created>1686143512649</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1686143512649</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -362,7 +371,8 @@
     <MESSAGE value="add one tool of attack and upload extension" />
     <MESSAGE value="sql injection added until to maintain it and Adding installation file" />
     <MESSAGE value="Fix SqlInjection &amp; Update README.md" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix SqlInjection &amp; Update README.md" />
+    <MESSAGE value="Update README" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update README" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -667,18 +667,18 @@
               </widget>
              </widget>
             </item>
+            <item row="3" column="0">
+             <widget class="QPushButton" name="BackHomebtn_2">
+              <property name="cursor">
+               <cursorShape>PointingHandCursor</cursorShape>
+              </property>
+              <property name="text">
+               <string>Back</string>
+              </property>
+             </widget>
+            </item>
            </layout>
           </widget>
-         </widget>
-        </item>
-        <item row="0" column="0">
-         <widget class="QPushButton" name="BackHomebtn_2">
-          <property name="cursor">
-           <cursorShape>PointingHandCursor</cursorShape>
-          </property>
-          <property name="text">
-           <string>Back</string>
-          </property>
          </widget>
         </item>
        </layout>

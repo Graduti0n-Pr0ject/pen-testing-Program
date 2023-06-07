@@ -79,7 +79,13 @@ class MainWindow(QMainWindow):
         self.check_tbtn.clicked.connect(self.check_tables_sql)
         self.check_cbtn.clicked.connect(self.check_columns_data)
 
-        ###
+        ### LFI
+        '''
+        1. LFI_URL -> EditText
+        2. LFI_btn -> pushbutton
+        3. payload_list -> QListWidget
+        4. LFI_output_list
+        '''
 
     def apply_Sql_Injection(self):
         try:
