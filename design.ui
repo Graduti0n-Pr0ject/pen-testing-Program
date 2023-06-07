@@ -211,7 +211,7 @@
            <enum>QTabWidget::Rounded</enum>
           </property>
           <property name="currentIndex">
-           <number>1</number>
+           <number>0</number>
           </property>
           <property name="documentMode">
            <bool>true</bool>
@@ -227,6 +227,58 @@
             <string>Recon</string>
            </attribute>
            <layout class="QGridLayout" name="gridLayout_6">
+            <item row="2" column="2">
+             <widget class="QWidget" name="widget" native="true">
+              <layout class="QGridLayout" name="gridLayout_3">
+               <item row="0" column="0">
+                <widget class="QPushButton" name="reconbtn">
+                 <property name="cursor">
+                  <cursorShape>PointingHandCursor</cursorShape>
+                 </property>
+                 <property name="text">
+                  <string>Submit</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="2" column="0" colspan="2">
+             <widget class="QWidget" name="widget_single_domain" native="true">
+              <layout class="QGridLayout" name="gridLayout_4">
+               <item row="0" column="0">
+                <widget class="QLineEdit" name="target_line">
+                 <property name="placeholderText">
+                  <string>Enter Target (Ex: google.com)</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="0">
+                <widget class="QWidget" name="widget_list_domain" native="true">
+                 <layout class="QFormLayout" name="formLayout_2">
+                  <item row="0" column="0">
+                   <widget class="QLabel" name="label_3">
+                    <property name="text">
+                     <string>Choose File</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="1">
+                   <widget class="QToolButton" name="chooseFile">
+                    <property name="cursor">
+                     <cursorShape>PointingHandCursor</cursorShape>
+                    </property>
+                    <property name="text">
+                     <string>...</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
             <item row="0" column="0" colspan="3">
              <widget class="QGroupBox" name="groupBox">
               <property name="title">
@@ -286,6 +338,25 @@
               </layout>
              </widget>
             </item>
+            <item row="1" column="1" colspan="2">
+             <widget class="QRadioButton" name="listRadio">
+              <property name="cursor">
+               <cursorShape>PointingHandCursor</cursorShape>
+              </property>
+              <property name="text">
+               <string>List of Domain</string>
+              </property>
+              <property name="checkable">
+               <bool>true</bool>
+              </property>
+              <property name="autoRepeat">
+               <bool>false</bool>
+              </property>
+              <property name="autoExclusive">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
             <item row="1" column="0">
              <widget class="QRadioButton" name="singleRadio">
               <property name="enabled">
@@ -303,71 +374,12 @@
               <property name="checked">
                <bool>false</bool>
               </property>
-              <property name="autoExclusive">
+              <property name="autoRepeat">
                <bool>false</bool>
               </property>
-             </widget>
-            </item>
-            <item row="1" column="1" colspan="2">
-             <widget class="QRadioButton" name="listRadio">
-              <property name="cursor">
-               <cursorShape>PointingHandCursor</cursorShape>
+              <property name="autoExclusive">
+               <bool>true</bool>
               </property>
-              <property name="text">
-               <string>List of Domain</string>
-              </property>
-             </widget>
-            </item>
-            <item row="2" column="0" colspan="2">
-             <widget class="QWidget" name="widget_single_domain" native="true">
-              <layout class="QGridLayout" name="gridLayout_4">
-               <item row="0" column="0">
-                <widget class="QLineEdit" name="target_line">
-                 <property name="placeholderText">
-                  <string>Enter Target (Ex: google.com)</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="2" column="0">
-                <widget class="QWidget" name="widget_list_domain" native="true">
-                 <layout class="QFormLayout" name="formLayout_2">
-                  <item row="0" column="0">
-                   <widget class="QLabel" name="label_3">
-                    <property name="text">
-                     <string>Choose File</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="0" column="1">
-                   <widget class="QToolButton" name="chooseFile">
-                    <property name="cursor">
-                     <cursorShape>PointingHandCursor</cursorShape>
-                    </property>
-                    <property name="text">
-                     <string>...</string>
-                    </property>
-                   </widget>
-                  </item>
-                 </layout>
-                </widget>
-               </item>
-              </layout>
-             </widget>
-            </item>
-            <item row="2" column="2">
-             <widget class="QWidget" name="widget" native="true">
-              <layout class="QGridLayout" name="gridLayout_3">
-               <item row="0" column="0">
-                <widget class="QPushButton" name="reconbtn">
-                 <property name="cursor">
-                  <cursorShape>PointingHandCursor</cursorShape>
-                 </property>
-                 <property name="text">
-                  <string>Submit</string>
-                 </property>
-                </widget>
-               </item>
-              </layout>
              </widget>
             </item>
            </layout>

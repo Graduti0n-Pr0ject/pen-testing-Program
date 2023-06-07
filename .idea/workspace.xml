@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ca2cd115-af3f-472c-bea0-3276102aa1c9" name="Changes" comment="Remove design for Temporarily time.">
+    <list default="true" id="ca2cd115-af3f-472c-bea0-3276102aa1c9" name="Changes" comment="LFI done">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Attacks/LFI_files/LFI.py" beforeDir="false" afterPath="$PROJECT_DIR$/Attacks/LFI_files/LFI.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/design.ui" beforeDir="false" afterPath="$PROJECT_DIR$/design.ui" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -335,7 +335,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686145603256</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="LFI done">
+      <created>1686156700682</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1686156700682</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -387,7 +394,8 @@
     <MESSAGE value="Update README" />
     <MESSAGE value="Update installation.sh" />
     <MESSAGE value="Remove design for Temporarily time." />
-    <option name="LAST_COMMIT_MESSAGE" value="Remove design for Temporarily time." />
+    <MESSAGE value="LFI done" />
+    <option name="LAST_COMMIT_MESSAGE" value="LFI done" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -404,7 +412,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Main.py</url>
-          <line>92</line>
+          <line>98</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>

@@ -55,6 +55,7 @@ class MainWindow(QMainWindow):
         self.reconbtn.clicked.connect(self.start_single_list_task)
         self.chooseFile.clicked.connect(self.open_choose_file)
 
+
         # -------------- Attacks ----------- #
 
         ## Directory
@@ -89,6 +90,11 @@ class MainWindow(QMainWindow):
         4. LFI_output_list -> QListWidget
         '''
         self.LFI_btn.clicked.connect(self.LFI_task)
+
+        #### Takeover
+        '''
+        
+        '''
 
     def LFI_task(self):
         self.payload_list.clear()
@@ -186,45 +192,40 @@ class MainWindow(QMainWindow):
         if self.singleRadio.isChecked():
             if target.strip() == '':
                 QMessageBox.information(self, 'Information', f'Enter Right Target Plz')
-            else:
-                # Subdomain Checkbox
-                if is_live.isChecked():
-                    self.is_live_subdomain = True
-                    is_live.setEnabled(False)
-
-                if is_endpoint.isChecked():
-                    self.is_endpoints = True
-                    is_endpoint.setEnabled(False)
-
-                if is_JS.isChecked():
-                    self.is_Js_files = True
-                    is_JS.setEnabled(False)
-
-                if is_screen.isChecked():
-                    self.is_screenshot = True
-                    is_screen.setEnabled(False)
-
-                if is_parameter.isChecked():
-                    self.is_parameter = True
-                    is_parameter.setEnabled(False)
-
-                self.reconbtn.setEnabled(False)
-                self.thread = Thread(target.strip(),
-                                     is_live=self.is_live_subdomain,
-                                     is_end=self.is_endpoints,
-                                     is_par=self.is_parameter,
-                                     is_screen=self.is_screenshot,
-                                     is_JS=self.is_Js_files, url=target, project_place=self.path,
-                                     path=self.file_location)
-                self.thread.start()
-                self.thread.finished.connect(self.on_finished)
-
-
-        elif self.listRadio.isChecked():
-
-            pass
-        else:
+        elif not self.listRadio.isChecked() and not self.singleRadio.isChecked():
             QMessageBox.information(self, 'Information', f'Choosing Single or List Domain')
+
+        # Subdomain Checkbox
+        if is_live.isChecked():
+            self.is_live_subdomain = True
+            is_live.setEnabled(False)
+
+        if is_endpoint.isChecked():
+            self.is_endpoints = True
+            is_endpoint.setEnabled(False)
+
+        if is_JS.isChecked():
+            self.is_Js_files = True
+            is_JS.setEnabled(False)
+
+        if is_screen.isChecked():
+            self.is_screenshot = True
+            is_screen.setEnabled(False)
+
+        if is_parameter.isChecked():
+            self.is_parameter = True
+            is_parameter.setEnabled(False)
+
+        self.reconbtn.setEnabled(False)
+        self.thread = Thread(target.strip(),
+                             is_live=self.is_live_subdomain,
+                             is_end=self.is_endpoints,
+                             is_par=self.is_parameter,
+                             is_screen=self.is_screenshot,
+                             is_JS=self.is_Js_files, url=target, project_place=self.path,
+                             path=self.file_location)
+        self.thread.start()
+        self.thread.finished.connect(self.on_finished)
 
     def on_finished(self):
         self.reconbtn.setEnabled(True)
