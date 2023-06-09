@@ -4,7 +4,7 @@
 
 - Sample Program that contains tools for `Recon` & `Exploitation` and more etc..
 
-## Run
+## Installation Process
 
 ### Windows
 

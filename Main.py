@@ -2,7 +2,7 @@ from PyQt5.QtCore import QDir
 from PyQt5.QtWidgets import QMainWindow, QApplication, QStackedWidget, QFileDialog, QMessageBox, QLineEdit, \
     QRadioButton, QCheckBox, QDialog
 from PyQt5.uic import loadUi
-
+import webbrowser
 from ThreadsApp import *
 
 from Recon.Directory.directory import choose_list
@@ -12,7 +12,6 @@ from Recon.Directory.directory import choose_list
 from Attacks.sqlInjection.Error_based_attack import *
 
 from Attacks.LFI_files.LFI import testExtention, LFIinj
-
 
 import pyqtcss
 
@@ -105,6 +104,8 @@ class MainWindow(QMainWindow):
         2. Savebtn -> button
         '''
         self.Savebtn.clicked.connect(self.WAF_start)
+        # Help btn
+        self.helpbtn.clicked.connect(lambda _: webbrowser.open(r"https://well-maxilla-a65.notion.site/Documentation-a8b2ea8c7679482c9bf351438c0759ba"))
 
     def WAF_start(self):
         ip_input = self.Ip.text()

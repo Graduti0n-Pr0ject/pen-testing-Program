@@ -4,13 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ca2cd115-af3f-472c-bea0-3276102aa1c9" name="Changes" comment="Testing now">
+    <list default="true" id="ca2cd115-af3f-472c-bea0-3276102aa1c9" name="Changes" comment="App is done finallyyyyyyy❤️">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Attacks/sqlInjection/UnionScripts.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Attacks/sqlInjection/Union_based_attack.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/pyqt-stylesheets-master/pyqt-stylesheets-master/pyqtcss/dark_blue.py" beforeDir="false" afterPath="$PROJECT_DIR$/assets/pyqt-stylesheets-master/pyqt-stylesheets-master/pyqtcss/dark_blue.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/pyqt-stylesheets-master/pyqt-stylesheets-master/pyqtcss/dark_orange.py" beforeDir="false" afterPath="$PROJECT_DIR$/assets/pyqt-stylesheets-master/pyqt-stylesheets-master/pyqtcss/dark_orange.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/installation.sh" beforeDir="false" afterPath="$PROJECT_DIR$/installation.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -429,7 +426,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686348296100</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="App is done finallyyyyyyy❤️">
+      <created>1686349062496</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1686349062496</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -460,7 +464,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Edit Recon file" />
     <MESSAGE value="done Recon" />
     <MESSAGE value="wait for Recon" />
     <MESSAGE value="solve some error in thread" />
@@ -485,7 +488,8 @@
     <MESSAGE value="Adding installation of extension" />
     <MESSAGE value="Fix installation of extension" />
     <MESSAGE value="Testing now" />
-    <option name="LAST_COMMIT_MESSAGE" value="Testing now" />
+    <MESSAGE value="App is done finallyyyyyyy❤️" />
+    <option name="LAST_COMMIT_MESSAGE" value="App is done finallyyyyyyy❤️" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -497,7 +501,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Main.py</url>
-          <line>114</line>
+          <line>115</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
