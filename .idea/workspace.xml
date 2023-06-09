@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ca2cd115-af3f-472c-bea0-3276102aa1c9" name="Changes" comment="Fix installation of extension" />
+    <list default="true" id="ca2cd115-af3f-472c-bea0-3276102aa1c9" name="Changes" comment="Testing now">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -394,7 +396,21 @@
       <option name="project" value="LOCAL" />
       <updated>1686318242277</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="Fix installation of extension">
+      <created>1686318295190</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1686318295190</updated>
+    </task>
+    <task id="LOCAL-00035" summary="Testing now">
+      <created>1686318761677</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1686318761677</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -425,7 +441,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="solving problem of thread" />
     <MESSAGE value="Edit Recon file" />
     <MESSAGE value="done Recon" />
     <MESSAGE value="wait for Recon" />
@@ -450,7 +465,8 @@
     <MESSAGE value="Upload Windows installation" />
     <MESSAGE value="Adding installation of extension" />
     <MESSAGE value="Fix installation of extension" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix installation of extension" />
+    <MESSAGE value="Testing now" />
+    <option name="LAST_COMMIT_MESSAGE" value="Testing now" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
