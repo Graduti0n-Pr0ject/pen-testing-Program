@@ -20,7 +20,7 @@ should_terminate = threading.Event()
 def subfinder_for_single_windows(Domain, place):  # single domain (collect subdomain)
     cwd = os.path.dirname(__file__)
     print(cwd)
-    os.system(fr'{cwd}\wsubfinder.exe -d "{Domain}"  >>{place}\recon_result\domains.txt')
+    os.system(fr'{cwd}\wsubfinder.exe -d "{Domain}"  >> {place}\recon_result\domains.txt')
 
 
 def subfinder_for_file_windows(path, place):  # list domain (collect subdomain)

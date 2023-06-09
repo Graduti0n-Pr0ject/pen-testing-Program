@@ -55,7 +55,6 @@ class MainWindow(QMainWindow):
         self.reconbtn.clicked.connect(self.start_single_list_task)
         self.chooseFile.clicked.connect(self.open_choose_file)
 
-
         # -------------- Attacks ----------- #
 
         ## Directory
@@ -93,8 +92,30 @@ class MainWindow(QMainWindow):
 
         #### Takeover
         '''
-        
+        1. takeover_url -> Input
+        2. choose_take_over_file -> choose file
+        3. takeover_btn -> pushbutton
         '''
+        self.takeover_btn.clicked.connect(self.takeover_task)
+        self.choose_take_over_file.clicked.connect(self.open_choose_file)
+
+        ##### WAF
+        '''
+        1. Ip, port -> input
+        2. Savebtn -> button
+        '''
+        self.Savebtn.clicked.connect(self.WAF_start)
+
+    def WAF_start(self):
+        ip_input = self.Ip.text()
+        port_input = self.port.text()
+        thread_worker = ThreadWAF(ip=ip_input, port=port_input)
+        thread_worker.run()
+
+    def takeover_task(self):
+        domain_url = self.takeover_url.text()
+        thread = ThreadAttackTakeover(url=domain_url, path=self.file_location, location_result=self.path)
+        thread.run()
 
     def LFI_task(self):
         self.payload_list.clear()
@@ -301,6 +322,7 @@ class MainWindow(QMainWindow):
                 os.mkdir(self.path)
                 os.mkdir(self.path + '/' + "recon_result")
                 os.mkdir(self.path + '/' + "attack_result")
+                os.mkdir(self.path + '/' + "takeover_result")
                 os.mkdir(self.path + '/' + "waf_result")
                 stack_widget.setCurrentIndex(2)
         else:

@@ -4,9 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ca2cd115-af3f-472c-bea0-3276102aa1c9" name="Changes" comment="LFI done">
+    <list default="true" id="ca2cd115-af3f-472c-bea0-3276102aa1c9" name="Changes" comment="Solve problem of choose file">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Recon/Attack.py" beforeDir="false" afterPath="$PROJECT_DIR$/Recon/Attack.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Recon/recon.py" beforeDir="false" afterPath="$PROJECT_DIR$/Recon/recon.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ThreadsApp.py" beforeDir="false" afterPath="$PROJECT_DIR$/ThreadsApp.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WAF/proxy.py" beforeDir="false" afterPath="$PROJECT_DIR$/WAF/proxy.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/design.ui" beforeDir="false" afterPath="$PROJECT_DIR$/design.ui" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -342,7 +347,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686156700682</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Solve problem of choose file">
+      <created>1686162963857</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1686162963857</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -395,7 +407,8 @@
     <MESSAGE value="Update installation.sh" />
     <MESSAGE value="Remove design for Temporarily time." />
     <MESSAGE value="LFI done" />
-    <option name="LAST_COMMIT_MESSAGE" value="LFI done" />
+    <MESSAGE value="Solve problem of choose file" />
+    <option name="LAST_COMMIT_MESSAGE" value="Solve problem of choose file" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -406,13 +419,8 @@
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/ThreadsApp.py</url>
-          <line>7</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Main.py</url>
-          <line>98</line>
+          <line>114</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>

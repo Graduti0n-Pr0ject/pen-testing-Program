@@ -3,6 +3,10 @@ from PyQt5.QtCore import QThread, pyqtSignal
 from Recon.recon import *
 from Recon.Directory.directory import check_brute_force
 
+from Recon.Attack import wsubtakeover, wsubtakeover_path
+from Recon.takeover import *
+from WAF import proxy as p
+
 
 # Recon Thread
 class Thread(QThread):
@@ -63,6 +67,41 @@ class ThreadAttackDirectory(QThread):
 
     def run(self) -> None:
         check_brute_force(self.search, self.new_url, self.name)
+        self.finished.emit()
+
+        pass
+
+
+class ThreadAttackTakeover(QThread):
+    finished = pyqtSignal()
+
+    def __init__(self, url, path=None, location_result=None):
+        super().__init__()
+        self.domain_url = url
+        self.path = path
+        self.result = location_result
+
+    def run(self) -> None:
+        if self.path is None:
+            wsubtakeover(self.domain_url, self.result)
+        else:
+            wsubtakeover_path(self.path, self.result)
+
+        self.finished.emit()
+
+        pass
+
+
+class ThreadWAF(QThread):
+    finished = pyqtSignal()
+
+    def __init__(self, ip=None, port=None):
+        super().__init__()
+        self.ip = ip
+        self.port = port
+
+    def run(self) -> None:
+        p.mitmdump([["-s", p.__file__, "-p", "5000", "--listen-host", self.ip, "--mode", f"reverse:http://{self.ip}:{self.port}"]])
         self.finished.emit()
 
         pass

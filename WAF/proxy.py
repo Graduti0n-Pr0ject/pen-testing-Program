@@ -2,8 +2,6 @@ from mitmproxy import http
 from mitmproxy.tools.main import mitmdump
 import html
 
-ip = ""
-port = ""
 
 
 def request(flow: http.HTTPFlow) -> None:
@@ -79,5 +77,7 @@ def response(flow: http.HTTPFlow) -> None:
 
 
 if __name__ == "__main__":
+    ip = ""
+    port = ""
     # Configure mitmproxy to act as a reverse proxy for any app running on localhost:5000
-    mitmdump(["-s", __file__, "-p", "5000", "--listen-host", ip, "--mode", "reverse:http://{ip}:{port}}"])
+    mitmdump(["-s", __file__, "-p", "5000", "--listen-host", ip, "--mode", f"reverse:http://{ip}:{port}"])

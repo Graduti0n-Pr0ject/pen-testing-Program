@@ -49,7 +49,7 @@
        <enum>QFrame::Plain</enum>
       </property>
       <property name="currentIndex">
-       <number>2</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="Home">
        <layout class="QGridLayout" name="gridLayout_14">
@@ -159,7 +159,7 @@
       <widget class="QWidget" name="WAF">
        <layout class="QGridLayout" name="gridLayout_15">
         <item row="0" column="0">
-         <widget class="QLineEdit" name="domainEdit_6">
+         <widget class="QLineEdit" name="Ip">
           <property name="text">
            <string/>
           </property>
@@ -169,7 +169,7 @@
          </widget>
         </item>
         <item row="0" column="1">
-         <widget class="QLineEdit" name="domainEdit_7">
+         <widget class="QLineEdit" name="port">
           <property name="placeholderText">
            <string>Port (8080)</string>
           </property>
@@ -191,7 +191,7 @@
            <cursorShape>PointingHandCursor</cursorShape>
           </property>
           <property name="text">
-           <string>Save</string>
+           <string>Start</string>
           </property>
          </widget>
         </item>
@@ -211,7 +211,7 @@
            <enum>QTabWidget::Rounded</enum>
           </property>
           <property name="currentIndex">
-           <number>0</number>
+           <number>1</number>
           </property>
           <property name="documentMode">
            <bool>true</bool>
@@ -389,50 +389,47 @@
             <string>Attack</string>
            </attribute>
            <layout class="QGridLayout" name="gridLayout_7">
-            <item row="2" column="0">
+            <item row="3" column="0">
+             <widget class="QPushButton" name="BackHomebtn_2">
+              <property name="cursor">
+               <cursorShape>PointingHandCursor</cursorShape>
+              </property>
+              <property name="text">
+               <string>Back</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="0">
              <widget class="QTabWidget" name="tabWidget">
               <property name="cursor">
                <cursorShape>PointingHandCursor</cursorShape>
               </property>
               <property name="currentIndex">
-               <number>3</number>
+               <number>1</number>
               </property>
               <widget class="QWidget" name="Directory">
                <attribute name="title">
                 <string>Directory</string>
                </attribute>
-               <layout class="QVBoxLayout" name="verticalLayout">
-                <item>
+               <layout class="QGridLayout" name="gridLayout_8">
+                <item row="0" column="0">
                  <widget class="QLineEdit" name="URL_D">
                   <property name="placeholderText">
                    <string>Enter URL (https://google.com/)</string>
                   </property>
                  </widget>
                 </item>
-                <item>
-                 <widget class="QWidget" name="widget_2" native="true">
-                  <layout class="QGridLayout" name="gridLayout_8">
-                   <item row="0" column="2">
-                    <widget class="QToolButton" name="File_D">
-                     <property name="cursor">
-                      <cursorShape>PointingHandCursor</cursorShape>
-                     </property>
-                     <property name="text">
-                      <string>...</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="0" column="0">
-                    <widget class="QLabel" name="label_4">
-                     <property name="text">
-                      <string>Choose File</string>
-                     </property>
-                    </widget>
-                   </item>
-                  </layout>
+                <item row="0" column="1">
+                 <widget class="QPushButton" name="start_D">
+                  <property name="cursor">
+                   <cursorShape>PointingHandCursor</cursorShape>
+                  </property>
+                  <property name="text">
+                   <string>Submit</string>
+                  </property>
                  </widget>
                 </item>
-                <item>
+                <item row="1" column="0">
                  <widget class="QComboBox" name="list_D">
                   <property name="cursor">
                    <cursorShape>PointingHandCursor</cursorShape>
@@ -474,35 +471,24 @@
                   </item>
                  </widget>
                 </item>
-                <item>
-                 <widget class="QPushButton" name="start_D">
-                  <property name="cursor">
-                   <cursorShape>PointingHandCursor</cursorShape>
+                <item row="1" column="1">
+                 <widget class="QWidget" name="widget_2" native="true">
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>398</height>
+                   </size>
                   </property>
-                  <property name="text">
-                   <string>Submit</string>
-                  </property>
-                 </widget>
-                </item>
-               </layout>
-              </widget>
-              <widget class="QWidget" name="Takeover">
-               <attribute name="title">
-                <string>Takeover</string>
-               </attribute>
-               <layout class="QGridLayout" name="gridLayout_11">
-                <item row="0" column="0">
-                 <widget class="QLineEdit" name="domainEdit">
-                  <property name="placeholderText">
-                   <string>Enter Domain (google.com)</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="0" column="1">
-                 <widget class="QWidget" name="widget_3" native="true">
-                  <layout class="QGridLayout" name="gridLayout_10">
-                   <item row="0" column="2">
-                    <widget class="QToolButton" name="fileBtn2">
+                  <layout class="QHBoxLayout" name="horizontalLayout">
+                   <item>
+                    <widget class="QLabel" name="label_4">
+                     <property name="text">
+                      <string>Choose File</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QToolButton" name="File_D">
                      <property name="cursor">
                       <cursorShape>PointingHandCursor</cursorShape>
                      </property>
@@ -511,18 +497,48 @@
                      </property>
                     </widget>
                    </item>
-                   <item row="0" column="0">
+                  </layout>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+              <widget class="QWidget" name="Takeover">
+               <attribute name="title">
+                <string>Takeover</string>
+               </attribute>
+               <layout class="QHBoxLayout" name="horizontalLayout_3">
+                <item>
+                 <widget class="QLineEdit" name="takeover_url">
+                  <property name="placeholderText">
+                   <string>Enter Domain (google.com)</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QWidget" name="widget_3" native="true">
+                  <layout class="QHBoxLayout" name="horizontalLayout_2">
+                   <item>
                     <widget class="QLabel" name="label_5">
                      <property name="text">
                       <string>Choose File</string>
                      </property>
                     </widget>
                    </item>
+                   <item>
+                    <widget class="QToolButton" name="choose_take_over_file">
+                     <property name="cursor">
+                      <cursorShape>PointingHandCursor</cursorShape>
+                     </property>
+                     <property name="text">
+                      <string>...</string>
+                     </property>
+                    </widget>
+                   </item>
                   </layout>
                  </widget>
                 </item>
-                <item row="1" column="1">
-                 <widget class="QPushButton" name="pushButton_2">
+                <item>
+                 <widget class="QPushButton" name="takeover_btn">
                   <property name="cursor">
                    <cursorShape>PointingHandCursor</cursorShape>
                   </property>
@@ -677,16 +693,6 @@
                 </item>
                </layout>
               </widget>
-             </widget>
-            </item>
-            <item row="3" column="0">
-             <widget class="QPushButton" name="BackHomebtn_2">
-              <property name="cursor">
-               <cursorShape>PointingHandCursor</cursorShape>
-              </property>
-              <property name="text">
-               <string>Back</string>
-              </property>
              </widget>
             </item>
            </layout>
