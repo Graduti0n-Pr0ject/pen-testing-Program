@@ -14,7 +14,7 @@ from Attacks.sqlInjection.Error_based_attack import *
 from Attacks.LFI_files.LFI import testExtention, LFIinj
 
 
-# import pyqtcss
+import pyqtcss
 
 
 class MainWindow(QMainWindow):
@@ -32,8 +32,8 @@ class MainWindow(QMainWindow):
         super().__init__()
         loadUi("design.ui", self)
 
-        # style_string = pyqtcss.get_style("dark_blue")
-        # self.setStyleSheet(style_string)
+        style_string = pyqtcss.get_style("dark_blue")
+        self.setStyleSheet(style_string)
         # ----------- Home ------------ #
         self.chooseProject.hide()
         self.widget_list_domain.hide()
