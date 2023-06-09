@@ -46,7 +46,22 @@ def request(flow: http.HTTPFlow) -> None:
 
     # Pass the request to the next layer
     flow.resume()
+    if "/lfi" in flow.request.path:
+        # Define a list of white listed strings for file inclusion
+        whitelist_files = ["flag.txt", "file2.dat"]
+        # Loop through each GET parameter to check for possible LFI
+        for key, value in flow.request.query.items():
+            # Check if the value is trying to include a file
+            if "file" in key.lower() and any(s in value for s in whitelist_files):
+                # If a whitelisted file is detected, allow the request to pass through
+                return
 
+        # If no whitelisted file is detected, create a new response object with status code 404
+        # and change the response content to show an "Unauthorized" message
+        headers = {"content-type": "text/html"}
+        content = b"Unauthorized"
+        flow.response = http.Response.make(404, content, headers)
+        return
 
 def response(flow: http.HTTPFlow) -> None:
     """
