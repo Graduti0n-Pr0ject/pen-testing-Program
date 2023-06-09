@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ca2cd115-af3f-472c-bea0-3276102aa1c9" name="Changes" comment="WAF and Takeover is done" />
+    <list default="true" id="ca2cd115-af3f-472c-bea0-3276102aa1c9" name="Changes" comment="Upload Windows installation" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -352,7 +352,21 @@
       <option name="project" value="LOCAL" />
       <updated>1686316291632</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Upload Windows installation">
+      <created>1686316394330</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1686316394330</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Upload Windows installation">
+      <created>1686316512607</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1686316512607</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -407,7 +421,8 @@
     <MESSAGE value="LFI done" />
     <MESSAGE value="Solve problem of choose file" />
     <MESSAGE value="WAF and Takeover is done" />
-    <option name="LAST_COMMIT_MESSAGE" value="WAF and Takeover is done" />
+    <MESSAGE value="Upload Windows installation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Upload Windows installation" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
