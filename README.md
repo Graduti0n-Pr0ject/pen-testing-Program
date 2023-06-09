@@ -40,7 +40,6 @@
 
 ![Load_extension](./assets/Project_Images/3-Load_extensions_files.png)
 4. Choose folder extension [there](./extension/VulnShotAUS).
-
 ![Choose_Extension_folder](./assets/Project_Images/4-Choose_extensions.png)
 
 5. Finally open extension to see result and test it on any website
