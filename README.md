@@ -31,13 +31,10 @@
 ### Install Extension
 
 1. Open Extension
-
 ![open_Extension](./assets/Project_Images/1-Open_extensions.png)
 2. Check developer mode
-
 ![check_developer_mode](./assets/Project_Images/2-check_developer_mode.png)
 3. Load extension from repo.
-
 ![Load_extension](./assets/Project_Images/3-Load_extensions_files.png)
 4. Choose folder extension [there](./extension/VulnShotAUS).
 ![Choose_Extension_folder](./assets/Project_Images/4-Choose_extensions.png)
