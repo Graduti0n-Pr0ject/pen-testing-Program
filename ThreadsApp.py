@@ -101,7 +101,7 @@ class ThreadWAF(QThread):
         self.port = port
 
     def run(self) -> None:
-        p.mitmdump([["-s", p.__file__, "-p", "5000", "--listen-host", self.ip, "--mode", f"reverse:http://{self.ip}:{self.port}"]])
+        p.mitmdump(["-s", p.__file__, "-p", "5000", "--listen-host", self.ip, "--mode", f"reverse:http://{self.ip}:{self.port}"])
         self.finished.emit()
 
         pass
