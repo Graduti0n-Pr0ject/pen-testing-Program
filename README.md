@@ -6,6 +6,8 @@
 
 ## Run
 
+### Windows
+
 - Open `git bash` terminal in your local. If not installed; Install it from [here](https://github.com/git-for-windows/git/releases/download/v2.41.0.windows.1/Git-2.41.0-64-bit.exe).
 
 1. clone repo
