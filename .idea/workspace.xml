@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ca2cd115-af3f-472c-bea0-3276102aa1c9" name="Changes" comment="App is done finallyyyyyyy❤️">
+    <list default="true" id="ca2cd115-af3f-472c-bea0-3276102aa1c9" name="Changes" comment="Test Again">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Recon/recon.py" beforeDir="false" afterPath="$PROJECT_DIR$/Recon/recon.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -447,7 +445,28 @@
       <option name="project" value="LOCAL" />
       <updated>1686354323122</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="Test Again">
+      <created>1686405502663</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1686405502663</updated>
+    </task>
+    <task id="LOCAL-00042" summary="Test Again">
+      <created>1686405808437</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1686405808437</updated>
+    </task>
+    <task id="LOCAL-00043" summary="Test Again">
+      <created>1686405861351</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1686405861351</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -478,7 +497,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="done Recon" />
     <MESSAGE value="wait for Recon" />
     <MESSAGE value="solve some error in thread" />
     <MESSAGE value="REcon is done" />
@@ -503,7 +521,8 @@
     <MESSAGE value="Fix installation of extension" />
     <MESSAGE value="Testing now" />
     <MESSAGE value="App is done finallyyyyyyy❤️" />
-    <option name="LAST_COMMIT_MESSAGE" value="App is done finallyyyyyyy❤️" />
+    <MESSAGE value="Test Again" />
+    <option name="LAST_COMMIT_MESSAGE" value="Test Again" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

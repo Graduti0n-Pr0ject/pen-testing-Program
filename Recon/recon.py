@@ -45,10 +45,11 @@ def screenwin(place):  # screenshot
     # os.system(fr"type {cwd}\urls.txt | {cwd}\waquatone.exe -chrome-path chrome.exe")
 
 
-def wwayback():  # endpoints
+def wwayback(place):  # endpoints
     cwd = os.path.dirname(__file__)
     cwd = str(cwd).replace("\\\\", "\\")
-    os.system(f'type {cwd}\domains.txt | {cwd}\wwaybackurls.exe >>archive.txt')
+    os.system(
+        f'type {place}\recon_result\domains.txt\domains.txt | {cwd}\wwaybackurls.exe >>{place}\recon_result\archive.txt')
 
 
 # def Js_file():  # Js_files
