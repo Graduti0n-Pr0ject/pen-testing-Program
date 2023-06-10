@@ -47,10 +47,10 @@ def screenwin(place):  # screenshot
 
 def wwayback(place):  # endpoints
     cwd = os.path.dirname(__file__)
-    #cwd = str(cwd).replace("\\\\", "\\")
-    print(cwd)
+    cwd = str(cwd).replace("\\\\", "\\")
+    print(place)
     os.system(
-        fr'type {cwd}\domains.txt | {cwd}\wwaybackurls.exe >>{cwd}\archive.txt')
+        fr'type {place}\recon_result\domains.txt | {cwd}\wwaybackurls.exe >>{place}\recon_result\archive.txt')
 
 
 # def Js_file():  # Js_files
