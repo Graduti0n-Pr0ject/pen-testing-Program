@@ -19,46 +19,35 @@ should_terminate = threading.Event()
 
 def subfinder_for_single_windows(Domain, place):  # single domain (collect subdomain)
     cwd = os.path.dirname(__file__)
+    cwd = str(cwd).replace("\\\\", "\\")
     print(cwd)
     os.system(fr'{cwd}\wsubfinder.exe -d "{Domain}"  >> {place}\recon_result\domains.txt')
 
 
 def subfinder_for_file_windows(path, place):  # list domain (collect subdomain)
     cwd = os.path.dirname(__file__)
+    cwd = str(cwd).replace("\\\\", "\\")
     os.system(fr'{cwd}\wsubfinder.exe -dL {path}  >>{place}\recon_result\domains.txt')
-
-
-def subfinder_single_linux(Domain):
-    os.system(f'subfinder -d {Domain} >>domains')
-
-
-def subfinder_multi_linux(path):
-    os.system(f'subfinder -dL {path} >>domains')
 
 
 def httprobe_w(place):  # live domain
     cwd = os.path.dirname(__file__)
+    cwd = str(cwd).replace("\\\\", "\\")
     print("live subdomain is started")
-    os.system(fr"type {place}\recon_result\domains.txt | {cwd}\httpx.exe >>{place}\recon_result\urls.txt")
-
-
-def httprobe_l():
-    os.system("cat domains |httprobe >>urls")
+    os.system(fr"{cwd}\httpx.exe -l {place}\recon_result\domains.txt -o {place}\recon_result\live_domains.txt")
 
 
 def screenwin(place):  # screenshot
     cwd = os.path.dirname(__file__)
+    cwd = str(cwd).replace("\\\\", "\\")
     os.system(
         fr"type {place}\recon_result\domains.txt | {cwd}\httpx.exe | {cwd}\httpx.exe  -ss -o screens ")
     # os.system(fr"type {cwd}\urls.txt | {cwd}\waquatone.exe -chrome-path chrome.exe")
 
 
-def screenlinux():
-    os.system("cat urls | aquatone ")
-
-
 def wwayback():  # endpoints
     cwd = os.path.dirname(__file__)
+    cwd = str(cwd).replace("\\\\", "\\")
     os.system(f'type {cwd}\domains.txt | {cwd}\wwaybackurls.exe >>archive.txt')
 
 
@@ -85,8 +74,9 @@ def fetchjs(url, place):  # js Files
 
 def Parameter(place):  # Parameter
     cwd = os.path.dirname(__file__)
+    cwd = str(cwd).replace("\\\\", "\\")
     os.system(
-        fr'type {place}\recon_result\domains.txt | {cwd}\wwaybackurls.exe | find "=" >>{place}\recon_result\prameter.txt')
+        fr'type {place}\recon_result\domains.txt | {cwd}\wwaybackurls.exe | findstr "=" >>{place}\recon_result\parameter.txt')
 
 
 def lwayback():

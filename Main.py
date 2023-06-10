@@ -105,18 +105,25 @@ class MainWindow(QMainWindow):
         '''
         self.Savebtn.clicked.connect(self.WAF_start)
         # Help btn
-        self.helpbtn.clicked.connect(lambda _: webbrowser.open(r"https://well-maxilla-a65.notion.site/Documentation-a8b2ea8c7679482c9bf351438c0759ba"))
+        self.helpbtn.clicked.connect(lambda _: webbrowser.open(
+            r"https://well-maxilla-a65.notion.site/Documentation-a8b2ea8c7679482c9bf351438c0759ba"))
 
     def WAF_start(self):
-        ip_input = self.Ip.text()
-        port_input = self.port.text()
-        thread_worker = ThreadWAF(ip=ip_input, port=port_input)
-        thread_worker.run()
+        try:
+            ip_input = self.Ip.text()
+            port_input = self.port.text()
+            thread_worker = ThreadWAF(ip=ip_input, port=port_input)
+            thread_worker.run()
+        except Exception as error:
+            QMessageBox.warning(self, 'Warning', f'Error occur in waf {error}')
 
     def takeover_task(self):
-        domain_url = self.takeover_url.text()
-        thread = ThreadAttackTakeover(url=domain_url, path=self.file_location, location_result=self.path)
-        thread.run()
+        try:
+            domain_url = self.takeover_url.text()
+            thread = ThreadAttackTakeover(url=domain_url, path=self.file_location, location_result=self.path)
+            thread.run()
+        except Exception as error:
+            QMessageBox.warning(self, 'Warning', f'Error occur in takeover {error}')
 
     def LFI_task(self):
         self.payload_list.clear()
@@ -190,18 +197,21 @@ class MainWindow(QMainWindow):
             QMessageBox.Warning(self, 'Warning', f'Plz choose column or table')
 
     def search_directories(self):
-        sure_url = self.URL_D.text().strip()
-        current_index_drop_box = self.list_D.currentIndex()
-        current_item_drop_box = self.list_D.currentText()
-        if not sure_url:
-            QMessageBox.information(self, 'Information', f'Enter Right URL Plz')
-        if not current_index_drop_box:
-            QMessageBox.information(self, 'Information', f'Enter Choose directory Plz')
+        try:
+            sure_url = self.URL_D.text().strip()
+            current_index_drop_box = self.list_D.currentIndex()
+            current_item_drop_box = self.list_D.currentText()
+            if not sure_url:
+                QMessageBox.information(self, 'Information', f'Enter Right URL Plz')
+            if not current_index_drop_box:
+                QMessageBox.information(self, 'Information', f'Enter Choose directory Plz')
 
-        what_search, type_search = choose_list(current_item_drop_box)
+            what_search, type_search = choose_list(current_item_drop_box)
 
-        self.worker_bruteForce = ThreadAttackDirectory(search=what_search, name=type_search, url=sure_url)
-        self.worker_bruteForce.run()
+            self.worker_bruteForce = ThreadAttackDirectory(search=what_search, name=type_search, url=sure_url)
+            self.worker_bruteForce.run()
+        except Exception as error:
+            QMessageBox.warning(self, 'Warning', f'Error occur in directory {error}')
 
     def start_single_list_task(self):
         target: str = self.target_line.text().strip()
@@ -210,57 +220,62 @@ class MainWindow(QMainWindow):
         is_JS: QCheckBox = self.Js_files
         is_screen: QCheckBox = self.Screenshot
         is_parameter: QCheckBox = self.Parameter
+        try:
+            if self.singleRadio.isChecked():
+                if target.strip() == '':
+                    QMessageBox.information(self, 'Information', f'Enter Right Target Plz')
+            elif not self.listRadio.isChecked() and not self.singleRadio.isChecked():
+                QMessageBox.information(self, 'Information', f'Choosing Single or List Domain')
 
-        if self.singleRadio.isChecked():
-            if target.strip() == '':
-                QMessageBox.information(self, 'Information', f'Enter Right Target Plz')
-        elif not self.listRadio.isChecked() and not self.singleRadio.isChecked():
-            QMessageBox.information(self, 'Information', f'Choosing Single or List Domain')
+            # Subdomain Checkbox
+            if is_live.isChecked():
+                self.is_live_subdomain = True
+                is_live.setEnabled(False)
 
-        # Subdomain Checkbox
-        if is_live.isChecked():
-            self.is_live_subdomain = True
-            is_live.setEnabled(False)
+            if is_endpoint.isChecked():
+                self.is_endpoints = True
+                is_endpoint.setEnabled(False)
 
-        if is_endpoint.isChecked():
-            self.is_endpoints = True
-            is_endpoint.setEnabled(False)
+            if is_JS.isChecked():
+                self.is_Js_files = True
+                is_JS.setEnabled(False)
 
-        if is_JS.isChecked():
-            self.is_Js_files = True
-            is_JS.setEnabled(False)
+            if is_screen.isChecked():
+                self.is_screenshot = True
+                is_screen.setEnabled(False)
 
-        if is_screen.isChecked():
-            self.is_screenshot = True
-            is_screen.setEnabled(False)
+            if is_parameter.isChecked():
+                self.is_parameter = True
+                is_parameter.setEnabled(False)
 
-        if is_parameter.isChecked():
-            self.is_parameter = True
-            is_parameter.setEnabled(False)
-
-        self.reconbtn.setEnabled(False)
-        self.thread = Thread(target.strip(),
-                             is_live=self.is_live_subdomain,
-                             is_end=self.is_endpoints,
-                             is_par=self.is_parameter,
-                             is_screen=self.is_screenshot,
-                             is_JS=self.is_Js_files, url=target, project_place=self.path,
-                             path=self.file_location)
-        self.thread.start()
-        self.thread.finished.connect(self.on_finished)
+            self.reconbtn.setEnabled(False)
+            self.thread = Thread(target.strip(),
+                                 is_live=self.is_live_subdomain,
+                                 is_end=self.is_endpoints,
+                                 is_par=self.is_parameter,
+                                 is_screen=self.is_screenshot,
+                                 is_JS=self.is_Js_files, url=target, project_place=self.path,
+                                 path=self.file_location)
+            self.thread.start()
+            self.thread.finished.connect(self.on_finished)
+        except Exception as error:
+            QMessageBox.warning(self, 'Warning', f'Error occur in recon {error}')
 
     def on_finished(self):
-        self.reconbtn.setEnabled(True)
-        if self.is_live_subdomain:
-            self.Live_subdomain.setEnabled(True)
-        if self.is_parameter:
-            self.Parameter.setEnabled(True)
-        if self.is_screenshot:
-            self.Screenshot.setEnabled(True)
-        if self.is_endpoints:
-            self.Endpoint.setEnabled(True)
-        if self.is_Js_files:
-            self.JS_files.setEnabled(True)
+        try:
+            self.reconbtn.setEnabled(True)
+            if self.is_live_subdomain:
+                self.Live_subdomain.setEnabled(True)
+            if self.is_parameter:
+                self.Parameter.setEnabled(True)
+            if self.is_screenshot:
+                self.Screenshot.setEnabled(True)
+            if self.is_endpoints:
+                self.Endpoint.setEnabled(True)
+            if self.is_Js_files:
+                self.JS_files.setEnabled(True)
+        except Exception as error:
+            QMessageBox.warning(self, 'Warning', f'Error occur in finished {error}')
 
     # def on_finished_subdomain(self):
     #     # QMessageBox.information(self, 'Information', f'Collect Subdomain is finished')
@@ -272,39 +287,58 @@ class MainWindow(QMainWindow):
     #     msg.exec_()
 
     def open_choose_file(self):
-        options = QFileDialog.Options()
-        options |= QFileDialog.DontUseNativeDialog
-        options |= QFileDialog.DontUseCustomDirectoryIcons
-        dialog = QFileDialog()
-        dialog.setOptions(options)
+        # options = QFileDialog.Options()
+        # options |= QFileDialog.DontUseNativeDialog
+        # options |= QFileDialog.DontUseCustomDirectoryIcons
+        # dialog = QFileDialog()
+        # dialog.setOptions(options)
+        #
+        # dialog.setFilter(dialog.filter() | QDir.Hidden)
+        #
+        # dialog.setFileMode(QFileDialog.AnyFile)
+        # dialog.setAcceptMode(QFileDialog.AcceptOpen)
+        #
+        # dialog.setNameFilters([f'(*.txt)'])
+        #
+        # if dialog.exec_() == QDialog.Accepted:
+        #     path = dialog.selectedFiles()[0]  # returns a list
+        #     self.file_location = path
+        # else:
+        #     QMessageBox.warning(self, 'Warning', 'No File selected.')
+        try:
+            file_dialog = QFileDialog(self)
+            file_dialog.setWindowTitle("Open TXT File")
+            file_dialog.setFileMode(QFileDialog.ExistingFile)
+            file_dialog.setNameFilter("Text Files (*.txt)")
 
-        dialog.setFilter(dialog.filter() | QDir.Hidden)
-
-        dialog.setFileMode(QFileDialog.AnyFile)
-        dialog.setAcceptMode(QFileDialog.AcceptOpen)
-
-        dialog.setNameFilters([f'(*.txt)'])
-
-        if dialog.exec_() == QDialog.Accepted:
-            path = dialog.selectedFiles()[0]  # returns a list
-            self.file_location = path
-        else:
-            QMessageBox.warning(self, 'Warning', 'No File selected.')
+            if file_dialog.exec_():
+                selected_file = file_dialog.selectedFiles()[0]
+                if selected_file.endswith(".txt"):
+                    self.file_location = selected_file
+                    print("Selected file:", selected_file)
+                else:
+                    QMessageBox.warning(self, 'Warning', f'Invalid file format. Please choose a TXT file.')
+                    print("Invalid file format. Please choose a TXT file.")
+        except Exception as error:
+            QMessageBox.warning(self, 'Warning', f'Error occur in choosing file {error}')
 
     def open_file_dialog(self):
-        project_name: QLineEdit = self.projectName.text()
-        file_dialog = QFileDialog()
-        file_dialog.setFileMode(QFileDialog.DirectoryOnly)
-        file_dialog.setOption(QFileDialog.ShowDirsOnly, True)
-        if project_name.strip() != '':
-            if file_dialog.exec_() == file_dialog.Accepted:
-                self.selected_directory = file_dialog.selectedFiles()[0]
-                self.path = self.selected_directory + r'/' + project_name
+        try:
+            project_name: QLineEdit = self.projectName.text()
+            file_dialog = QFileDialog(self)
+            file_dialog.setFileMode(QFileDialog.DirectoryOnly)
+            file_dialog.setOption(QFileDialog.ShowDirsOnly, True)
+            if project_name.strip() != '':
+                if file_dialog.exec_() == file_dialog.Accepted:
+                    self.selected_directory = file_dialog.selectedFiles()[0]
+                    self.path = self.selected_directory + r'/' + project_name
 
+                else:
+                    QMessageBox.warning(self, 'Warning', 'No directory selected.')
             else:
-                QMessageBox.warning(self, 'Warning', 'No directory selected.')
-        else:
-            QMessageBox.information(self, 'Information', f'write project name correct.')
+                QMessageBox.information(self, 'Information', f'write project name correct.')
+        except Exception as error:
+            QMessageBox.warning(self, 'Warning', f'Error occur in Choosing Project {error}')
 
     def do_work(self):
         project_name: QLineEdit = self.projectName
@@ -330,13 +364,15 @@ class MainWindow(QMainWindow):
             QMessageBox.warning(self, 'Warning', 'Choose Option')
 
     def back_home(self):
-        # waf_widget: QtWidgets.QRadioButton = self.WafRadio
-        # frame_widget: QtWidgets.QRadioButton = self.FrameRadio
-        self.stackedWidget.setCurrentIndex(0)
-
-        self.chooseProject.hide()
-        # waf_widget.setChecked(False)
-        # frame_widget.setChecked(False)
+        try:
+            # waf_widget: QtWidgets.QRadioButton = self.WafRadio
+            # frame_widget: QtWidgets.QRadioButton = self.FrameRadio
+            self.stackedWidget.setCurrentIndex(0)
+            self.chooseProject.hide()
+            # waf_widget.setChecked(False)
+            # frame_widget.setChecked(False)
+        except Exception as error:
+            QMessageBox.warning(self, 'Warning', f'Error occur in backing {error}')
 
 
 def main():
