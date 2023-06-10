@@ -1,17 +1,12 @@
 import os
 import platform
-import subprocess
-import sys
 
-from bs4 import BeautifulSoup
-import re, requests, pyfiglet
-from subprocess import Popen
 import threading
 
 should_terminate = threading.Event()
 
 
-####windows
+#### windows
 # cwd=os.path.dirname(__file__) get dir
 # os.system(f'cd {cwd}')
 # os.system(f'"{cwd}\wsubfinder.exe"') exe script
@@ -65,40 +60,42 @@ def wwayback(place):
 #     print(banner)
 
 
-#def fetchjs(place):  # js Files
+# def fetchjs(place):  # js Files
 
- #   print(" start js")
- #   cwd = os.path.abspath(os.path.dirname(__file__)).replace("\\\\", "\\")
-  #  regx = re.compile("[https:\/\/http:\/\/\/\/\/a-zA-Z0-9\.\/]+\.js")
-  #  url = ""
-  #  os.system(fr"{cwd}\httpx.exe -l {place}\recon_result\domains.txt -o {place}\recon_result\js_urls.txt")
-  #  with open(fr'{place}\recon_result\js_urls.txt', 'r') as f:
-  #      for line in f:
-  #          url = line.strip()
-  #              rq = requests.get(url)
-  #              res = BeautifulSoup(rq.text, "html.parser").prettify()
-  #              JS = regx.findall(res)
- #               myjs = set(JS)
-   #             with open(fr"{place}\recon_result\js.txt", "a+") as s:
-    #                for i in myjs:
-  #                      s.writelines(i + '\n')
-   #         except requests.exceptions.RequestException as e:
-   #             print(f"Error fetching {url}: {e}")
+#   print(" start js")
+#   cwd = os.path.abspath(os.path.dirname(__file__)).replace("\\\\", "\\")
+#  regx = re.compile("[https:\/\/http:\/\/\/\/\/a-zA-Z0-9\.\/]+\.js")
+#  url = ""
+#  os.system(fr"{cwd}\httpx.exe -l {place}\recon_result\domains.txt -o {place}\recon_result\js_urls.txt")
+#  with open(fr'{place}\recon_result\js_urls.txt', 'r') as f:
+#      for line in f:
+#          url = line.strip()
+#              rq = requests.get(url)
+#              res = BeautifulSoup(rq.text, "html.parser").prettify()
+#              JS = regx.findall(res)
+#               myjs = set(JS)
+#             with open(fr"{place}\recon_result\js.txt", "a+") as s:
+#                for i in myjs:
+#                      s.writelines(i + '\n')
+#         except requests.exceptions.RequestException as e:
+#             print(f"Error fetching {url}: {e}")
 
-   # print("js end")
+# print("js end")
 
 
 def fetchjs(place):  # Parameter
     cwd = os.path.abspath(os.path.dirname(__file__)).replace("\\\\", "\\")
-    
+
     os.system(
         fr'type "{place}\recon_result\domains.txt" | {cwd}\wwaybackurls.exe | findstr ".js" >>{place}\recon_result\js.txt')
+
 
 def Parameter(place):  # Parameter
     cwd = os.path.dirname(__file__)
     cwd = str(cwd).replace("\\\\", "\\")
     os.system(
         fr'type "{place}\recon_result\domains.txt" | {cwd}\wwaybackurls.exe | findstr "=" >>{place}\recon_result\parameter.txt')
+
 
 def main():
     print("""
@@ -112,7 +109,7 @@ def main():
     """)
     choose = input()
     if choose == "1":
-        Domain = input("Enter target:")
+        input("Enter target:")
         if platform.system() == "Windows":
             print("windows")
 
@@ -120,7 +117,7 @@ def main():
             print("Linux")
 
     else:
-        path = input("Enter file path:")
+        input("Enter file path:")
 
     if platform.system() == "Windows":
         print("windows")
