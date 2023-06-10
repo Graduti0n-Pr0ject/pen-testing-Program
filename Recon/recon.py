@@ -56,20 +56,34 @@ def wwayback():  # endpoints
 #     print(banner)
 
 
-def fetchjs(url, place):  # js Files
+def fetchjs(place):  # js Files
 
     print(" start js")
+    cwd = os.path.dirname(__file__)
     regx = re.compile("[https:\/\/http:\/\/\/\/\/a-zA-Z0-9\.\/]+\.js")
-    url = "https://" + url
-    rq = requests.get(url)
+    url = ""
+    os.system(fr"type {place}\recon_result\domains.txt | {cwd}\httpx.exe >>{place}\recon_result\js_urls.txt")
+    with open(fr'{place}\recon_result\js_urls.txt', 'r') as f:
+     for line in f:
+         url=line.strip()
+         try:
+             rq = requests.get(url)
+             res = BeautifulSoup(rq.text, "html.parser").prettify()
+             JS = regx.findall(res)
+             myjs = set(JS)
+             f = open(fr"{place}\recon_result\js.txt", "a+")
+             for i in myjs:
+              f.writelines(i + '\n')
+         except requests.exceptions.RequestException as e:
+             print(f"Error fetching {url}: {e}")
+             
+         
 
-    res = BeautifulSoup(rq.text, "html.parser").prettify()
-    JS = regx.findall(res)
-    myjs = set(JS)
-    f = open(fr"{place}\recon_result\js.txt", "a+")
-    for i in myjs:
-        f.writelines(i + '\n')
+    
+
+
     print("js end")
+
 
 
 def Parameter(place):  # Parameter
@@ -79,8 +93,7 @@ def Parameter(place):  # Parameter
         fr'type {place}\recon_result\domains.txt | {cwd}\wwaybackurls.exe | findstr "=" >>{place}\recon_result\parameter.txt')
 
 
-def lwayback():
-    os.system('cat domains | waybackurls >>archive')
+
 
 
 def main():
