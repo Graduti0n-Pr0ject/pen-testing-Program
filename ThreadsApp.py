@@ -57,7 +57,6 @@ class Thread(QThread):
 
 class ThreadAttackDirectory(QThread):
     finished = pyqtSignal()
-
     def __init__(self, search, name, url, path_result):
         super().__init__()
         self.search = search
