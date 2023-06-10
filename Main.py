@@ -1,20 +1,18 @@
-from PyQt5.QtCore import QDir
-from PyQt5.QtWidgets import QMainWindow, QApplication, QStackedWidget, QFileDialog, QMessageBox, QLineEdit, \
-    QRadioButton, QCheckBox, QDialog
-from PyQt5.uic import loadUi
 import webbrowser
-from ThreadsApp import *
 
-from Recon.Directory.directory import choose_list
-# from Attacks.UnionScripts import figure_columns_in_table, figure_data_in_columns
-# from Attacks.Error_based_attack import *
-
-from Attacks.sqlInjection.Error_based_attack import *
+import pyqtcss
+from PyQt5.QtWidgets import QMainWindow, QApplication, QStackedWidget, QFileDialog, QMessageBox, QLineEdit, \
+    QRadioButton, QCheckBox
+from PyQt5.uic import loadUi
 
 from Attacks.LFI_files.LFI import testExtention, LFIinj
+from Attacks.sqlInjection.Error_based_attack import *
+from Recon.Directory.directory import choose_list
+from ThreadsApp import *
 
-from WAF.proxy import mitmdump
-import pyqtcss
+
+# from Attacks.UnionScripts import figure_columns_in_table, figure_data_in_columns
+# from Attacks.Error_based_attack import *
 
 
 class MainWindow(QMainWindow):
