@@ -4,27 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ca2cd115-af3f-472c-bea0-3276102aa1c9" name="Changes" comment="Test Again">
-      <change afterPath="$PROJECT_DIR$/Recon/domains.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/back.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/forward.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/protection.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Recon/Directory/Dirctories.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Recon/Directory/Dirctories.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Recon/Directory/HTML.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Recon/Directory/HTML.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Recon/Directory/JS.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Recon/Directory/JS.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Recon/Directory/PHP.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Recon/Directory/PHP.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Recon/Directory/XML.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Recon/Directory/XML.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Recon/Directory/asp.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Recon/Directory/asp.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Recon/Directory/directory.py" beforeDir="false" afterPath="$PROJECT_DIR$/Recon/Directory/directory.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Recon/Directory/testt.txt" beforeDir="false" />
+    <list default="true" id="ca2cd115-af3f-472c-bea0-3276102aa1c9" name="Changes" comment="test">
       <change beforePath="$PROJECT_DIR$/ThreadsApp.py" beforeDir="false" afterPath="$PROJECT_DIR$/ThreadsApp.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WAF/proxy.py" beforeDir="false" afterPath="$PROJECT_DIR$/WAF/proxy.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/features.qrc" beforeDir="false" afterPath="$PROJECT_DIR$/assets/features.qrc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/design.ui" beforeDir="false" afterPath="$PROJECT_DIR$/design.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domains.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logo_rc.py" beforeDir="false" afterPath="$PROJECT_DIR$/logo_rc.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -507,7 +488,28 @@
       <option name="project" value="LOCAL" />
       <updated>1686413200150</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="Test Again">
+      <created>1686422750214</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1686422750214</updated>
+    </task>
+    <task id="LOCAL-00048" summary="Test Again">
+      <created>1686422841289</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1686422841289</updated>
+    </task>
+    <task id="LOCAL-00049" summary="test">
+      <created>1686422901683</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1686422901683</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -538,7 +540,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="wait for Recon" />
     <MESSAGE value="solve some error in thread" />
     <MESSAGE value="REcon is done" />
     <MESSAGE value="some changes in README" />
@@ -563,7 +564,8 @@
     <MESSAGE value="Testing now" />
     <MESSAGE value="App is done finallyyyyyyy❤️" />
     <MESSAGE value="Test Again" />
-    <option name="LAST_COMMIT_MESSAGE" value="Test Again" />
+    <MESSAGE value="test" />
+    <option name="LAST_COMMIT_MESSAGE" value="test" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

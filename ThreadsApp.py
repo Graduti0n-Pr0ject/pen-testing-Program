@@ -57,11 +57,12 @@ class Thread(QThread):
 
 class ThreadAttackDirectory(QThread):
     finished = pyqtSignal()
+
     def __init__(self, search, name, url, path_result):
         super().__init__()
         self.search = search
         self.name = name
-        self.new_url = r"https://"+url
+        self.new_url = r"https://" + url
         self.path = path_result + '\\' + "directory_result"
 
     def run(self) -> None:
@@ -101,8 +102,8 @@ class ThreadWAF(QThread):
         self.app_port = app_port
 
     def run(self) -> None:
-
-        p.mitmdump(["-s", p.__file__, "-p", self.app_port, "--listen-host", self.ip, "--mode", f"reverse:http://{self.ip}:{self.port}"])
+        p.mitmdump(["-s", p.__file__, "-p", self.app_port, "--listen-host", self.ip, "--mode",
+                    f"reverse:http://{self.ip}:{self.port}"])
         self.finished.emit()
 
         pass

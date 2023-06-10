@@ -135,10 +135,10 @@ class MainWindow(QMainWindow):
                     raise QMessageBox.warning(self, 'Warning', f'Enter  valid port plz')
                 if app_port == '' or not self.validate_port(app_port):
                     raise QMessageBox.warning(self, 'Warning', f'Enter valid  application port plz')
-            mitmdump(["-s", p.__file__, "-p", app_port, "--listen-host", ip_input, "--mode",
-                      f"reverse:http://{ip_input}:{port_input}"])
-            # thread_worker = ThreadWAF(ip=ip_input, port=port_input, app_port=app_port)
-            # thread_worker.run()
+            # mitmdump(["-s", p.__file__, "-p", app_port, "--listen-host", ip_input, "--mode",
+            #           f"reverse:http://{ip_input}:{port_input}"])
+            thread_worker = ThreadWAF(ip=ip_input, port=port_input, app_port=app_port)
+            thread_worker.run()
         except Exception as error:
             QMessageBox.warning(self, 'Warning', f'Error occur in waf {error}')
 
