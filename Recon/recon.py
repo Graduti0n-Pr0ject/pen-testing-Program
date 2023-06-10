@@ -64,7 +64,7 @@ def fetchjs(place):  # js Files
     cwd = os.path.dirname(__file__)
     regx = re.compile("[https:\/\/http:\/\/\/\/\/a-zA-Z0-9\.\/]+\.js")
     url = ""
-    os.system(fr"type {place}\recon_result\domains.txt | {cwd}\httpx.exe >>{place}\recon_result\js_urls.txt")
+    os.system(fr"type {place}\recon_result\domains.txt | {cwd}\httpx.exe -o {place}\recon_result\js_urls.txt")
     with open(fr'{place}\recon_result\js_urls.txt', 'r') as f:
         for line in f:
             url = line.strip()
