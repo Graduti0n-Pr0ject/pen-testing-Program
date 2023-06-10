@@ -6,11 +6,8 @@ import threading
 import concurrent.futures
 
 
-def brute_force(Url, v, name):
-    if platform == "linux" or platform == "linux2":
-        urls = open(fr"Results_{Url.replace(':', '')}/urls_{name}.txt", 'a')
-    else:
-        urls = open(fr"Results_{Url.replace(':', '')}\urls_{name}.txt", 'a')
+def brute_force(Url, v, name, output):
+    urls = open(fr"{output}\Results_{Url.replace(':', '')}\urls_{name}.txt", 'a')
     try:
         url_subdomain = (Url + v).strip()
         req = requests.get(url_subdomain)
@@ -24,42 +21,45 @@ def brute_force(Url, v, name):
         pass
 
 
-def check_brute_force(type_brute_force: list, Url: str, name):
-    try:
-        os.makedirs(fr"Results_{Url.replace(':', '')}", exist_ok=True)
-    except:
-        pass
-    with concurrent.futures.ThreadPoolExecutor(max_workers=50) as executor:
-        for i, v in enumerate(type_brute_force):
-            executor.submit(brute_force, Url, v, name)
+def check_brute_force(type_brute_force: list, Url: str, name, output):
+    os.makedirs(fr"{output}\Results_{Url.replace(':', '')}", exist_ok=True)
+    for v in type_brute_force:
+        brute_force(Url, v, name, output)
 
 
 def choose_list(n: int) -> list:
+    cwd = os.path.dirname(__file__)
     search_type = list()
     name_type = None
     if n == 1:
-        search_type = open("Dirctories.txt", 'r').readlines()
+        with open(fr"{cwd}\Dirctories.txt", 'r') as a:
+            search_type = a.readlines()
+
         name_type = "Directories"
     elif n == 2:
-        search_type = open("PHP.txt", 'r').readlines()
+        with open(fr"{cwd}\PHP.txt", 'r') as a:
+            search_type = a.readlines()
         name_type = "PHP"
     elif n == 3:
-        search_type = open("js.txt", 'r').readlines()
+        with open(fr"{cwd}\JS.txt", 'r') as a:
+            search_type = a.readlines()
         name_type = "JS"
     elif n == 4:
-        search_type = open("asp.txt", 'r').readlines()
+        with open(fr"{cwd}\asp.txt", 'r') as a:
+            search_type = a.readlines()
         name_type = "ASP.net"
     elif n == 5:
-        search_type = open("HTML.txt", 'r').readlines()
+        with open(fr"{cwd}\HTML.txt", 'r') as a:
+            search_type = a.readlines()
         name_type = "HTML"
     elif n == 6:
-        search_type = open("XML.txt", 'r').readlines()
+        with open(fr"{cwd}\XML.txt", 'r') as a:
+            search_type = a.readlines()
         name_type = "XML"
-    elif n == 7:
-        # there is work ask where to get path you to brute force
-        path = input("Enter your path:")
-        search_type = open(path, 'r').readlines()
-        name_type = "SELF"
+    # elif path is not None:
+    #     with open(path, 'r') as a:
+    #         search_type = a.readlines()
+    #     name_type = "SELF"
     else:
         print("error")
 

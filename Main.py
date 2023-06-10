@@ -13,6 +13,7 @@ from Attacks.sqlInjection.Error_based_attack import *
 
 from Attacks.LFI_files.LFI import testExtention, LFIinj
 
+from WAF.proxy import mitmdump
 import pyqtcss
 
 
@@ -30,7 +31,9 @@ class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
         loadUi("design.ui", self)
-
+        self.ip_address_pattern = r"\b(?:\d{1,3}\.){3}\d{1,3}\b"
+        self.port_pattern = r"\b\d{1,5}\b"
+        self.url_pattern = r"(https?|ftp)://[^\s/$.?#].[^\s]*"
         style_string = pyqtcss.get_style("dark_blue")
         self.setStyleSheet(style_string)
         # ----------- Home ------------ #
@@ -61,8 +64,7 @@ class MainWindow(QMainWindow):
         '''
         1. URL_D -> Input
         2. list_D -> Combobox
-        3. file_D -> button
-        4. start_D -> button
+        3. start_D -> button
         '''
         self.start_D.clicked.connect(self.search_directories)
 
@@ -102,18 +104,41 @@ class MainWindow(QMainWindow):
         '''
         1. Ip, port -> input
         2. Savebtn -> button
+        3. ap_port -> input
         '''
         self.Savebtn.clicked.connect(self.WAF_start)
         # Help btn
         self.helpbtn.clicked.connect(lambda _: webbrowser.open(
             r"https://well-maxilla-a65.notion.site/Documentation-a8b2ea8c7679482c9bf351438c0759ba"))
 
+    def validate_ip_address(self, ip_address):
+        return re.fullmatch(self.ip_address_pattern, ip_address) is not None
+
+    def validate_port(self, port):
+        return re.fullmatch(self.port_pattern, port) is not None
+
     def WAF_start(self):
+
         try:
-            ip_input = self.Ip.text()
-            port_input = self.port.text()
-            thread_worker = ThreadWAF(ip=ip_input, port=port_input)
-            thread_worker.run()
+            ip_input = self.Ip.text().strip()
+            port_input = self.port.text().strip()
+            app_port = self.ap_port.text().strip()
+            if ip_input == '' and port_input == '' and \
+                    app_port == '' and \
+                    not self.validate_port(port_input) and \
+                    not self.validate_ip_address(ip_input) and self.validate_port(app_port):
+                raise QMessageBox.warning(self, 'Warning', f'Enter  valid ip and port valid plz')
+            else:
+                if ip_input == '' or not self.validate_ip_address(ip_input):
+                    raise QMessageBox.warning(self, 'Warning', f'Enter valid ip plz')
+                if port_input == '' or not self.validate_port(port_input):
+                    raise QMessageBox.warning(self, 'Warning', f'Enter  valid port plz')
+                if app_port == '' or not self.validate_port(app_port):
+                    raise QMessageBox.warning(self, 'Warning', f'Enter valid  application port plz')
+            mitmdump(["-s", p.__file__, "-p", app_port, "--listen-host", ip_input, "--mode",
+                      f"reverse:http://{ip_input}:{port_input}"])
+            # thread_worker = ThreadWAF(ip=ip_input, port=port_input, app_port=app_port)
+            # thread_worker.run()
         except Exception as error:
             QMessageBox.warning(self, 'Warning', f'Error occur in waf {error}')
 
@@ -206,10 +231,9 @@ class MainWindow(QMainWindow):
             if not current_index_drop_box:
                 QMessageBox.information(self, 'Information', f'Enter Choose directory Plz')
 
-            what_search, type_search = choose_list(current_item_drop_box)
-
-            self.worker_bruteForce = ThreadAttackDirectory(search=what_search, name=type_search, url=sure_url)
-            self.worker_bruteForce.run()
+            what_search, type_search = choose_list(current_index_drop_box)
+            thread = ThreadAttackDirectory(search=what_search, name=type_search, url=sure_url, path_result=self.path)
+            thread.run()
         except Exception as error:
             QMessageBox.warning(self, 'Warning', f'Error occur in directory {error}')
 
@@ -364,6 +388,7 @@ class MainWindow(QMainWindow):
                 os.mkdir(self.path + '/' + "attack_result")
                 os.mkdir(self.path + '/' + "takeover_result")
                 os.mkdir(self.path + '/' + "waf_result")
+                os.mkdir(self.path + '/' + "directory_result")
                 stack_widget.setCurrentIndex(2)
         else:
             QMessageBox.warning(self, 'Warning', 'Choose Option')

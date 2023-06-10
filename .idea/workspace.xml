@@ -6,9 +6,25 @@
   <component name="ChangeListManager">
     <list default="true" id="ca2cd115-af3f-472c-bea0-3276102aa1c9" name="Changes" comment="Test Again">
       <change afterPath="$PROJECT_DIR$/Recon/domains.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/back.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/forward.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/protection.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Recon/recon.py" beforeDir="false" afterPath="$PROJECT_DIR$/Recon/recon.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Recon/Directory/Dirctories.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Recon/Directory/Dirctories.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Recon/Directory/HTML.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Recon/Directory/HTML.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Recon/Directory/JS.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Recon/Directory/JS.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Recon/Directory/PHP.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Recon/Directory/PHP.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Recon/Directory/XML.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Recon/Directory/XML.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Recon/Directory/asp.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Recon/Directory/asp.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Recon/Directory/directory.py" beforeDir="false" afterPath="$PROJECT_DIR$/Recon/Directory/directory.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Recon/Directory/testt.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ThreadsApp.py" beforeDir="false" afterPath="$PROJECT_DIR$/ThreadsApp.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WAF/proxy.py" beforeDir="false" afterPath="$PROJECT_DIR$/WAF/proxy.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/features.qrc" beforeDir="false" afterPath="$PROJECT_DIR$/assets/features.qrc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/design.ui" beforeDir="false" afterPath="$PROJECT_DIR$/design.ui" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/domains.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logo_rc.py" beforeDir="false" afterPath="$PROJECT_DIR$/logo_rc.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,17 +63,17 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Bezo_/PycharmProjects/graduation_project/Attacks/sqlInjection&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Bezo_/PycharmProjects/graduation_project/assets&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.grazie&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Bezo_\PycharmProjects\graduation_project\assets" />
       <recent name="C:\Users\Bezo_\PycharmProjects\graduation_project\Attacks\sqlInjection" />
       <recent name="C:\Users\Bezo_\PycharmProjects\graduation_project\Attacks" />
       <recent name="C:\Users\Bezo_\PycharmProjects\graduation_project\extensions" />
       <recent name="C:\Users\Bezo_\PycharmProjects\graduation_project\WAF" />
-      <recent name="C:\Users\Bezo_\PycharmProjects\graduation_project\assets" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Bezo_\PycharmProjects\graduation_project\Recon" />
@@ -484,7 +500,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686411790094</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="Test Again">
+      <created>1686413200150</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1686413200150</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -551,14 +574,24 @@
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Main.py</url>
-          <line>119</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/ThreadsApp.py</url>
           <line>33</line>
           <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/ThreadsApp.py</url>
+          <line>68</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Recon/Directory/directory.py</url>
+          <line>23</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Recon/Directory/directory.py</url>
+          <line>8</line>
+          <option name="timeStamp" value="11" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -566,6 +599,9 @@
       <configuration name="PythonConfigurationType">
         <watch expression="self.Recon_place" />
         <watch expression="self.path" />
+        <watch expression="what_search" />
+        <watch expression="what_search" />
+        <watch expression="sure_url" />
       </configuration>
     </watches-manager>
   </component>

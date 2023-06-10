@@ -1,6 +1,9 @@
 <RCC>
   <qresource prefix="~">
+    <file>back.png</file>
+    <file>forward.png</file>
     <file>hacker.png</file>
     <file>pentesting.png</file>
+    <file>protection.png</file>
   </qresource>
 </RCC>

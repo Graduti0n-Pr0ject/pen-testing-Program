@@ -3,7 +3,6 @@ from mitmproxy.tools.main import mitmdump
 import html
 
 
-
 def request(flow: http.HTTPFlow) -> None:
     """
     This method is called when a client makes a request to the server.
@@ -63,6 +62,7 @@ def request(flow: http.HTTPFlow) -> None:
         flow.response = http.Response.make(404, content, headers)
         return
 
+
 def response(flow: http.HTTPFlow) -> None:
     """
     This method is called when the server sends a response back to the client.
@@ -94,5 +94,6 @@ def response(flow: http.HTTPFlow) -> None:
 if __name__ == "__main__":
     ip = ""
     port = ""
+    app_port ='5000'
     # Configure mitmproxy to act as a reverse proxy for any app running on localhost:5000
-    mitmdump(["-s", __file__, "-p", "5000", "--listen-host", ip, "--mode", f"reverse:http://{ip}:{port}"])
+    mitmdump(["-s", __file__, "-p", app_port, "--listen-host", ip, "--mode", f"reverse:http://{ip}:{port}"])
