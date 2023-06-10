@@ -27,7 +27,7 @@ def subfinder_for_single_windows(Domain, place):  # single domain (collect subdo
 def subfinder_for_file_windows(path, place):  # list domain (collect subdomain)
     cwd = os.path.dirname(__file__)
     cwd = str(cwd).replace("\\\\", "\\")
-    os.system(fr'{cwd}\wsubfinder.exe -dL {path}  >>{place}\recon_result\domains.txt')
+    os.system(fr'{cwd}\wsubfinder.exe -dL {path}  >> {place}\recon_result\domains.txt')
 
 
 def httprobe_w(place):  # live domain
@@ -41,28 +41,24 @@ def screenwin(place):  # screenshot
     cwd = os.path.dirname(__file__)
     cwd = str(cwd).replace("\\\\", "\\")
     os.system(
-        fr" {cwd}\httpx.exe  -ss -l {place}\recon_result\domains.txt -srd {place}\recon_result\output ")
+        fr" {cwd}\httpx.exe  -ss -l {place}\recon_result\domains.txt -srd {place}\recon_result\output")
     # os.system(fr"type {cwd}\urls.txt | {cwd}\waquatone.exe -chrome-path chrome.exe")
 
 
-def wwayback(place):  # endpoints
-    cwd = os.path.dirname(__file__)
-    cwd = str(cwd).replace("\\\\", "\\").replace('\\', '\/')
-    print(cwd)
 def wwayback(place):
     # Normalize path and replace double backslashes with single ones
     cwd = os.path.abspath(os.path.dirname(__file__)).replace("\\\\", "\\")
     print(place)
-    os.system(fr'copy .\wwaybackurls.exe {place}\recon_result')
-    os.system(
-        fr'type {place}\recon_result\domains.txt | {place}\recon_result\wwaybackurls.exe')
-
+    # os.system(fr'copy .\wwaybackurls.exe {place}\recon_result')
+    # os.system(
+    #     fr'type {place}\recon_result\domains.txt | {place}\recon_result\wwaybackurls.exe')
 
     # Enclose place argument in quotes to handle spaces or special characters
     archive_path = f'"{place}\\recon_result\\archive.txt"'
 
     # Call wwaybackurls.exe with input from domains.txt and output to archive.txt
     os.system(f'type "{place}\\recon_result\\domains.txt" | "{cwd}\\wwaybackurls.exe" >> {archive_path}')
+
 
 # def Js_file():  # Js_files
 #     banner = pyfiglet.figlet_format("JS")
@@ -72,10 +68,10 @@ def wwayback(place):
 def fetchjs(place):  # js Files
 
     print(" start js")
-    cwd = os.path.dirname(__file__)
+    cwd = os.path.abspath(os.path.dirname(__file__)).replace("\\\\", "\\")
     regx = re.compile("[https:\/\/http:\/\/\/\/\/a-zA-Z0-9\.\/]+\.js")
     url = ""
-    os.system(fr"type {place}\recon_result\domains.txt | {cwd}\httpx.exe -o {place}\recon_result\js_urls.txt")
+    os.system(fr"{cwd}\httpx.exe -l {place}\recon_result\domains.txt -o {place}\recon_result\js_urls.txt")
     with open(fr'{place}\recon_result\js_urls.txt', 'r') as f:
         for line in f:
             url = line.strip()
@@ -84,9 +80,9 @@ def fetchjs(place):  # js Files
                 res = BeautifulSoup(rq.text, "html.parser").prettify()
                 JS = regx.findall(res)
                 myjs = set(JS)
-                f = open(fr"{place}\recon_result\js.txt", "a+")
-                for i in myjs:
-                    f.writelines(i + '\n')
+                with open(fr"{place}\recon_result\js.txt", "a+") as s:
+                    for i in myjs:
+                        s.writelines(i + '\n')
             except requests.exceptions.RequestException as e:
                 print(f"Error fetching {url}: {e}")
 
