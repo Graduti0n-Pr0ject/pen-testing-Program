@@ -44,8 +44,7 @@ class Thread(QThread):
         if self.is_end:
             wwayback(self.Recon_place)
         if self.is_JS:
-            if self.url is not None:
-                fetchjs(self.url, self.Recon_place)
+            fetchjs(self.Recon_place)
         if self.is_par:
             Parameter(self.Recon_place)
         if self.is_screen:
