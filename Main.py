@@ -316,24 +316,6 @@ class MainWindow(QMainWindow):
     #     msg.exec_()
 
     def open_choose_file(self):
-        # options = QFileDialog.Options()
-        # options |= QFileDialog.DontUseNativeDialog
-        # options |= QFileDialog.DontUseCustomDirectoryIcons
-        # dialog = QFileDialog()
-        # dialog.setOptions(options)
-        #
-        # dialog.setFilter(dialog.filter() | QDir.Hidden)
-        #
-        # dialog.setFileMode(QFileDialog.AnyFile)
-        # dialog.setAcceptMode(QFileDialog.AcceptOpen)
-        #
-        # dialog.setNameFilters([f'(*.txt)'])
-        #
-        # if dialog.exec_() == QDialog.Accepted:
-        #     path = dialog.selectedFiles()[0]  # returns a list
-        #     self.file_location = path
-        # else:
-        #     QMessageBox.warning(self, 'Warning', 'No File selected.')
         try:
             file_dialog = QFileDialog(self)
             file_dialog.setWindowTitle("Open TXT File")
@@ -385,7 +367,7 @@ class MainWindow(QMainWindow):
             else:
                 os.mkdir(self.path)
                 os.mkdir(self.path + '/' + "recon_result")
-                os.mkdir(self.path + '/' + "attack_result")
+                # os.mkdir(self.path + '/' + "attack_result")
                 os.mkdir(self.path + '/' + "takeover_result")
                 os.mkdir(self.path + '/' + "waf_result")
                 os.mkdir(self.path + '/' + "directory_result")
