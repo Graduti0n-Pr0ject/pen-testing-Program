@@ -11,7 +11,7 @@ import threading
 should_terminate = threading.Event()
 
 
-#### windows
+####windows
 # cwd=os.path.dirname(__file__) get dir
 # os.system(f'cd {cwd}')
 # os.system(f'"{cwd}\wsubfinder.exe"') exe script
@@ -49,11 +49,20 @@ def wwayback(place):  # endpoints
     cwd = os.path.dirname(__file__)
     cwd = str(cwd).replace("\\\\", "\\").replace('\\', '\/')
     print(cwd)
+def wwayback(place):
+    # Normalize path and replace double backslashes with single ones
+    cwd = os.path.abspath(os.path.dirname(__file__)).replace("\\\\", "\\")
     print(place)
     os.system(fr'copy .\wwaybackurls.exe {place}\recon_result')
     os.system(
         fr'type {place}\recon_result\domains.txt | {place}\recon_result\wwaybackurls.exe')
 
+
+    # Enclose place argument in quotes to handle spaces or special characters
+    archive_path = f'"{place}\\recon_result\\archive.txt"'
+
+    # Call wwaybackurls.exe with input from domains.txt and output to archive.txt
+    os.system(f'type "{place}\\recon_result\\domains.txt" | "{cwd}\\wwaybackurls.exe" >> {archive_path}')
 
 # def Js_file():  # Js_files
 #     banner = pyfiglet.figlet_format("JS")
