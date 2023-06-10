@@ -273,7 +273,7 @@ class MainWindow(QMainWindow):
             if self.is_endpoints:
                 self.Endpoint.setEnabled(True)
             if self.is_Js_files:
-                self.JS_files.setEnabled(True)
+                self.Js_files.setEnabled(True)
         except Exception as error:
             QMessageBox.warning(self, 'Warning', f'Error occur in finished {error}')
 
