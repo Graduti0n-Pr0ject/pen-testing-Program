@@ -11,7 +11,7 @@ import threading
 should_terminate = threading.Event()
 
 
-####windows
+#### windows
 # cwd=os.path.dirname(__file__) get dir
 # os.system(f'cd {cwd}')
 # os.system(f'"{cwd}\wsubfinder.exe"') exe script
@@ -47,10 +47,12 @@ def screenwin(place):  # screenshot
 
 def wwayback(place):  # endpoints
     cwd = os.path.dirname(__file__)
-    cwd = str(cwd).replace("\\\\", "\\")
+    cwd = str(cwd).replace("\\\\", "\\").replace('\\', '\/')
+    print(cwd)
     print(place)
+    os.system(fr'copy .\wwaybackurls.exe {place}\recon_result')
     os.system(
-        fr'type {place}\recon_result\domains.txt | {cwd}\wwaybackurls.exe >>{place}\recon_result\archive.txt')
+        fr'type {place}\recon_result\domains.txt | {place}\recon_result\wwaybackurls.exe')
 
 
 # def Js_file():  # Js_files

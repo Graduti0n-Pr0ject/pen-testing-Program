@@ -266,14 +266,19 @@ class MainWindow(QMainWindow):
             self.reconbtn.setEnabled(True)
             if self.is_live_subdomain:
                 self.Live_subdomain.setEnabled(True)
+                self.is_live_subdomain = False
             if self.is_parameter:
                 self.Parameter.setEnabled(True)
+                self.is_parameter = False
             if self.is_screenshot:
                 self.Screenshot.setEnabled(True)
+                self.is_screenshot = False
             if self.is_endpoints:
                 self.Endpoint.setEnabled(True)
+                self.is_endpoints = False
             if self.is_Js_files:
                 self.Js_files.setEnabled(True)
+                self.is_endpoints = False
         except Exception as error:
             QMessageBox.warning(self, 'Warning', f'Error occur in finished {error}')
 
