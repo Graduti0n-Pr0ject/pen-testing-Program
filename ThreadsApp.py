@@ -91,14 +91,3 @@ class ThreadAttackTakeover(QThread):
 
         pass
 
-
-class ProxyThread(QThread):
-    def __init__(self, ip, port, app_port):
-        super().__init__()
-        self.ip = ip
-        self.port = port
-        self.app_port = app_port
-
-    def run(self):
-        # Configure mitmproxy to act as a reverse proxy
-        call(["mitmdump", "-s", __file__, "-p", self.app_port, "--listen-host", self.ip, "--mode", f"reverse:http://{self.ip}:{self.port}"])
