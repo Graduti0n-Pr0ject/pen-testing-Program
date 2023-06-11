@@ -116,7 +116,7 @@ class MainWindow(QMainWindow):
         self.timer.timeout.connect(self.check_proxy_status)
         # Help btn
         self.helpbtn.clicked.connect(lambda _: webbrowser.open(
-            r"https://well-maxilla-a65.notion.site/Documentation-a8b2ea8c7679482c9bf351438c0759ba"))
+            r"https://abdullahsaid.notion.site/Documentation-e5c11a21dc2d40b2bd372ec66be964b9?pvs=4"))
 
     def validate_ip_address(self, ip_address):
         return re.fullmatch(self.ip_address_pattern, ip_address) is not None
