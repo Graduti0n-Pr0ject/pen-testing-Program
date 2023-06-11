@@ -8,10 +8,10 @@ from PyQt5.uic import loadUi
 
 from Attacks.LFI_files.LFI import testExtention, LFIinj
 from Attacks.sqlInjection.Error_based_attack import *
-from Recon.Directory.directory import choose_list
+from Recon.Directory.directory import *
 from ThreadsApp import *
 from PyQt5.QtCore import QTimer
-from subprocess import Popen, CREATE_NEW_CONSOLE
+from subprocess import Popen, CREATE_NEW_CONSOLE, PIPE
 
 
 # from Attacks.UnionScripts import figure_columns_in_table, figure_data_in_columns
@@ -32,7 +32,9 @@ class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
         self.proxy_process = None
+        self.direct_process = None
         self.timer = QTimer()
+        self.directory_timer = QTimer()
         loadUi("design.ui", self)
         self.ip_address_pattern = r"\b(?:\d{1,3}\.){3}\d{1,3}\b"
         self.port_pattern = r"\b\d{1,5}\b"
@@ -70,6 +72,7 @@ class MainWindow(QMainWindow):
         3. start_D -> button
         '''
         self.start_D.clicked.connect(self.search_directories)
+        self.directory_timer.timeout.connect(self.check_directory_status)
 
         ## Sql injection
         '''
@@ -152,6 +155,12 @@ class MainWindow(QMainWindow):
 
         except Exception as error:
             QMessageBox.warning(self, 'Warning', f'Error occur in waf {error}')
+
+    def check_directory_status(self):
+        if self.direct_process.poll() is not None:
+            # Proxy process has terminated
+            self.directory_timer.stop()
+            self.direct_process = None
 
     def check_proxy_status(self):
         if self.proxy_process.poll() is not None:
@@ -239,6 +248,7 @@ class MainWindow(QMainWindow):
             QMessageBox.Warning(self, 'Warning', f'Plz choose column or table')
 
     def search_directories(self):
+        cwd = os.path.dirname(__file__)
         try:
             sure_url = self.URL_D.text().strip()
             current_index_drop_box = self.list_D.currentIndex()
@@ -247,10 +257,14 @@ class MainWindow(QMainWindow):
                 QMessageBox.information(self, 'Information', f'Enter Right URL Plz')
             if not current_index_drop_box:
                 QMessageBox.information(self, 'Information', f'Enter Choose directory Plz')
-
-            what_search, type_search = choose_list(current_index_drop_box)
-            thread = ThreadAttackDirectory(search=what_search, name=type_search, url=sure_url, path_result=self.path)
-            thread.run()
+            self.path += r'\attack_result'
+            command = ['python', fr'{cwd}\Recon\Directory\directory.py', sure_url, str(current_index_drop_box),
+                       self.path]
+            self.direct_process = Popen(command, creationflags=CREATE_NEW_CONSOLE)
+            self.directory_timer.start(1000)
+            # what_search, type_search = choose_list(current_index_drop_box)
+            # thread = ThreadAttackDirectory(search=what_search, name=type_search, url=sure_url, path_result=self.path)
+            # thread.run()
         except Exception as error:
             QMessageBox.warning(self, 'Warning', f'Error occur in directory {error}')
 
@@ -323,15 +337,6 @@ class MainWindow(QMainWindow):
         except Exception as error:
             QMessageBox.warning(self, 'Warning', f'Error occur in finished {error}')
 
-    # def on_finished_subdomain(self):
-    #     # QMessageBox.information(self, 'Information', f'Collect Subdomain is finished')
-    #     msg = QMessageBox()
-    #     msg.setIcon(msg.Information)
-    #     msg.setText("ok")
-    #     msg.setInformativeText("Collect Subdomain is finished")
-    #     msg.setWindowTitle("Subdomain")
-    #     msg.exec_()
-
     def open_choose_file(self):
         try:
             file_dialog = QFileDialog(self)
@@ -384,7 +389,7 @@ class MainWindow(QMainWindow):
             else:
                 os.mkdir(self.path)
                 os.mkdir(self.path + '/' + "recon_result")
-                # os.mkdir(self.path + '/' + "attack_result")
+                os.mkdir(self.path + '/' + "attack_result")
                 os.mkdir(self.path + '/' + "takeover_result")
                 os.mkdir(self.path + '/' + "waf_result")
                 os.mkdir(self.path + '/' + "directory_result")

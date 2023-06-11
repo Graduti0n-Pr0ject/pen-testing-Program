@@ -1,15 +1,15 @@
 import sys
-from sys import platform
 import requests
 import os
 import threading
 import concurrent.futures
+import argparse
 
 
-def brute_force(Url, v, name, output):
-    urls = open(fr"{output}\Results_{Url.replace(':', '')}\urls_{name}.txt", 'a')
+def brute_force(url, v, name, output):
+    urls = open(fr"{output}\Results_{url.replace(':', '')}\urls_{name}.txt", 'a')
     try:
-        url_subdomain = (Url + v).strip()
+        url_subdomain = (url + v).strip()
         req = requests.get(url_subdomain)
         if req.status_code == 200:
             print("200 ok :" + url_subdomain)
@@ -21,10 +21,10 @@ def brute_force(Url, v, name, output):
         pass
 
 
-def check_brute_force(type_brute_force: list, Url: str, name, output):
-    os.makedirs(fr"{output}\Results_{Url.replace(':', '')}", exist_ok=True)
+def check_brute_force(type_brute_force: list, url: str, name, output):
+    os.makedirs(fr"{output}\Results_{url.replace(':', '')}", exist_ok=True)
     for v in type_brute_force:
-        brute_force(Url, v, name, output)
+        brute_force(url, v, name, output)
 
 
 def choose_list(n: int) -> list:
@@ -56,34 +56,25 @@ def choose_list(n: int) -> list:
         with open(fr"{cwd}\XML.txt", 'r') as a:
             search_type = a.readlines()
         name_type = "XML"
-    # elif path is not None:
-    #     with open(path, 'r') as a:
-    #         search_type = a.readlines()
-    #     name_type = "SELF"
     else:
         print("error")
 
     return search_type, name_type
 
 
-def proccess():
-    url = input("Enter target url Example https://target.com: ")  # first put in lineEdit
-    print("""
-          Choose brute force wordlist:
-            1-Directories wordlist
-            2-Php files wordlist
-            3-JS files wordlist
-            4-Asp.net files wordlist
-            5-HTML files wordlist
-            6-XML files wordlist
-            7-Self wordlist
+def process(url, num, output):
+    choose, name = choose_list(int(num))
+    check_brute_force(choose, url, name, output)
 
-         """)  # Combo box
-    num = input("Enter :")
-    print(num)
-    choose, name = choose_list(int(num))  # choose file to brute force on it.
-    check_brute_force(choose, url, name)
+
+def main():
+    parser = argparse.ArgumentParser(description='Brute Force URL')
+    parser.add_argument('url', help='Target URL (Example: https://target.com: )')
+    parser.add_argument('num', help='Brute force wordlist number (1-6)')
+    parser.add_argument('output', help='Output directory')
+    args = parser.parse_args()
+    process(args.url, args.num, args.output)
 
 
 if __name__ == '__main__':
-    proccess()
+    main()
