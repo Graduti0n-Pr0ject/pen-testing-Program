@@ -55,34 +55,6 @@ def wwayback(place):
     os.system(f'type "{place}\\recon_result\\domains.txt" | {cwd}\\wwaybackurls.exe >> {archive_path}')
 
 
-# def Js_file():  # Js_files
-#     banner = pyfiglet.figlet_format("JS")
-#     print(banner)
-
-
-# def fetchjs(place):  # js Files
-
-#   print(" start js")
-#   cwd = os.path.abspath(os.path.dirname(__file__)).replace("\\\\", "\\")
-#  regx = re.compile("[https:\/\/http:\/\/\/\/\/a-zA-Z0-9\.\/]+\.js")
-#  url = ""
-#  os.system(fr"{cwd}\httpx.exe -l {place}\recon_result\domains.txt -o {place}\recon_result\js_urls.txt")
-#  with open(fr'{place}\recon_result\js_urls.txt', 'r') as f:
-#      for line in f:
-#          url = line.strip()
-#              rq = requests.get(url)
-#              res = BeautifulSoup(rq.text, "html.parser").prettify()
-#              JS = regx.findall(res)
-#               myjs = set(JS)
-#             with open(fr"{place}\recon_result\js.txt", "a+") as s:
-#                for i in myjs:
-#                      s.writelines(i + '\n')
-#         except requests.exceptions.RequestException as e:
-#             print(f"Error fetching {url}: {e}")
-
-# print("js end")
-
-
 def fetchjs(place):  # Parameter
     cwd = os.path.abspath(os.path.dirname(__file__)).replace("\\\\", "\\")
 

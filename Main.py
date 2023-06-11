@@ -1,3 +1,4 @@
+import sys
 import webbrowser
 
 import pyqtcss
@@ -9,6 +10,8 @@ from Attacks.LFI_files.LFI import testExtention, LFIinj
 from Attacks.sqlInjection.Error_based_attack import *
 from Recon.Directory.directory import choose_list
 from ThreadsApp import *
+from PyQt5.QtCore import QTimer
+from subprocess import Popen, CREATE_NEW_CONSOLE
 
 
 # from Attacks.UnionScripts import figure_columns_in_table, figure_data_in_columns
@@ -28,6 +31,8 @@ class MainWindow(QMainWindow):
 
     def __init__(self):
         super().__init__()
+        self.proxy_process = None
+        self.timer = QTimer()
         loadUi("design.ui", self)
         self.ip_address_pattern = r"\b(?:\d{1,3}\.){3}\d{1,3}\b"
         self.port_pattern = r"\b\d{1,5}\b"
@@ -105,6 +110,7 @@ class MainWindow(QMainWindow):
         3. ap_port -> input
         '''
         self.Savebtn.clicked.connect(self.WAF_start)
+        self.timer.timeout.connect(self.check_proxy_status)
         # Help btn
         self.helpbtn.clicked.connect(lambda _: webbrowser.open(
             r"https://well-maxilla-a65.notion.site/Documentation-a8b2ea8c7679482c9bf351438c0759ba"))
@@ -135,10 +141,23 @@ class MainWindow(QMainWindow):
                     raise QMessageBox.warning(self, 'Warning', f'Enter valid  application port plz')
             # mitmdump(["-s", p.__file__, "-p", app_port, "--listen-host", ip_input, "--mode",
             #           f"reverse:http://{ip_input}:{port_input}"])
-            thread_worker = ThreadWAF(ip=ip_input, port=port_input, app_port=app_port)
-            thread_worker.run()
+            # thread_worker = ProxyThread(ip=ip_input, port=port_input, app_port=app_port)
+            # thread_worker.run()
+            self.proxy_process = Popen(
+                ["mitmdump", "-s", __file__, "-p", app_port, "--listen-host", ip_input, "--mode",
+                 f"reverse:http://{ip_input}:{port_input}"],
+                creationflags=CREATE_NEW_CONSOLE
+            )
+            self.timer.start(1000)  # Check the proxy status every 1 second
+
         except Exception as error:
             QMessageBox.warning(self, 'Warning', f'Error occur in waf {error}')
+
+    def check_proxy_status(self):
+        if self.proxy_process.poll() is not None:
+            # Proxy process has terminated
+            self.timer.stop()
+            self.proxy_process = None
 
     def takeover_task(self):
         try:

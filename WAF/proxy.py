@@ -1,6 +1,7 @@
 from mitmproxy import http
 from mitmproxy.tools.main import mitmdump
 import html
+import argparse
 
 
 def request(flow: http.HTTPFlow) -> None:
@@ -46,7 +47,7 @@ def request(flow: http.HTTPFlow) -> None:
     # Pass the request to the next layer
     flow.resume()
     if "/lfi" in flow.request.path:
-        # Define a list of white listed strings for file inclusion
+        # Define a list of whitelisted strings for file inclusion
         whitelist_files = ["flag.txt", "file2.dat"]
         # Loop through each GET parameter to check for possible LFI
         for key, value in flow.request.query.items():
@@ -92,8 +93,11 @@ def response(flow: http.HTTPFlow) -> None:
 
 
 if __name__ == "__main__":
-    ip = ""
-    port = ""
-    app_port ='5000'
-    # Configure mitmproxy to act as a reverse proxy for any app running on localhost:5000
-    mitmdump(["-s", __file__, "-p", app_port, "--listen-host", ip, "--mode", f"reverse:http://{ip}:{port}"])
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--ip", required=True, help="IP address to bind the reverse proxy")
+    parser.add_argument("--port", required=True, help="Port to bind the reverse proxy")
+    parser.add_argument("--app-port", default="5000", help="Port on which the target app is running")
+    args = parser.parse_args()
+
+    # Configure mitmproxy to act as a reverse proxy for any app running on the specified IP and port
+    mitmdump(["-s", __file__, "-p", args.app_port, "--listen-host", args.ip, "--mode", f"reverse:http://{args.ip}:{args.port}"])

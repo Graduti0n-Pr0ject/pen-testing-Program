@@ -6,7 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="ca2cd115-af3f-472c-bea0-3276102aa1c9" name="Changes" comment="Update requirements.txt">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Recon/recon.py" beforeDir="false" afterPath="$PROJECT_DIR$/Recon/recon.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ThreadsApp.py" beforeDir="false" afterPath="$PROJECT_DIR$/ThreadsApp.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WAF/proxy.py" beforeDir="false" afterPath="$PROJECT_DIR$/WAF/proxy.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -166,20 +168,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1680899570264</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Edit Recon file">
-      <created>1681049944334</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1681049944334</updated>
-    </task>
-    <task id="LOCAL-00005" summary="done Recon">
-      <created>1681052980386</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1681052980386</updated>
     </task>
     <task id="LOCAL-00006" summary="solve some error in thread">
       <created>1681106958319</created>
@@ -510,7 +498,21 @@
       <option name="project" value="LOCAL" />
       <updated>1686433822379</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="Update requirements.txt">
+      <created>1686435466300</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1686435466300</updated>
+    </task>
+    <task id="LOCAL-00054" summary="Update requirements.txt">
+      <created>1686435529656</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1686435529656</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="UnknownFeatures">
