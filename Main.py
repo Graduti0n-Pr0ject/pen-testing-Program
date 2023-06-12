@@ -1,7 +1,8 @@
-import sys
 import webbrowser
+from subprocess import Popen, CREATE_NEW_CONSOLE
 
 import pyqtcss
+from PyQt5.QtCore import QTimer
 from PyQt5.QtWidgets import QMainWindow, QApplication, QStackedWidget, QFileDialog, QMessageBox, QLineEdit, \
     QRadioButton, QCheckBox
 from PyQt5.uic import loadUi
@@ -10,8 +11,6 @@ from Attacks.LFI_files.LFI import testExtention, LFIinj
 from Attacks.sqlInjection.Error_based_attack import *
 from Recon.Directory.directory import *
 from ThreadsApp import *
-from PyQt5.QtCore import QTimer
-from subprocess import Popen, CREATE_NEW_CONSOLE, PIPE
 
 
 # from Attacks.UnionScripts import figure_columns_in_table, figure_data_in_columns
@@ -200,7 +199,6 @@ class MainWindow(QMainWindow):
     def apply_Sql_Injection(self):
         try:
             sure_url = self.sql_url.text().strip()
-            response = requests.get(sure_url)
             outputs, tables, pay, orc = sample_Get_inj(sure_url)
             self.payload = pay
             self.is_orc = orc
