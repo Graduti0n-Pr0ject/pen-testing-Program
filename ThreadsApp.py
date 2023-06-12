@@ -2,10 +2,8 @@
 
 from PyQt5.QtCore import QThread, pyqtSignal
 
-from Recon.recon import *
-from Recon.Directory.directory import check_brute_force
-
 from Recon.Attack import wsubtakeover, wsubtakeover_path
+from Recon.recon import *
 
 
 # Recon Thread
@@ -53,24 +51,7 @@ class Thread(QThread):
         self.finished.emit()
 
 
-# Attack Thread
-
-class ThreadAttackDirectory(QThread):
-    finished = pyqtSignal()
-
-    def __init__(self, search, name, url, path_result):
-        super().__init__()
-        self.search = search
-        self.name = name
-        self.new_url = r"https://" + url
-        self.path = path_result + '\\' + "directory_result"
-
-    def run(self) -> None:
-        check_brute_force(self.search, self.new_url, self.name, output=self.path)
-        self.finished.emit()
-
-        pass
-
+# Attack Threads
 
 class ThreadAttackTakeover(QThread):
     finished = pyqtSignal()
