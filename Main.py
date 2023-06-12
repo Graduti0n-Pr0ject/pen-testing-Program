@@ -46,8 +46,9 @@ class MainWindow(QMainWindow):
         self.widget_single_domain.hide()
         self.WAFbtn.clicked.connect(self.do_work)
         self.BackHomebtn.clicked.connect(self.back_home)
-        self.BackHomebtn_2.clicked.connect(self.back_home)
+        self.bbtn.clicked.connect(self.back_home)
         self.filebtn.clicked.connect(self.open_file_dialog)
+        self.stackedWidget.setCurrentIndex(0)
 
         # ------------- Recon ---------- #
         # self.Screenshot
